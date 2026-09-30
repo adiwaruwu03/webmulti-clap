@@ -1,1 +1,68 @@
 @AGENTS.md
+
+# CLAPHAM.CO design guide
+
+Company website for CLAPHAM.CO, a coworking space in Medan (Ruko Centre Point Medan, Jl. Timor Blok G No. III/IV, 2nd Floor). Site copy is in Indonesian. Follow this guide for any UI work. The source of truth for tokens is `app/globals.css`; do not hardcode colors in components.
+
+## Brand
+
+- Feel: calm, elegant, safe, exclusive. Clean and quiet, not busy.
+- Brand guide colors: Pale Teal (primary), Brick Red (secondary), Deep Grey/black.
+- Brand guide font: Quicksand (custom wordmark font by SANROK Studio is not available, so Quicksand covers everything).
+- Logos live in `public/logo.nav/`: `logo-clapham-2.png` (dark, for light backgrounds) and `logo-clapham-white.png` (white, for dark or transparent-over-photo backgrounds).
+- Hero photo: `public/foto-home/hero.jpg.jpeg`. Illustrations: `public/foto-home/New folder/` (`square.avif` 982x750, `square2.avif` 1052x480). Use their native aspect ratio, never crop.
+
+## Colors (light `:root`, dark = `.dark` class)
+
+| Role | Light | Dark | Token |
+|---|---|---|---|
+| Page background | `#f4f7f6` | `#333434` | `bg-background` |
+| Text | `#404141` | `#f4f7f6` | `text-foreground` |
+| Card | `#ffffff` | `#404141` | `bg-card` |
+| Primary (Pale Teal) | `#accfcc` | `#accfcc` | `bg-primary`, text on it is `text-primary-foreground` (deep grey) |
+| Secondary tint | `#e3eeec` | `#4a4b4b` | `bg-secondary` |
+| Brick Red (brand secondary) | `#c25b46` | `#e07a63` | `text-brick`, `bg-brick` |
+| Readable teal for text | `#397570` | `#accfcc` | `text-teal-ink` |
+| Border | `#d3e2e0` | `#555656` | `border-border` |
+| Muted text | `#6a6d6d` | `#b5bdbc` | `text-muted-foreground` |
+
+Extra brand-guide colors not yet used: olive `#595241`, beige `#b8ae9c` (available as `chart-4/5`).
+
+Rules:
+- Pale Teal is too light to read as text on white. Use `text-teal-ink` for teal text and links. Use `bg-primary` only for fills (buttons, glows) with deep-grey text on top, never white.
+- Brick Red is an accent: highlighted heading words, stars, glows. Not for body text.
+- Dark sections (booking, footer) get the `dark` class on the section element, which switches all tokens.
+- Brick Red on white passes only for large text; do not use it for small text.
+
+## Typography
+
+- One family: Quicksand via `next/font` (`--font-quicksand`). `font-sans` and `font-heading` both resolve to it.
+- Headings (`h1`/`h2`): `font-heading tracking-wide font-semibold`. Body: default weight, `leading-loose` for long paragraphs.
+- Long body paragraphs are justified: `text-justify hyphens-auto`.
+
+## Shape and depth
+
+- Radius token is `--radius: 1.25rem`; cards use `rounded-lg`, inputs and buttons `rounded-md`, chips and links `rounded-full`.
+- Shadows come from theme tokens (`shadow-xs`, `shadow-xl`, ...). Cards lift on hover (`hover:-translate-y-1.5 hover:shadow-xl`).
+
+## Motion (CSS only, no animation library)
+
+- Classes in `globals.css`: `animate-kenburns` (hero photo), `animate-fade-up`, `animate-marquee`, `animate-float`, and `.reveal` (scroll-driven fade-up using `animation-timeline: view()`; stagger with `style={{ "--i": n }}`).
+- Everything is disabled under `prefers-reduced-motion`.
+- `.reveal` only animates in browsers with scroll-driven animation support (Chrome, Edge, Safari); elsewhere content just shows.
+
+## Navbar
+
+- Content is fixed: Home, Layanan (hover dropdown with 7 service pages), About, Blog. Do not add links, icons, language toggle, or a mobile pill nav unless asked.
+- Behavior: `fixed`, transparent over the hero on `/`, turns solid (blurred card background, dark logo) after 40px scroll and on all other routes. `main` has `pt-16` and the hero uses `-mt-16` to sit under the header.
+
+## Things the owner explicitly rejected (do not reintroduce)
+
+- Yllw Swiss-Bauhaus style from `../design.md` (putty background, uppercase monumental type).
+- Glass/blurred info pill over the hero, scroll-down mouse indicator, icon boxes on service cards, small eyebrow labels with a line above section headings. Owner said these look "AI-generated".
+- Hero headline, subtext and CTA buttons: owner wants a clean hero with only the photo and one plain-text info line.
+- Language toggle, icon-based nav links, floating mobile bottom nav.
+
+## Placeholder content
+
+Partner names (Acme, Globex, ...), testimonials and avatars are dummy data. Replace with real data before launch.
