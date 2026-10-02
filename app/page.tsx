@@ -4,29 +4,79 @@ import type { CSSProperties } from "react";
 
 const services = [
   {
+    title: "Coworking Space",
+    desc: "Kursi fleksibel di ruang bersama yang nyaman, hangat, dan mendukung kolaborasi.",
+    href: "/layanan/coworking-space",
+    img: "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?q=80&w=1400&auto=format&fit=crop",
+    cls: "md:col-span-2 lg:row-span-2",
+    big: true,
+  },
+  {
     title: "Private Office",
     desc: "Ruang privat yang tenang untuk tim yang butuh fokus tanpa gangguan.",
     href: "/layanan/private-office",
     img: "https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    title: "Coworking Space",
-    desc: "Kursi fleksibel di ruang bersama yang nyaman, hangat, dan mendukung kolaborasi.",
-    href: "/layanan/coworking-space",
-    img: "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?q=80&w=800&auto=format&fit=crop",
+    cls: "",
   },
   {
     title: "Meeting Room",
     desc: "Ruang rapat profesional dengan perangkat lengkap untuk presentasi lancar.",
     href: "/layanan/meeting-room",
     img: "https://images.unsplash.com/photo-1600508774634-4e11d34730e2?q=80&w=800&auto=format&fit=crop",
+    cls: "",
+  },
+  {
+    title: "Event Space",
+    desc: "Ruang acara fleksibel untuk workshop, seminar, peluncuran produk, dan pertemuan komunitas.",
+    href: "/layanan/event-space",
+    img: "/foto-home/New%20folder/clapham-foto2.webp",
+    cls: "md:col-span-2",
   },
   {
     title: "Virtual Office",
     desc: "Alamat bisnis premium untuk membangun kredibilitas perusahaan Anda.",
     href: "/layanan/virtual-office",
     img: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800&auto=format&fit=crop",
+    cls: "",
   },
+  {
+    title: "Event Management Service",
+    desc: "Perencanaan hingga pelaksanaan acara, dari konsep dan teknis sampai dokumentasi.",
+    href: "/layanan/event-management",
+    img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=900&auto=format&fit=crop",
+    cls: "",
+  },
+  {
+    title: "Podcast Studio",
+    desc: "Studio rekaman yang nyaman dengan perangkat audio siap pakai untuk konten Anda.",
+    href: "/layanan/podcast-studio",
+    img: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?q=80&w=1200&auto=format&fit=crop",
+    cls: "md:col-span-2",
+  },
+];
+
+const values = [
+  {
+    no: "01",
+    title: "Tenang",
+    desc: "Suasana kerja yang adem dan nyaman, agar Anda dan tim bisa fokus tanpa gangguan.",
+  },
+  {
+    no: "02",
+    title: "Elegan",
+    desc: "Interior hangat dengan sentuhan modern yang membuat setiap hari kerja terasa istimewa.",
+  },
+  {
+    no: "03",
+    title: "Aman",
+    desc: "Akses yang terjaga dan lingkungan yang aman, sehingga Anda bisa bekerja dengan tenang.",
+  },
+];
+
+const collage = [
+  { src: "/foto-home/New%20folder/clapham-foto3.webp", alt: "Area kerja bersama CLAPHAM.CO", cls: "" },
+  { src: "/foto-home/New%20folder/clpham-foto.webp", alt: "Area bar dan perpustakaan mini CLAPHAM.CO", cls: "md:mt-14" },
+  { src: "/foto-home/New%20folder/clapham-foto2.webp", alt: "Lounge CLAPHAM.CO", cls: "" },
 ];
 
 const partners = ["Acme Corp", "Globex", "Soylent", "Initech", "Umbrella", "Hooli", "Stark Co", "Wayne Group"];
@@ -75,6 +125,7 @@ export default function Home() {
           className="object-cover animate-kenburns"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/45" />
+        <h1 className="sr-only">Coworking Space dan Sewa Kantor di Medan - CLAPHAM.CO</h1>
 
         <div className="relative z-10 w-full px-4 pb-12 md:pb-16">
           <div
@@ -90,67 +141,72 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tentang */}
+      {/* Intro */}
       <section className="py-28 bg-card">
-        <div className="container mx-auto px-4 max-w-6xl grid md:grid-cols-2 gap-14 md:gap-20 items-center">
-          <div className="reveal">
-            <h2 className="font-heading tracking-wide font-semibold text-4xl md:text-5xl text-foreground mb-8 leading-tight">
-              Membuat <span className="text-brick">perbedaan.</span>
-            </h2>
-            <div className="space-y-6 text-muted-foreground text-lg leading-loose text-justify hyphens-auto">
-              <p>
-                Clapham Company menghargai orang-orang yang memiliki tujuan yang
-                sama: mengubah kota tempat kita tinggal menjadi lebih baik.
-              </p>
-              <p>
-                Melalui karya kami, kami ingin membuat perbedaan, menantang
-                status quo, dan mendorong potensi terbaik dari setiap orang di
-                dalamnya. Kami bersatu dalam visi tentang kota yang lebih baik,
-                tempat generasi mendatang dapat menikmati kehidupan yang lebih
-                baik dan terlibat dalam pekerjaan yang bermakna.
-              </p>
-              <p className="text-foreground font-medium">Kami berbasis di Medan.</p>
-            </div>
+        <div className="container mx-auto px-4 max-w-5xl text-center">
+          <h2 className="reveal font-heading tracking-wide font-semibold text-3xl md:text-4xl text-foreground leading-snug mb-10">
+            CLAPHAM.CO adalah penyedia{" "}
+            <span className="text-brick">coworking space dan sewa kantor</span> di Medan
+          </h2>
+          <div className="reveal space-y-5 text-muted-foreground text-lg leading-loose" style={i(1)}>
+            <p>
+              Optimalkan produktivitas tim Anda dengan ruang kerja yang tepat.
+              CLAPHAM.CO menyediakan solusi modern, fleksibel, dan komprehensif
+              di dunia kerja yang dinamis dan terus berubah.
+            </p>
+            <p>
+              Berlokasi di Ruko Centre Point Medan, kami menyediakan coworking
+              space, private office, ruang meeting, event space, virtual office,
+              hingga studio podcast untuk individu, startup, dan perusahaan.
+            </p>
           </div>
-          <div className="reveal" style={i(1)}>
-            <Image
-              src="/foto-home/New%20folder/square.avif"
-              alt="Nilai-nilai Clapham Co: kolaborasi, berbagi, belajar, karya berdampak, hati yang peduli"
-              width={982}
-              height={750}
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="w-full h-auto rounded-lg"
-            />
+          <div className="reveal mt-10 flex flex-wrap justify-center gap-4" style={i(2)}>
+            <a
+              href="#booking"
+              className="inline-flex items-center rounded-md bg-primary px-7 py-3.5 font-semibold text-primary-foreground hover:brightness-95 active:scale-[0.98] transition-all duration-300"
+            >
+              Atur Kunjungan
+            </a>
+            <a
+              href="#layanan"
+              className="inline-flex items-center rounded-md border border-border px-7 py-3.5 font-semibold text-foreground hover:border-teal-ink hover:text-teal-ink transition-colors duration-300"
+            >
+              Lihat Layanan
+            </a>
           </div>
+        </div>
 
-          <div className="reveal md:order-1" style={i(1)}>
-            <Image
-              src="/foto-home/New%20folder/square2.avif"
-              alt="Kolaborasi, semangat berbagi, budaya belajar, karya berdampak, hati yang peduli"
-              width={1052}
-              height={480}
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="w-full h-auto rounded-lg"
-            />
-          </div>
-          <div className="reveal md:order-2">
-            <h2 className="font-heading tracking-wide font-semibold text-4xl md:text-5xl text-foreground mb-8 leading-tight">
-              <span className="text-brick">Nilai</span> yang kami yakini
-            </h2>
-            <div className="space-y-6 text-muted-foreground text-lg leading-loose text-justify hyphens-auto">
-              <p>
-                Dalam setiap proyek yang kami jalankan, kami berupaya menjunjung
-                tinggi nilai-nilai berikut. Kami memuliakan martabat manusia dan
-                karyanya, serta menerapkan tata kelola perusahaan yang baik
-                sebagai fondasi kepercayaan.
-              </p>
-              <p>
-                Kami percaya pada pembelajaran yang berkelanjutan, kebaikan hati
-                dalam setiap interaksi, dan karya yang berdampak nyata. Semua itu
-                kami wujudkan bersama dengan keterlibatan aktif bagi masyarakat di
-                sekitar kami.
-              </p>
+        <div className="container mx-auto px-4 max-w-6xl mt-20 grid grid-cols-3 gap-3 md:gap-6">
+          {collage.map((c, n) => (
+            <div key={c.src} className={`reveal ${c.cls}`} style={i(n)}>
+              <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
+                <Image
+                  src={c.src}
+                  alt={c.alt}
+                  fill
+                  sizes="(min-width: 1024px) 330px, 33vw"
+                  className="object-cover transition-transform duration-700 ease-out hover:scale-105"
+                />
+              </div>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Nilai */}
+      <section className="dark bg-background text-foreground py-24 md:py-28">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <h2 className="reveal font-heading tracking-wide font-semibold text-3xl md:text-5xl leading-tight max-w-3xl mb-16">
+            Ruang kerja yang tenang, untuk pikiran yang jernih
+          </h2>
+          <div className="grid md:grid-cols-3 gap-10 md:gap-12">
+            {values.map((v, n) => (
+              <div key={v.no} className="reveal border-t border-border pt-8" style={i(n)}>
+                <p className="font-heading font-semibold text-6xl text-teal-ink mb-6">{v.no}</p>
+                <h3 className="font-heading tracking-wide font-semibold text-2xl mb-3">{v.title}</h3>
+                <p className="text-muted-foreground text-lg leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -160,35 +216,38 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="reveal max-w-2xl mx-auto text-center mb-16">
             <h2 className="font-heading tracking-wide font-semibold text-4xl md:text-5xl text-foreground mb-5 leading-tight">
-              Ruang untuk setiap cara Anda bekerja
+              Temukan Ruang Kerja Ideal Anda
             </h2>
             <p className="text-muted-foreground text-lg">
-              Temukan ruang yang pas untuk kebutuhan bisnis Anda, dari kursi
-              fleksibel hingga kantor privat yang lengkap.
+              Cari tahu ruang kerja ideal Anda di sini! Jelajahi berbagai
+              pilihan ruang kerja pribadi dan bersama kami, semuanya dengan
+              paket dan opsi pembayaran yang fleksibel.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[18rem] lg:auto-rows-[17rem] lg:grid-flow-dense gap-4 md:gap-5">
             {services.map((s, n) => (
-              <div key={s.title} className="reveal" style={i(n)}>
+              <div key={s.title} className={`reveal ${s.cls}`} style={i(n % 4)}>
                 <Link
                   href={s.href}
-                  className="group flex h-full flex-col bg-card rounded-lg overflow-hidden border border-border shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-500"
+                  className="group relative block h-full overflow-hidden rounded-lg bg-secondary shadow-sm hover:shadow-xl transition-shadow duration-500"
                 >
-                  <div className="relative h-52 overflow-hidden">
-                    <img
-                      src={s.img}
-                      alt={s.title}
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
-                  <div className="p-6 flex-grow flex flex-col">
-                    <h3 className="text-lg font-semibold text-card-foreground mb-2">{s.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">{s.desc}</p>
-                    <span className="text-teal-ink font-semibold inline-flex items-center text-sm">
+                  <img
+                    src={s.img}
+                    alt={s.title}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/5" />
+                  <div className="absolute inset-x-0 bottom-0 p-6 md:p-7 text-white">
+                    <h3 className={`font-heading tracking-wide font-semibold ${s.big ? "text-2xl md:text-3xl" : "text-xl"} mb-2`}>
+                      {s.title}
+                    </h3>
+                    <p className={`text-sm md:text-base leading-relaxed text-white/85 max-w-md transition-all duration-500 ${s.big ? "" : "lg:max-h-0 lg:opacity-0 lg:group-hover:max-h-32 lg:group-hover:opacity-100"}`}>
+                      {s.desc}
+                    </p>
+                    <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
                       Pelajari selengkapnya
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1.5 transition-transform duration-300 group-hover:translate-x-1.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </span>
                   </div>
                 </Link>
@@ -198,11 +257,53 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Lokasi */}
+      <section className="py-28 bg-card">
+        <div className="container mx-auto px-4 max-w-7xl grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="reveal overflow-hidden rounded-lg border border-border shadow-md">
+            <iframe
+              title="Lokasi CLAPHAM.CO di Ruko Centre Point Medan"
+              src="https://www.google.com/maps?q=Komp.+Ruko+Centre+Point+Medan+Jalan+Timor+Blok+G+No.+III%2FIV&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-80 w-full md:h-[26rem]"
+            />
+          </div>
+          <div className="reveal" style={i(1)}>
+            <h2 className="font-heading tracking-wide font-semibold text-3xl md:text-4xl text-foreground mb-8 leading-tight">
+              Kerja Lebih Fleksibel di <span className="text-brick">Jantung Kota Medan</span>
+            </h2>
+            <p className="text-muted-foreground text-lg leading-loose mb-8 text-justify hyphens-auto">
+              Dengan lokasi strategis di Medan Timur, tim Anda dapat bekerja
+              produktif dari ruang yang sesuai dengan kebutuhan. Baik itu bekerja
+              lebih dekat ke rumah, mengakses berbagai ruang kerja, atau bekerja
+              dari kantor pusat, CLAPHAM.CO memberikan fleksibilitas bagi Anda
+              untuk berkembang di lingkungan apa pun.
+            </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Komp.+Ruko+Centre+Point+Medan+Jalan+Timor+Blok+G+No.+III%2FIV"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-md bg-primary px-7 py-3.5 font-semibold text-primary-foreground hover:brightness-95 active:scale-[0.98] transition-all duration-300"
+            >
+              Buka di Google Maps
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Dipercaya oleh */}
-      <section className="py-16 bg-card border-y border-border">
-        <p className="reveal text-center text-xs font-semibold text-muted-foreground uppercase tracking-[0.25em] mb-10">
-          Dipercaya oleh perusahaan dan profesional di Medan
-        </p>
+      <section className="py-20 border-b border-border">
+        <div className="reveal container mx-auto px-4 text-center mb-12">
+          <h2 className="font-heading tracking-wide font-semibold text-3xl md:text-4xl text-foreground mb-4">
+            Dipercaya oleh Para Pemimpin Industri
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Tidak perlu hanya percaya kata kami. Lihat bagaimana perusahaan-perusahaan
+            ini memanfaatkan solusi ruang kerja kami untuk hasil nyata.
+          </p>
+        </div>
         <div className="group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
           <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
             {[...partners, ...partners].map((p, n) => (
@@ -218,13 +319,45 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Virtual Office */}
+      <section className="py-28 bg-secondary">
+        <div className="container mx-auto px-4 max-w-7xl grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="reveal relative aspect-[4/3] overflow-hidden rounded-lg">
+            <Image
+              src="/foto-home/hero.jpg.jpeg"
+              alt="Area kerja bersama CLAPHAM.CO"
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="reveal" style={i(1)}>
+            <h2 className="font-heading tracking-wide font-semibold text-3xl md:text-4xl text-foreground mb-6 leading-tight">
+              Virtual Office: Solusi Alamat Kantor Profesional
+            </h2>
+            <p className="text-muted-foreground text-lg leading-loose mb-8 text-justify hyphens-auto">
+              Nikmati alamat bisnis premium di Ruko Centre Point Medan tanpa
+              biaya sewa kantor penuh. Cocok untuk startup, UMKM, dan perusahaan
+              yang membutuhkan alamat usaha yang profesional.
+            </p>
+            <Link
+              href="/layanan/virtual-office"
+              className="group inline-flex items-center gap-2 rounded-md bg-primary px-7 py-3.5 font-semibold text-primary-foreground hover:brightness-95 active:scale-[0.98] transition-all duration-300"
+            >
+              Pelajari Tentang Virtual Office
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Testimoni */}
       <section className="py-28">
         <div className="container mx-auto px-4">
           <div className="reveal text-center mb-16">
             <h2 className="font-heading tracking-wide font-semibold text-4xl md:text-5xl text-foreground">Kata Mereka</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {testimonials.map((t, n) => (
               <div key={t.name} className="reveal" style={i(n)}>
                 <figure className="relative h-full bg-card p-8 rounded-lg border border-border shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-500">
@@ -257,25 +390,30 @@ export default function Home() {
         <div className="absolute -bottom-32 -left-24 w-96 h-96 bg-brick/20 rounded-full blur-3xl animate-float [animation-delay:-6s]" />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto grid md:grid-cols-5 gap-12 items-start">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-5 gap-12 items-start">
             <div className="reveal md:col-span-3 bg-card/60 backdrop-blur-xl rounded-xl p-8 md:p-10 border border-border shadow-2xl">
-              <h2 className="font-heading tracking-wide font-semibold text-3xl md:text-4xl mb-3 leading-tight">Siap bekerja dengan tenang?</h2>
-              <p className="text-muted-foreground mb-8">Jadwalkan kunjungan atau amankan tempat Anda hari ini.</p>
+              <h2 className="font-heading tracking-wide font-semibold text-3xl md:text-4xl mb-3 leading-tight">Konsultasikan Kebutuhan Anda</h2>
+              <p className="text-muted-foreground mb-8">Butuh bantuan untuk mencari ruang kerja? Isi formulir di bawah ini.</p>
               <form className="grid grid-cols-1 gap-4">
-                <input type="text" placeholder="Nama Lengkap" className={inputClass} required />
-                <input type="email" placeholder="Alamat Email" className={inputClass} required />
-                <select defaultValue="" className={inputClass}>
-                  <option value="" disabled>Pilih Layanan</option>
-                  <option value="coworking">Coworking Space</option>
-                  <option value="private-office">Private Office</option>
-                  <option value="meeting-room">Meeting Room</option>
-                  <option value="event-space">Event Space</option>
+                <select defaultValue="" className={inputClass} required>
+                  <option value="" disabled>Ruang kerja apa yang Anda cari?</option>
+                  {services.map((s) => (
+                    <option key={s.href} value={s.href.split("/").pop()}>{s.title}</option>
+                  ))}
                 </select>
+                <input type="text" placeholder="Nama Anda" className={inputClass} required />
+                <input type="email" placeholder="Email perusahaan Anda" className={inputClass} required />
+                <div className="flex gap-2">
+                  <span className={`${inputClass} !w-auto flex items-center text-foreground`}>+62</span>
+                  <input type="tel" placeholder="Nomor telepon Anda" className={inputClass} required />
+                </div>
+                <input type="text" placeholder="Perusahaan Anda" className={inputClass} />
+                <textarea placeholder="Berikan detail ruang kerja yang Anda cari" rows={4} className={`${inputClass} resize-y`} />
                 <button
                   type="button"
                   className="group mt-2 w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold text-base py-4 rounded-md shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:brightness-110 active:scale-[0.98] transition-all duration-300"
                 >
-                  Pesan Ruangan Sekarang
+                  Kirim
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </button>
               </form>

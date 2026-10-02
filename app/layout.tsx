@@ -9,9 +9,57 @@ const quicksand = Quicksand({
   subsets: ["latin"],
 });
 
+const description =
+  "CLAPHAM.CO menyediakan coworking space, private office, ruang meeting, event space, virtual office, dan studio podcast di Ruko Centre Point Medan. Ruang kerja fleksibel, tenang, dan aman.";
+
 export const metadata: Metadata = {
-  title: "CLAPHAM.CO - Coworking Space Medan",
-  description: "Ruang kerja tenang dan elegan di jantung kota Medan.",
+  title: {
+    default: "CLAPHAM.CO - Coworking Space & Sewa Kantor di Medan",
+    template: "%s | CLAPHAM.CO",
+  },
+  description,
+  keywords: [
+    "coworking space Medan",
+    "sewa kantor Medan",
+    "private office Medan",
+    "ruang meeting Medan",
+    "virtual office Medan",
+    "event space Medan",
+    "studio podcast Medan",
+    "CLAPHAM.CO",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    siteName: "CLAPHAM.CO",
+    title: "CLAPHAM.CO - Coworking Space & Sewa Kantor di Medan",
+    description,
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "CLAPHAM.CO",
+  description,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress:
+      "Komp. Ruko Centre Point Medan, Jalan Timor Blok G No. III/IV, 2nd Floor, Gang Buntu",
+    addressLocality: "Medan Timur, Medan",
+    addressRegion: "Sumatera Utara",
+    postalCode: "20231",
+    addressCountry: "ID",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "17:00",
+    },
+  ],
+  sameAs: ["https://instagram.com/claphamco", "https://linktr.ee/claphamco"],
 };
 
 export default function RootLayout({
@@ -22,6 +70,10 @@ export default function RootLayout({
   return (
     <html lang="id" className={`${quicksand.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Navbar />
         <main className="flex-grow pt-16">{children}</main>
         <Footer />

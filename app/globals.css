@@ -209,3 +209,14 @@
     transition: none !important;
   }
 }
+
+/* Scale the whole rem-based layout up on big desktop screens */
+@media (min-width: 1536px) {
+  html { font-size: 17px; }
+}
+@media (min-width: 1920px) {
+  html { font-size: 19px; }
+}
+@media (min-width: 2560px) {
+  html { font-size: 24px; }
+}

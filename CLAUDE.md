@@ -66,3 +66,17 @@ Rules:
 ## Placeholder content
 
 Partner names (Acme, Globex, ...), testimonials and avatars are dummy data. Replace with real data before launch.
+
+## SEO and copy (home page)
+
+- Reference layout/wording came from `public/foto-home/referensidesain-home.png` (a competitor coworking site). Wording is adapted to CLAPHAM.CO only; do not copy competitor claims (locations count, "terdepan di Indonesia", mobile app, etc.).
+- Home has a visually hidden `<h1>` in the hero (`sr-only`) so the hero stays clean but the page keeps a keyword heading. Primary keywords: "coworking space Medan", "sewa kantor Medan".
+- Metadata (title template `%s | CLAPHAM.CO`, description, keywords, Open Graph) and LocalBusiness JSON-LD live in `app/layout.tsx`. Per-page titles go in each page's `metadata.title` without the brand suffix.
+- Footer carries internal links to all 7 service pages plus a keyword sentence. Keep service names identical to the navbar dropdown.
+- Not done yet: `sitemap.ts`/`robots.ts` (need the final domain), real blog articles, working consultation form backend.
+
+## Responsive scaling
+
+- Layout is rem-based. `globals.css` raises the root font-size on big screens (17px at >=1536px, 19px at >=1920px, 24px at >=2560px) so the whole page scales proportionally on desktop monitors. Do not use fixed px widths for layout; use rem/Tailwind classes so they scale too.
+- Content wrappers use `container` (max 96rem) with inner `max-w-6xl`/`max-w-7xl`. Keep section widths consistent with the navbar (`container`).
+- Always check 1366, 1920 and 2560 widths after layout changes, not just 1440.
