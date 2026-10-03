@@ -79,7 +79,25 @@ const collage = [
   { src: "/foto-home/New%20folder/clapham-foto2.webp", alt: "Lounge CLAPHAM.CO", cls: "" },
 ];
 
-const partners = ["Acme Corp", "Globex", "Soylent", "Initech", "Umbrella", "Hooli", "Stark Co", "Wayne Group"];
+const partners = [
+  { name: "Mekari", src: "/partners/mekari-logo.webp", w: 520, h: 100 },
+  { name: "DBS", src: "/partners/dbs-logo.webp", w: 493, h: 144 },
+  { name: "Kartu Prakerja", src: "/partners/logo-kartu-prakerja.webp", w: 450, h: 144 },
+  { name: "Indonesia Baik", src: "/partners/indonesia-baik-logo.webp", w: 349, h: 144 },
+  { name: "Zahav Techno Creative", src: "/partners/zahav-techno-creative-logo.webp", w: 268, h: 66 },
+  { name: "Asosiasi Blockchain Indonesia", src: "/partners/asosiasi-blockchain-indonesia.webp", w: 344, h: 102 },
+  { name: "GUAlokal", src: "/partners/gualokal.webp", w: 318, h: 76 },
+  { name: "Letterist.co", src: "/partners/letterist.webp", w: 520, h: 131 },
+  { name: "Bakeout", src: "/partners/bakeout.webp", w: 520, h: 104 },
+  { name: "Bakeout Society", src: "/partners/bakeout-society.webp", w: 272, h: 144 },
+  { name: "M-Burger", src: "/partners/m-burger.webp", w: 520, h: 129 },
+  { name: "LivWell Clinic Medan", src: "/partners/livwell-clinic-medan-logo.webp", w: 171, h: 81 },
+  { name: "Sistech Kharisma", src: "/partners/sistec-logo.webp", w: 159, h: 144 },
+  { name: "PT Sumatra Tobacco Trading Company", src: "/partners/pt-sumatra-tobacco-trading-company-logo.webp", w: 402, h: 144 },
+  { name: "Haengun.id", src: "/partners/haengun-id.webp", w: 97, h: 123 },
+  { name: "Clapham Education Series - Higher Education Day 2024", src: "/partners/clapham-education-series.webp", w: 488, h: 144 },
+  { name: "PT Kanvas Mitra Aktiva", src: "/partners/pt-kanvas-mitra-aktiva.webp", w: 520, h: 37 },
+];
 
 const testimonials = [
   {
@@ -122,6 +140,7 @@ export default function Home() {
           fill
           priority
           sizes="100vw"
+          quality={90}
           className="object-cover animate-kenburns"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/45" />
@@ -184,7 +203,8 @@ export default function Home() {
                   src={c.src}
                   alt={c.alt}
                   fill
-                  sizes="(min-width: 1024px) 330px, 33vw"
+                  sizes="1400px"
+                  quality={90}
                   className="object-cover transition-transform duration-700 ease-out hover:scale-105"
                 />
               </div>
@@ -247,7 +267,7 @@ export default function Home() {
                     </p>
                     <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
                       Pelajari selengkapnya
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1.5"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
                     </span>
                   </div>
                 </Link>
@@ -287,33 +307,32 @@ export default function Home() {
               className="group inline-flex items-center gap-2 rounded-md bg-primary px-7 py-3.5 font-semibold text-primary-foreground hover:brightness-95 active:scale-[0.98] transition-all duration-300"
             >
               Buka di Google Maps
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
             </a>
           </div>
         </div>
       </section>
 
-      {/* Dipercaya oleh */}
-      <section className="py-20 border-b border-border">
-        <div className="reveal container mx-auto px-4 text-center mb-12">
+      {/* Partner */}
+      <section className="py-24 bg-card border-b border-border">
+        <div className="reveal container mx-auto px-4 text-center mb-14">
           <h2 className="font-heading tracking-wide font-semibold text-3xl md:text-4xl text-foreground mb-4">
-            Dipercaya oleh Para Pemimpin Industri
+            Partner CLAPHAM.CO
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Tidak perlu hanya percaya kata kami. Lihat bagaimana perusahaan-perusahaan
-            ini memanfaatkan solusi ruang kerja kami untuk hasil nyata.
-          </p>
+
         </div>
-        <div className="group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
-          <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
+        <div className="group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="flex w-max items-center animate-marquee [animation-duration:110s] group-hover:[animation-play-state:paused]">
             {[...partners, ...partners].map((p, n) => (
-              <span
-                key={n}
-                aria-hidden={n >= partners.length}
-                className="mx-10 md:mx-14 text-2xl font-heading tracking-wide text-muted-foreground/60 hover:text-foreground transition-colors duration-300 whitespace-nowrap"
-              >
-                {p}
-              </span>
+              <div key={n} className="mx-8 md:mx-12 flex h-20 w-44 md:w-52 items-center justify-center" aria-hidden={n >= partners.length}>
+                <img
+                  src={p.src}
+                  alt={n < partners.length ? p.name : ""}
+                  width={p.w}
+                  height={p.h}
+                  className="max-h-14 md:max-h-16 w-auto max-w-full object-contain mix-blend-multiply transition duration-500 hover:scale-110"
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -328,6 +347,7 @@ export default function Home() {
               alt="Area kerja bersama CLAPHAM.CO"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
+              quality={90}
               className="object-cover"
             />
           </div>
@@ -345,7 +365,7 @@ export default function Home() {
               className="group inline-flex items-center gap-2 rounded-md bg-primary px-7 py-3.5 font-semibold text-primary-foreground hover:brightness-95 active:scale-[0.98] transition-all duration-300"
             >
               Pelajari Tentang Virtual Office
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
             </Link>
           </div>
         </div>
@@ -364,7 +384,7 @@ export default function Home() {
                   <span className="absolute top-4 right-6 font-heading tracking-wide text-7xl leading-none text-brick/20 select-none">&rdquo;</span>
                   <div className="flex gap-0.5 text-brick mb-5">
                     {[...Array(5)].map((_, k) => (
-                      <svg key={k} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                      <svg key={k} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
                     ))}
                   </div>
                   <blockquote className="font-heading tracking-wide text-lg text-card-foreground leading-relaxed mb-8">
@@ -414,7 +434,7 @@ export default function Home() {
                   className="group mt-2 w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold text-base py-4 rounded-md shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:brightness-110 active:scale-[0.98] transition-all duration-300"
                 >
                   Kirim
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
                 </button>
               </form>
             </div>
@@ -443,7 +463,7 @@ export default function Home() {
                 className="group inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-foreground hover:border-teal-ink hover:text-teal-ink transition-colors duration-300"
               >
                 Buka di Google Maps
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
               </a>
             </div>
           </div>

@@ -80,3 +80,17 @@ Partner names (Acme, Globex, ...), testimonials and avatars are dummy data. Repl
 - Layout is rem-based. `globals.css` raises the root font-size on big screens (17px at >=1536px, 19px at >=1920px, 24px at >=2560px) so the whole page scales proportionally on desktop monitors. Do not use fixed px widths for layout; use rem/Tailwind classes so they scale too.
 - Content wrappers use `container` (max 96rem) with inner `max-w-6xl`/`max-w-7xl`. Keep section widths consistent with the navbar (`container`).
 - Always check 1366, 1920 and 2560 widths after layout changes, not just 1440.
+
+## Partner logos
+
+- Source files: `public/foto-home/logo-partner/` (raw, mixed formats, some 5000px). Do not reference these in pages.
+- Page uses processed copies in `public/partners/*.webp` (margins trimmed, max 520x144, ~200 KB total). To add a logo: trim and resize it the same way, save into `public/partners/`, add an entry to the `partners` array in `app/page.tsx`.
+- Marquee: logos always in full color (owner request), slight zoom on hover, pauses on hover, 110s loop. Images are NOT lazy-loaded on purpose (lazy loading leaves blank gaps in a moving track).
+- `images.jpg` in the raw folder is a cropped duplicate of the Zahav logo and is skipped.
+- Removed on owner request (Oct 2026): Bahana Bara Mahanusa, Clapham Conference 2024, Citra Buana Kemala, CV Cahaya Material, CV Makmurindo Bersama, Satu Indonesia. Do not re-add.
+
+## Image sharpness
+
+- `next.config.ts` allows `images.qualities: [75, 90]`; big photos use `quality={90}`. Next 16 coerces any other value to 75.
+- When a landscape photo is cropped into a portrait/cover box (collage), `sizes` must describe the full source width (e.g. `sizes="1400px"`), not the visible box width, or the browser requests a tiny version and upscales it (looks blurry, especially at 125-150% display scale).
+- Original photos are 1360px wide webp; do not compress them further.
