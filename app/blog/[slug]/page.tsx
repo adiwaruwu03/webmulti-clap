@@ -91,7 +91,7 @@ function Body({ block }: { block: Block }) {
             alt={block.alt}
             width={block.w}
             height={block.h}
-            sizes="(min-width: 896px) 896px, 100vw"
+            sizes="(min-width: 1024px) 820px, 100vw"
             quality={90}
             className="h-auto w-full rounded-lg"
           />
@@ -120,7 +120,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   return (
     <article className="bg-background pb-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <div className="container mx-auto max-w-4xl px-4 pt-10 md:pt-14">
+      <div className="container mx-auto max-w-7xl px-4 pt-10 md:pt-14">
         <Link
           href="/blog"
           className="group mb-8 inline-flex items-center gap-2 text-sm font-semibold text-teal-ink hover:underline"
@@ -129,6 +129,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           <T en="Back to Blog">Kembali ke Blog</T>
         </Link>
 
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-14 xl:grid-cols-[minmax(0,1fr)_22rem]">
+        <div className="min-w-0 max-w-4xl">
         <header>
           <span className={pillClass}>{post.category}</span>
           <h1 className="mt-5 font-heading text-3xl font-semibold leading-tight tracking-wide text-foreground md:text-5xl">
@@ -160,7 +162,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           alt={post.title}
           width={post.hero.w}
           height={post.hero.h}
-          sizes="(min-width: 896px) 896px, 100vw"
+          sizes="(min-width: 1024px) 820px, 100vw"
           quality={90}
           loading="eager"
           fetchPriority="high"
@@ -183,26 +185,31 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           <T en="Chat with Us on WhatsApp">WhatsApp Kami</T>
         </a>
 
-        <section className="mt-20">
-          <h2 className="mb-6 font-heading text-2xl font-semibold tracking-wide text-foreground">
-            <T en="Similar Articles">Artikel Serupa</T>
-          </h2>
-          <ul className="space-y-4">
-            {similar(post.slug).map((p) => (
-              <li key={p.slug}>
-                <Link
-                  href={`/blog/${p.slug}`}
-                  className="group block rounded-lg border border-border bg-card p-5 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-ink/40 hover:shadow-md"
-                >
-                  <span className={pillClass}>{p.category}</span>
-                  <p className="mt-3 font-heading text-lg font-semibold leading-snug tracking-wide text-card-foreground transition-colors group-hover:text-teal-ink">
-                    {p.title}
-                  </p>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
+        </div>
+
+        <aside>
+          <div className="lg:sticky lg:top-24">
+            <h2 className="mb-6 font-heading text-xl font-semibold tracking-wide text-foreground">
+              <T en="Similar Articles">Artikel Serupa</T>
+            </h2>
+            <ul className="space-y-4">
+              {similar(post.slug).map((p) => (
+                <li key={p.slug}>
+                  <Link
+                    href={`/blog/${p.slug}`}
+                    className="group block rounded-lg border border-border bg-card p-5 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-ink/40 hover:shadow-md"
+                  >
+                    <span className={pillClass}>{p.category}</span>
+                    <p className="mt-3 font-heading font-semibold leading-snug tracking-wide text-card-foreground transition-colors group-hover:text-teal-ink">
+                      {p.title}
+                    </p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+        </div>
       </div>
     </article>
   );
