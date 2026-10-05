@@ -23,6 +23,7 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <Image
               src="/logo.nav/logo-clapham-white.png"
+              loading="eager"
               alt="CLAPHAM.CO"
               width={180}
               height={50}

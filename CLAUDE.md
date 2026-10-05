@@ -31,7 +31,7 @@ Extra brand-guide colors not yet used: olive `#595241`, beige `#b8ae9c` (availab
 Rules:
 - Pale Teal is too light to read as text on white. Use `text-teal-ink` for teal text and links. Use `bg-primary` only for fills (buttons, glows) with deep-grey text on top, never white.
 - Brick Red is an accent: highlighted heading words, stars, glows. Not for body text.
-- Dark sections (booking, footer) get the `dark` class on the section element, which switches all tokens.
+- Section rhythm near the bottom: testimonials (light page bg) -> booking = `bg-primary` Pale Teal with a white `bg-card` form card -> footer = `dark` carbon. Booking must NOT be dark: it touches the dark footer and would merge into one slab (owner flagged this). Text on the teal band uses `text-foreground` (deep grey), small labels `text-foreground/60`. Keep `dark` only for the footer and the 'Nilai' band.
 - Brick Red on white passes only for large text; do not use it for small text.
 
 ## Typography
@@ -109,3 +109,7 @@ Testimonials are REAL Google reviews (6, all 5-star) of the Maps listing "COHIVE
 
 - Owner chose the full nav wordmark (`public/logo.nav/logo-clapham-2.png`, dark version) centered on a white rounded tile (white so it stays visible on dark browser themes). It is wide (4:1) so it is tiny at 16px; owner accepted that. Do not switch back to the "C" monogram unless asked.
 - Files: `app/favicon.ico` (16/32/48), `app/icon.png` (512), `app/apple-icon.png` (180). Next 16 auto-injects the `<link rel="icon">` tags. Regenerate with sharp from the logo if it changes.
+
+## Section backgrounds (page rhythm)
+
+- Booking/consult section uses solid Pale Teal (`bg-primary`) with a white form card and dark `Kirim` button, NOT the `dark` theme, so it never blends with the carbon footer. Only the "Nilai" band and the footer use `dark`. Never put two `dark` sections next to each other.
