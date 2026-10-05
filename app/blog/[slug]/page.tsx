@@ -41,7 +41,7 @@ function Body({ block }: { block: Block }) {
   switch (block.t) {
     case "p":
       return (
-        <p className="mb-6 text-lg leading-loose text-foreground/85">
+        <p className="mb-6 text-lg leading-loose text-foreground/85 md:text-justify">
           <Rich text={block.text} />
         </p>
       );
@@ -59,7 +59,7 @@ function Body({ block }: { block: Block }) {
       );
     case "ul":
       return (
-        <ul className="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-foreground/85 marker:text-teal-ink">
+        <ul className="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-foreground/85 marker:text-teal-ink md:text-justify">
           {block.items.map((it, i) => (
             <li key={i}>
               <Rich text={it} />
@@ -69,7 +69,7 @@ function Body({ block }: { block: Block }) {
       );
     case "ol":
       return (
-        <ol className="mb-6 list-decimal space-y-2 pl-6 text-lg leading-relaxed text-foreground/85 marker:font-semibold marker:text-teal-ink">
+        <ol className="mb-6 list-decimal space-y-2 pl-6 text-lg leading-relaxed text-foreground/85 marker:font-semibold marker:text-teal-ink md:text-justify">
           {block.items.map((it, i) => (
             <li key={i}>
               <Rich text={it} />
@@ -79,7 +79,7 @@ function Body({ block }: { block: Block }) {
       );
     case "callout":
       return (
-        <div className="mb-6 rounded-lg border-l-4 border-primary bg-secondary p-5 text-lg leading-relaxed text-foreground/85">
+        <div className="mb-6 rounded-lg border-l-4 border-primary bg-secondary p-5 text-lg leading-relaxed text-foreground/85 md:text-justify">
           <Rich text={block.text} />
         </div>
       );
@@ -169,7 +169,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           className="mb-10 h-auto w-full rounded-lg"
         />
 
-        <div>
+        <div lang="id">
           {post.blocks.map((b, i) => (
             <Body key={i} block={b} />
           ))}
