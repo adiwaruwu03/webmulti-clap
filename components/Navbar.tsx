@@ -66,11 +66,11 @@ export default function Navbar() {
             height={50}
             loading="eager"
             fetchPriority="high"
-            className={`w-auto object-contain transition-all duration-500 ${solid ? "h-8" : "h-9"}`}
+            className={`w-auto object-contain transition-all duration-500 ${solid ? "h-7 md:h-8" : "h-8 md:h-9"}`}
           />
         </Link>
 
-        <div className="flex items-center gap-8 text-sm font-medium">
+        <div className="flex items-center gap-2 text-sm sm:gap-3 font-medium md:gap-6 lg:gap-8">
           <div className="hidden md:flex items-center gap-8">
           <Link href="/" className={`${underline} ${linkColor} transition-colors`}>
             Home
@@ -104,6 +104,17 @@ export default function Navbar() {
           </Link>
           </div>
 
+          <Link
+            href="/atur-kunjungan"
+            className={`whitespace-nowrap rounded-md px-2.5 py-2 text-xs sm:px-3 font-semibold transition-all duration-300 active:scale-[0.97] md:px-5 md:text-sm ${
+              solid
+                ? "bg-foreground text-background hover:bg-teal-ink"
+                : "bg-white text-foreground hover:bg-primary"
+            }`}
+          >
+            <T en="Schedule a Visit">Atur Kunjungan</T>
+          </Link>
+
           <div
             role="group"
             aria-label="Language"
@@ -117,11 +128,11 @@ export default function Navbar() {
                 type="button"
                 onClick={() => setLang(l)}
                 aria-pressed={lang === l}
-                className={`rounded-full px-3 py-1 uppercase tracking-wider transition-colors duration-300 ${
+                className={`rounded-full px-2 py-1 sm:px-3 uppercase tracking-wider transition-colors duration-300 ${
                   lang === l
                     ? "bg-primary text-primary-foreground"
                     : solid
-                      ? "text-foreground/60 hover:text-foreground"
+                      ? "text-foreground/80 hover:text-foreground"
                       : "text-white/80 hover:text-white"
                 }`}
               >

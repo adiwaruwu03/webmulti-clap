@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+
+// Placeholder page: noindex until real content exists (remove `robots` and add to app/sitemap.ts then).
+export const metadata: Metadata = {
+  title: "Meeting Room di Medan",
+  description: "Sewa meeting room di Medan dengan perangkat lengkap untuk rapat dan presentasi.",
+  robots: { index: false, follow: true },
+};
+
 import { T } from "@/components/Lang";
 
 export default function MeetingRoomPage() {

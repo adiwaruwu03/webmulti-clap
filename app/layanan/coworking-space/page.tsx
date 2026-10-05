@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+
+// Placeholder page: noindex until real content exists (remove `robots` and add to app/sitemap.ts then).
+export const metadata: Metadata = {
+  title: "Coworking Space di Medan",
+  description: "Coworking space fleksibel dan nyaman di Ruko Centre Point Medan untuk individu, startup, dan tim.",
+  robots: { index: false, follow: true },
+};
+
 import { T } from "@/components/Lang";
 
 export default function CoworkingSpacePage() {

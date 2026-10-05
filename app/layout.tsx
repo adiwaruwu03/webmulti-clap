@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { LangProvider } from "../components/Lang";
+import { SITE_URL } from "../lib/site";
 
 const quicksand = Quicksand({
   variable: "--font-quicksand",
@@ -11,9 +12,11 @@ const quicksand = Quicksand({
 });
 
 const description =
-  "CLAPHAM.CO menyediakan coworking space, private office, ruang meeting, event space, virtual office, dan studio podcast di Ruko Centre Point Medan. Ruang kerja fleksibel, tenang, dan aman.";
+  "Coworking space, private office, ruang meeting, event space, virtual office, dan studio podcast di Ruko Centre Point Medan. Tenang, fleksibel, dan aman.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  alternates: { canonical: "./" },
   title: {
     default: "CLAPHAM.CO - Coworking Space & Sewa Kantor di Medan",
     template: "%s | CLAPHAM.CO",
@@ -35,14 +38,25 @@ export const metadata: Metadata = {
     siteName: "CLAPHAM.CO",
     title: "CLAPHAM.CO - Coworking Space & Sewa Kantor di Medan",
     description,
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Ruang kerja bersama CLAPHAM.CO di Medan" }],
   },
+  twitter: { card: "summary_large_image" },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": `${SITE_URL}/#business`,
   name: "CLAPHAM.CO",
+  alternateName: ["COHIVE at Clapham", "Clapham Collective"],
+  url: SITE_URL,
   description,
+  image: `${SITE_URL}/og-image.jpg`,
+  logo: `${SITE_URL}/logo.nav/logo-clapham-2.png`,
+  telephone: "+62 61 80510977",
+  areaServed: { "@type": "City", name: "Medan" },
+  geo: { "@type": "GeoCoordinates", latitude: 3.5926181, longitude: 98.681436 },
+  hasMap: "https://www.google.com/maps/place/COHIVE+at+Clapham/@3.5926181,98.681436,17z",
   address: {
     "@type": "PostalAddress",
     streetAddress:
@@ -69,7 +83,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`${quicksand.variable} h-full antialiased`}>
+    <html lang="id" data-scroll-behavior="smooth" className={`${quicksand.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"

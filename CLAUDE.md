@@ -53,7 +53,7 @@ Rules:
 
 ## Navbar
 
-- Content is fixed: Home, Layanan/Services (hover dropdown with 7 service pages), Tentang/About, Blog, plus an ID/EN toggle at the right end (owner asked for it). Do not add other links, icons, or a mobile pill nav unless asked.
+- Content is fixed: Home, Layanan/Services (hover dropdown with 7 service pages), Tentang/About, Blog, plus an ID/EN toggle at the right end (owner asked for it). Plus a CTA button "Atur Kunjungan" / "Schedule a Visit" (owner/boss request) that goes to the dedicated page `/atur-kunjungan`, NOT to the form card on the home page. Do not add other links, icons, or a mobile pill nav unless asked.
 - Behavior: `fixed`, transparent over the hero on `/`, turns solid (blurred card background, dark logo) after 40px scroll and on all other routes. `main` has `pt-16` and the hero uses `-mt-16` to sit under the header.
 
 ## Things the owner explicitly rejected (do not reintroduce)
@@ -113,3 +113,32 @@ Testimonials are REAL Google reviews (6, all 5-star) of the Maps listing "COHIVE
 ## Section backgrounds (page rhythm)
 
 - Booking/consult section uses solid Pale Teal (`bg-primary`) with a white form card and dark `Kirim` button, NOT the `dark` theme, so it never blends with the carbon footer. Only the "Nilai" band and the footer use `dark`. Never put two `dark` sections next to each other.
+
+## Blog
+
+- Reference: screenshots in `D:\projek\Clapham_co\blog\` of the old site (clapham.workfrom.id/blog). Layout copied (Clapham Blog heading, Artikel Unggulan, 2-col Artikel Terbaru, sticky Artikel Populer sidebar; article page with category pill, title, excerpt, date, author card, hero, body, WhatsApp button, Artikel Serupa) but styled with OUR brand, navbar and footer. Do not import the old site's top bar/footer.
+- Content: 10 articles transcribed verbatim (by reading screenshots) into `data/blog/posts.json`, typed in `lib/blog.ts`. Body block types: p, h2, h3, ul, ol, callout, img. `**bold**`/`*italic*` markers are rendered by `components/blog/Rich.tsx` (no raw HTML). To add a post: append to `posts.json` (newest first = grid order), add hero to `public/blog/<slug>.webp`.
+- Routes: `app/blog/page.tsx` (index), `app/blog/[slug]/page.tsx` (`dynamicParams = false`, static, per-post metadata + BlogPosting JSON-LD). Cards: `components/blog/PostCard.tsx`; dates formatted per language by `PostDate.tsx` (ISO shown as "23 September 2024" / "September 23, 2024").
+- Article body is Indonesian only; in EN mode a small note says so. UI chrome (headings, buttons) is bilingual via `<T>`. The index subtitle's English original is used for EN and I translated it for ID.
+- Photos: hero images and 8 body photos were cropped from the screenshots (`public/blog/`, webp, 836px wide). Many original body images/maps were blank (never loaded in the screenshots) and were dropped; only real photos are shown. The Clapham interior photo is stored once as `clapham-collective.webp` and reused.
+- Fixes vs reference: one date typo `2014-09-20` corrected to 2024; the original's blank-banner promo blocks are text only; "Artikel Serupa" lists the reference's 4 titles minus the current article; WhatsApp button (+62 853-5372-9190, from the old footer) is shown at the end of every article.
+- Text caveat: the old pages overflowed on the right for 3 articles (2, 6, 8) so a few line-end words were cut in the screenshots and were inferred (e.g. "akse" -> "akses"). Typos from the originals (e.g. "Pilihna") were kept.
+- Old-site contact data (hello@clapham.id, social icons) was NOT copied into our footer; footer stays ours.
+
+## Booking page (/atur-kunjungan)
+
+- Dedicated visit/consultation page reached from the navbar CTA (reference: GoWork "Atur Kunjungan Lokasi"; layout adapted, single location so no location picker). `app/atur-kunjungan/page.tsx` + client form `components/BookingForm.tsx`.
+- Fields: name, company email, +62 phone, company, workspace of interest (7 services), visit date (weekdays only, min today), time (09:00-16:30, 30-min slots), planned start, number of people stepper, business needs. All bilingual via `useT`.
+- No backend: submit builds an Indonesian message and opens WhatsApp (`lib/contact.ts` -> wa.me/6285353729190). A fallback link shows after submit in case the popup is blocked. The home page consult form (`ConsultForm`) is still a dummy with no submit.
+- Contact constants (WhatsApp, phone) live in `lib/contact.ts`; the phone `(061) 80510977` comes from the Maps listing, WhatsApp from the old site's footer. Verify both are still active.
+
+## SEO / performance audit (2026-10-05, Lighthouse 12 on production build)
+
+- Scores: desktop home 98/100/100/100 (perf/a11y/best/seo), desktop blog 100/100/100/100, mobile home 87/96/100/100, mobile blog 87/100/100/100, mobile booking 95/100/100/100, mobile article 92/96/100/100. Mobile LCP is 3-4 s only under Lighthouse's simulated slow 4G + 4x CPU throttle.
+- `lib/site.ts`: `SITE_URL` (env `NEXT_PUBLIC_SITE_URL`, fallback https://webmulti-clap.vercel.app) feeds `metadataBase`, `app/robots.ts`, `app/sitemap.ts`, JSON-LD. CHANGE IT when the real domain is connected, or canonicals and the sitemap will point to the vercel.app host.
+- Layout metadata sets canonical `./` (per page), default OG image `public/og-image.jpg` (1200x630 crop of the hero), twitter `summary_large_image`. Descriptions are kept under ~160 chars (`clip()` for blog excerpts). Each page needs ONE h1.
+- JSON-LD LocalBusiness in the root layout includes `alternateName` ["COHIVE at Clapham", "Clapham Collective"] because the Google Maps listing uses that name. Blog posts add BlogPosting.
+- `/layanan/*` are placeholder pages (3 words): they have unique metadata but `robots: noindex` and are NOT in the sitemap. When a service page gets real content: remove the `robots` line and add the URL to `app/sitemap.ts`.
+- Perf rules learned: never preload 20 partner logos at normal priority (they compete with the hero; they use `fetchPriority="low"`); `sizes` must describe the rendered image width, not the crop box; below-fold plain `<img>` need `loading="lazy"`; the LCP image of a page must be `loading="eager"` + `fetchPriority="high"` (blog featured card uses `eager`); hero uses `quality={80}`.
+- Contrast: small text on `bg-primary` (Pale Teal) must be full `text-foreground`, not `/60`; blog pills use `text-foreground` on `bg-primary/40`. Lighthouse may still flag `.reveal` text at load (opacity animation), which is a false positive.
+- Known remaining: Google Maps name mismatch (COHIVE at Clapham vs CLAPHAM.CO); English mode is client-side only so EN is not indexed; blog titles with the " | CLAPHAM.CO" suffix reach 77 chars (Google cuts at ~60); blog articles have no internal links to service pages yet.

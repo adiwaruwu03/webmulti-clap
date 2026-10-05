@@ -9,7 +9,7 @@ export default function ConsultForm({ options }: { options: { value: string; lab
   const t = useT();
   return (
     <form className="grid grid-cols-1 gap-4">
-      <select defaultValue="" className={inputClass} required>
+      <select defaultValue="" aria-label={t("Ruang kerja yang Anda cari", "Workspace you are looking for")} className={inputClass} required>
         <option value="" disabled>
           {t("Ruang kerja apa yang Anda cari?", "What workspace are you looking for?")}
         </option>

@@ -15,7 +15,7 @@ export default function AboutPage() {
       <section className="py-28 bg-card">
         <div className="container mx-auto px-4 max-w-7xl grid md:grid-cols-2 gap-14 md:gap-20 items-center">
           <div className="reveal">
-            <h2 className="font-heading tracking-wide font-semibold text-4xl md:text-5xl text-foreground mb-8 leading-tight">
+            <h1 className="font-heading tracking-wide font-semibold text-4xl md:text-5xl text-foreground mb-8 leading-tight">
               <T
                 en={
                   <>
@@ -25,7 +25,7 @@ export default function AboutPage() {
               >
                 Membuat <span className="text-brick">perbedaan.</span>
               </T>
-            </h2>
+            </h1>
             <div className="space-y-6 text-muted-foreground text-lg leading-loose text-justify hyphens-auto">
               <p>
                 <T en="Clapham Company values people who share the same goal: to transform a better city we live in.">
@@ -55,6 +55,8 @@ export default function AboutPage() {
               height={750}
               sizes="(min-width: 768px) 50vw, 100vw"
               quality={90}
+              loading="eager"
+              fetchPriority="high"
               className="w-full h-auto rounded-lg"
             />
           </div>

@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+
+// Placeholder page: noindex until real content exists (remove `robots` and add to app/sitemap.ts then).
+export const metadata: Metadata = {
+  title: "Event Management Service di Medan",
+  description: "Layanan event management di Medan, dari konsep dan teknis acara sampai dokumentasi.",
+  robots: { index: false, follow: true },
+};
+
 import { T } from "@/components/Lang";
 
 export default function EventManagementPage() {

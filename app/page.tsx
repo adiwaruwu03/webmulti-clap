@@ -10,7 +10,7 @@ const services = [
     desc: "Kursi fleksibel di ruang bersama yang nyaman, hangat, dan mendukung kolaborasi.",
     descEn: "Flexible seats in a shared space that is comfortable, warm, and built for collaboration.",
     href: "/layanan/coworking-space",
-    img: "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?q=80&w=1400&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?q=80&w=1000&auto=format&fit=crop",
     cls: "md:col-span-2 lg:row-span-2",
     big: true,
   },
@@ -178,7 +178,7 @@ export default function Home() {
           loading="eager"
           fetchPriority="high"
           sizes="100vw"
-          quality={90}
+          quality={80}
           className="object-cover animate-kenburns"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/45" />
@@ -260,7 +260,7 @@ export default function Home() {
                   src={c.src}
                   alt={c.alt}
                   fill
-                  sizes="1400px"
+                  sizes="(min-width: 1024px) 820px, (min-width: 640px) 500px, 270px"
                   quality={90}
                   className="object-cover transition-transform duration-700 ease-out hover:scale-105"
                 />
@@ -318,6 +318,8 @@ export default function Home() {
                   <img
                     src={s.img}
                     alt={s.title}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/5" />
@@ -400,6 +402,8 @@ export default function Home() {
               <div key={n} className={`mx-8 md:mx-12 flex h-20 items-center justify-center gap-3 ${"label" in p ? "w-auto" : "w-44 md:w-52"}`} aria-hidden={n >= partners.length}>
                 <img
                   src={p.src}
+                  fetchPriority="low"
+                  decoding="async"
                   alt={n < partners.length ? p.name : ""}
                   width={p.w}
                   height={p.h}
@@ -515,7 +519,7 @@ export default function Home() {
 
             <div className="reveal md:col-span-2 space-y-8 md:pt-6" style={i(1)}>
               <div>
-                <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-foreground/60 mb-3">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-foreground mb-3">
                   <T en="Location">Lokasi</T>
                 </h3>
                 <p className="text-foreground leading-relaxed">
@@ -529,7 +533,7 @@ export default function Home() {
                 </p>
               </div>
               <div>
-                <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-foreground/60 mb-3">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-foreground mb-3">
                   <T en="Opening Hours">Jam Operasional</T>
                 </h3>
                 <p className="text-foreground">
