@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { T, useLang } from "./Lang";
 
 const layananLinks = [
   { name: "Coworking Space", href: "/layanan/coworking-space" },
@@ -22,6 +23,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
+  const { lang, setLang } = useLang();
 
   useEffect(() => {
     if (!isHome) return;
@@ -62,19 +64,21 @@ export default function Navbar() {
             alt="CLAPHAM.CO"
             width={180}
             height={50}
-            priority
+            loading="eager"
+            fetchPriority="high"
             className={`w-auto object-contain transition-all duration-500 ${solid ? "h-8" : "h-9"}`}
           />
         </Link>
 
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium">
+        <div className="flex items-center gap-8 text-sm font-medium">
+          <div className="hidden md:flex items-center gap-8">
           <Link href="/" className={`${underline} ${linkColor} transition-colors`}>
             Home
           </Link>
 
           <div className="relative group">
             <button className={`flex items-center gap-1 py-2 transition-colors ${linkColor}`}>
-              Layanan
+              <T en="Services">Layanan</T>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:rotate-180 group-focus-within:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
             </button>
             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 transition-all duration-300">
@@ -93,11 +97,38 @@ export default function Navbar() {
           </div>
 
           <Link href="/about" className={`${underline} ${linkColor} transition-colors`}>
-            About
+            <T en="About">Tentang</T>
           </Link>
           <Link href="/blog" className={`${underline} ${linkColor} transition-colors`}>
             Blog
           </Link>
+          </div>
+
+          <div
+            role="group"
+            aria-label="Language"
+            className={`flex items-center rounded-full p-0.5 text-xs font-semibold transition-colors duration-500 ${
+              solid ? "bg-foreground/5" : "bg-white/15"
+            }`}
+          >
+            {(["id", "en"] as const).map((l) => (
+              <button
+                key={l}
+                type="button"
+                onClick={() => setLang(l)}
+                aria-pressed={lang === l}
+                className={`rounded-full px-3 py-1 uppercase tracking-wider transition-colors duration-300 ${
+                  lang === l
+                    ? "bg-primary text-primary-foreground"
+                    : solid
+                      ? "text-foreground/60 hover:text-foreground"
+                      : "text-white/80 hover:text-white"
+                }`}
+              >
+                {l}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </nav>

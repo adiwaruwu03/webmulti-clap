@@ -53,7 +53,7 @@ Rules:
 
 ## Navbar
 
-- Content is fixed: Home, Layanan (hover dropdown with 7 service pages), About, Blog. Do not add links, icons, language toggle, or a mobile pill nav unless asked.
+- Content is fixed: Home, Layanan/Services (hover dropdown with 7 service pages), Tentang/About, Blog, plus an ID/EN toggle at the right end (owner asked for it). Do not add other links, icons, or a mobile pill nav unless asked.
 - Behavior: `fixed`, transparent over the hero on `/`, turns solid (blurred card background, dark logo) after 40px scroll and on all other routes. `main` has `pt-16` and the hero uses `-mt-16` to sit under the header.
 
 ## Things the owner explicitly rejected (do not reintroduce)
@@ -61,7 +61,7 @@ Rules:
 - Yllw Swiss-Bauhaus style from `../design.md` (putty background, uppercase monumental type).
 - Glass/blurred info pill over the hero, scroll-down mouse indicator, icon boxes on service cards, small eyebrow labels with a line above section headings. Owner said these look "AI-generated".
 - Hero headline, subtext and CTA buttons: owner wants a clean hero with only the photo and one plain-text info line.
-- Language toggle, icon-based nav links, floating mobile bottom nav.
+- Icon-based nav links, floating mobile bottom nav.
 
 ## Placeholder content
 
@@ -94,3 +94,13 @@ Partner names (Acme, Globex, ...), testimonials and avatars are dummy data. Repl
 - `next.config.ts` allows `images.qualities: [75, 90]`; big photos use `quality={90}`. Next 16 coerces any other value to 75.
 - When a landscape photo is cropped into a portrait/cover box (collage), `sizes` must describe the full source width (e.g. `sizes="1400px"`), not the visible box width, or the browser requests a tiny version and upscales it (looks blurry, especially at 125-150% display scale).
 - Original photos are 1360px wide webp; do not compress them further.
+- Round/square logos (aspect < 1.3) get a taller max height. Logos with a `label` field in the `partners` array (Soulmate, Coffeenatics) render their name as text beside the logo to balance the wide logos.
+- Raw originals live in `public/foto-home/logo-partner/` (BCA, Coffeenatics, Soulmate included). `public/partners/` holds only processed webp.
+
+## Bilingual (ID / EN)
+
+- Default language is Indonesian (SSR + SEO). English is switched client-side via the nav toggle and remembered in `localStorage`; `<html lang>` updates on switch. No separate /en routes.
+- `components/Lang.tsx`: `LangProvider` (wraps Navbar, main, Footer in `app/layout.tsx`), `useLang()`, `<T en="...">Indonesian text</T>` for visible text (en accepts JSX), and `useT()` -> `t("Indonesia", "English")` for attributes like placeholders.
+- EVERY new visible string must be wrapped in `<T>` (or use `useT`) with both languages. Arrays with copy get `descEn`/`titleEn`/`quoteEn` fields. Proper names (Coworking Space, Event Management Service, partner names, the address) stay untranslated.
+- Not translated on purpose: image `alt` text, iframe title, page `metadata` (title/description stay Indonesian for SEO), JSON-LD.
+- Nav label is "Tentang" (ID) / "About" (EN), never "About" in Indonesian mode.

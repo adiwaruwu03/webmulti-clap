@@ -3,6 +3,7 @@ import { Quicksand } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { LangProvider } from "../components/Lang";
 
 const quicksand = Quicksand({
   variable: "--font-quicksand",
@@ -74,9 +75,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Navbar />
-        <main className="flex-grow pt-16">{children}</main>
-        <Footer />
+        <LangProvider>
+          <Navbar />
+          <main className="flex-grow pt-16">{children}</main>
+          <Footer />
+        </LangProvider>
       </body>
     </html>
   );
