@@ -142,3 +142,8 @@ Testimonials are REAL Google reviews (6, all 5-star) of the Maps listing "COHIVE
 - Perf rules learned: never preload 20 partner logos at normal priority (they compete with the hero; they use `fetchPriority="low"`); `sizes` must describe the rendered image width, not the crop box; below-fold plain `<img>` need `loading="lazy"`; the LCP image of a page must be `loading="eager"` + `fetchPriority="high"` (blog featured card uses `eager`); hero uses `quality={80}`.
 - Contrast: small text on `bg-primary` (Pale Teal) must be full `text-foreground`, not `/60`; blog pills use `text-foreground` on `bg-primary/40`. Lighthouse may still flag `.reveal` text at load (opacity animation), which is a false positive.
 - Known remaining: Google Maps name mismatch (COHIVE at Clapham vs CLAPHAM.CO); English mode is client-side only so EN is not indexed; blog titles with the " | CLAPHAM.CO" suffix reach 77 chars (Google cuts at ~60); blog articles have no internal links to service pages yet.
+
+## Home collage (under the intro)
+
+- 3 photos in a row, middle one offset down. Left photo is the Clapham meeting room (`public/layanan/Meeting-Room/WhatsApp Image 2025-02-13 at 14.20.34_29bf9eef.jpg`, 4032x3024, shown with `object-[25%_50%]` so the TV, table and window stay in the crop). The other two are in `public/foto-home/New folder/`.
+- Photos are wider from 1200px up (`min-[1200px]:max-w-7xl` + `aspect-[5/6]`), keeping the same height as the earlier `aspect-[3/4]`; below 1200px they stay 3/4. The meeting-room source is large (~1.2 MB); Next serves a 828px optimised copy.

@@ -89,7 +89,7 @@ const values = [
 ];
 
 const collage = [
-  { src: "/foto-home/New%20folder/clapham-foto3.webp", alt: "Area kerja bersama CLAPHAM.CO", cls: "" },
+  { src: "/layanan/Meeting-Room/WhatsApp%20Image%202025-02-13%20at%2014.20.34_29bf9eef.jpg", alt: "Ruang meeting CLAPHAM.CO dengan meja kayu, TV, dan jendela besar", cls: "", pos: "object-[25%_50%]" },
   { src: "/foto-home/New%20folder/clpham-foto.webp", alt: "Area bar dan perpustakaan mini CLAPHAM.CO", cls: "md:mt-14" },
   { src: "/foto-home/New%20folder/clapham-foto2.webp", alt: "Lounge CLAPHAM.CO", cls: "" },
 ];
@@ -252,17 +252,17 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 max-w-6xl mt-20 grid grid-cols-3 gap-3 md:gap-6">
+        <div className="container mx-auto px-4 max-w-6xl min-[1200px]:max-w-7xl mt-20 grid grid-cols-3 gap-3 md:gap-6">
           {collage.map((c, n) => (
             <div key={c.src} className={`reveal ${c.cls}`} style={i(n)}>
-              <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
+              <div className="relative aspect-[3/4] min-[1200px]:aspect-[5/6] overflow-hidden rounded-lg">
                 <Image
                   src={c.src}
                   alt={c.alt}
                   fill
                   sizes="(min-width: 1024px) 820px, (min-width: 640px) 500px, 270px"
                   quality={90}
-                  className="object-cover transition-transform duration-700 ease-out hover:scale-105"
+                  className={`object-cover ${c.pos ?? ""} transition-transform duration-700 ease-out hover:scale-105`}
                 />
               </div>
             </div>
