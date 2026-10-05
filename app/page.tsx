@@ -120,30 +120,45 @@ const partners = [
 const testimonials = [
   {
     quote:
-      "CLAPHAM.CO memberi lingkungan yang pas untuk startup kami berkembang. Fasilitas rapi dan komunitasnya hangat.",
+      "Pengalaman yang sangat luar biasa mengadakan acara HUT komunitas pemuda kami di Clapham Collective… Ruangannya sangat luas, audiensnya josss, dan suasana dan lightingnya sangat mendukung.",
     quoteEn:
-      "CLAPHAM.CO gave our startup the right environment to grow. The facilities are tidy and the community is warm.",
-    name: "Budi Santoso",
-    role: "CEO, TechNusa",
-    avatar: "https://i.pravatar.cc/150?u=1",
+      "An amazing experience hosting our youth community's anniversary event at Clapham Collective… The room is very spacious, the audience was great, and the atmosphere and lighting were very supportive.",
+    name: "Vincent Junedy Luis",
   },
   {
     quote:
-      "Ruang rapatnya lengkap dan internetnya cepat. Coworking space paling nyaman yang pernah saya pakai di kota ini.",
+      "Clapham menjadi tempat yang sangat cocok untuk mengadakan workshop. Tempatnya nyaman, bersih, dengan fasilitas yang lengkap dan suasana yang kondusif. Pelayanannya juga ramah serta sangat membantu selama kegiatan berlangsung. Terima kasih Clapham sudah memfasilitasi kegiatan kami dengan sangat baik.",
     quoteEn:
-      "The meeting rooms are complete and the internet is fast. The most comfortable coworking space I've ever used in this city.",
-    name: "Siti Rahma",
-    role: "Freelance Designer",
-    avatar: "https://i.pravatar.cc/150?u=2",
+      "Clapham is a great place to hold workshops. The venue is comfortable and clean, with complete facilities and a conducive atmosphere. The service was also friendly and very helpful throughout the event. Thank you Clapham for facilitating our activities so well.",
+    name: "Jeanne elga",
   },
   {
     quote:
-      "Pindah ke private office di sini keputusan terbaik untuk tim kami. Staf-nya ramah dan sangat membantu.",
+      "Nyaman, tenang, dan sangat mendukung produktivitas. Salah satu co-working space terbaik di Medan. Sangat direkomendasikan juga untuk acara!",
     quoteEn:
-      "Moving to a private office here was the best decision for our team. The staff are friendly and very helpful.",
-    name: "Andi Wijaya",
-    role: "Marketing Director",
-    avatar: "https://i.pravatar.cc/150?u=3",
+      "Comfortable, quiet, and highly supportive of productivity. One of the best co-working spaces in Medan. Also highly recommended for events!",
+    name: "Celia Fransiska",
+  },
+  {
+    quote:
+      "Clapham menyediakan fasilitas coworking termasuk ruang serbaguna yang bisa disewa untuk rapat maupun acara seminar dalam skala kecil.",
+    quoteEn:
+      "Clapham provides coworking facilities, including a multipurpose room that can be rented for meetings or small-scale seminars.",
+    name: "Edwin Petrus",
+  },
+  {
+    quote:
+      "Tempatnya nyaman untuk kegiatan meeting atau training. Para stafnya ramah dan sigap membantu. Makanannya juga enak dan cocok di lidah. Terima kasih Clapham sudah membantu mensukseskan kegiatan kami.",
+    quoteEn:
+      "A comfortable place for meetings or training. The staff are friendly and quick to help. The food is also delicious and suits the palate. Thank you Clapham for helping make our event a success.",
+    name: "Endah Juarsih",
+  },
+  {
+    quote:
+      "Kalau kerja kelompok di kampus sering terganggu karena berisik, tapi sejak sewa ruang kantor, semuanya jadi lebih efektif. Bisa diskusi tanpa ribut, ada whiteboard buat brainstorming, dan pastinya lebih fokus dibanding di kafe. Di sini suasananya bagus dan mendukung untuk belajar dan kerja.",
+    quoteEn:
+      "Group work on campus is often disrupted by noise, but since renting office space, everything has become more effective. We can discuss without the racket, there's a whiteboard for brainstorming, and it's definitely more focused than a café. The atmosphere here is great and supports studying and working.",
+    name: "annisa nst",
   },
 ];
 
@@ -446,27 +461,37 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {testimonials.map((t, n) => (
-              <div key={t.name} className="reveal" style={i(n)}>
-                <figure className="relative h-full bg-card p-8 rounded-lg border border-border shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-500">
+              <div key={t.name} className="reveal" style={i(n % 3)}>
+                <figure className="relative flex h-full flex-col bg-card p-8 rounded-lg border border-border shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-500">
                   <span className="absolute top-4 right-6 font-heading tracking-wide text-7xl leading-none text-brick/20 select-none">&rdquo;</span>
                   <div className="flex gap-0.5 text-brick mb-5">
                     {[...Array(5)].map((_, k) => (
                       <svg key={k} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
                     ))}
                   </div>
-                  <blockquote className="font-heading tracking-wide text-lg text-card-foreground leading-relaxed mb-8">
+                  <blockquote className="font-heading tracking-wide text-lg text-card-foreground leading-relaxed mb-8 flex-grow">
                     &ldquo;<T en={t.quoteEn}>{t.quote}</T>&rdquo;
                   </blockquote>
-                  <figcaption className="flex items-center">
-                    <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-teal-ink/30" />
-                    <div>
-                      <p className="font-semibold text-card-foreground">{t.name}</p>
-                      <p className="text-sm text-muted-foreground">{t.role}</p>
-                    </div>
+                  <figcaption className="border-t border-border pt-5">
+                    <p className="font-semibold text-card-foreground">{t.name}</p>
+                    <p className="text-sm text-muted-foreground">
+                      <T en="Google review">Ulasan Google</T>
+                    </p>
                   </figcaption>
                 </figure>
               </div>
             ))}
+          </div>
+          <div className="reveal mt-12 text-center">
+            <a
+              href="https://www.google.com/maps/place/COHIVE+at+Clapham/@3.5926181,98.6788611,697m/data=!3m1!1e3!4m16!1m9!3m8!1s0x303131c784afcce9:0x1c0f6a9ddeb16361!2sCOHIVE+at+Clapham!8m2!3d3.5926181!4d98.681436!9m1!1b1!16s%2Fg%2F11bwc10nt0!3m5!1s0x303131c784afcce9:0x1c0f6a9ddeb16361!8m2!3d3.5926181!4d98.681436!16s%2Fg%2F11bwc10nt0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-md border border-border px-7 py-3.5 font-semibold text-foreground hover:border-teal-ink hover:text-teal-ink transition-colors duration-300"
+            >
+              <T en="See all reviews on Google Maps">Lihat semua ulasan di Google Maps</T>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+            </a>
           </div>
         </div>
       </section>

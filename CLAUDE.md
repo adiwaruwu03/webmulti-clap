@@ -65,7 +65,7 @@ Rules:
 
 ## Placeholder content
 
-Partner names (Acme, Globex, ...), testimonials and avatars are dummy data. Replace with real data before launch.
+Testimonials are REAL Google reviews (6, all 5-star) of the Maps listing "COHIVE at Clapham", copied from owner screenshots on 2026-10-05, names only, no avatars (owner dislikes fake or scraped people photos). Indonesian originals are shown as-is with my English translation; the English review (Celia Fransiska) has my Indonesian translation. Long reviews are cut at a sentence end. Add new ones the same way, never invent reviews.
 
 ## SEO and copy (home page)
 
