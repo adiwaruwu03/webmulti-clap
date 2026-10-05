@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import type { Post } from "../../lib/blog";
+import { T } from "../Lang";
 import PostDate from "./PostDate";
 
 export const pillClass =
@@ -35,9 +36,9 @@ export default function PostCard({ post, index = 0, size = "card", eager = false
               featured ? "text-2xl md:text-3xl" : "text-xl"
             }`}
           >
-            {post.title}
+            <T en={post.en.title}>{post.title}</T>
           </h3>
-          <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground md:text-base">{post.excerpt}</p>
+          <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground md:text-base"><T en={post.en.excerpt}>{post.excerpt}</T></p>
           <p className="mt-5 flex items-center gap-2 text-xs text-muted-foreground">
             <span>{post.author.name}</span>
             <span aria-hidden>•</span>

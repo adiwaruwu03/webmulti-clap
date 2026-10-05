@@ -11,6 +11,8 @@ export type Block =
   | { t: "img"; src: string; w: number; h: number; alt: string }
   | { t: "embed"; src: string; title: string };
 
+export type PostText = { title: string; excerpt: string; blocks: Block[] };
+
 export type Post = {
   slug: string;
   category: string;
@@ -20,6 +22,8 @@ export type Post = {
   author: { name: string; role: string };
   hero: { src: string; w: number; h: number };
   blocks: Block[];
+  /** English version (title, excerpt, same block layout). Indonesian is the default and the SEO language. */
+  en: PostText;
 };
 
 // posts.json keeps the reference "Artikel Terbaru" order

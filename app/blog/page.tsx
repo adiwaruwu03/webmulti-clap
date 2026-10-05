@@ -63,7 +63,7 @@ export default function BlogPage() {
                     >
                       <span className={pillClass}>{post.category}</span>
                       <p className="mt-3 font-heading font-semibold leading-snug tracking-wide text-card-foreground transition-colors group-hover:text-teal-ink">
-                        {post.title}
+                        <T en={post.en.title}>{post.title}</T>
                       </p>
                     </Link>
                   </li>

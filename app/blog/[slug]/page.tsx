@@ -148,9 +148,11 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <header>
           <span className={pillClass}>{post.category}</span>
           <h1 className="mt-5 font-heading text-3xl font-semibold leading-tight tracking-wide text-foreground md:text-5xl">
-            {post.title}
+            <T en={post.en.title}>{post.title}</T>
           </h1>
-          <p className="mt-5 text-lg leading-relaxed text-muted-foreground md:text-xl">{post.excerpt}</p>
+          <p className="mt-5 text-lg leading-relaxed text-muted-foreground md:text-xl">
+            <T en={post.en.excerpt}>{post.excerpt}</T>
+          </p>
           <PostDate iso={post.date} className="mt-6 block text-sm font-semibold text-foreground" />
 
           <div className="mt-6 rounded-lg bg-secondary px-5 py-4">
@@ -160,16 +162,6 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         </header>
 
         <hr className="my-10 border-border" />
-
-        <T
-          en={
-            <p className="mb-8 rounded-lg border border-border bg-card px-5 py-3 text-sm text-muted-foreground">
-              This article is currently available in Indonesian only.
-            </p>
-          }
-        >
-          {null}
-        </T>
 
         <Image
           src={post.hero.src}
@@ -183,11 +175,21 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           className="mb-10 h-auto w-full rounded-lg"
         />
 
-        <div lang="id">
-          {post.blocks.map((b, i) => (
-            <Body key={i} block={b} />
-          ))}
-        </div>
+        <T
+          en={
+            <div lang="en">
+              {post.en.blocks.map((b, i) => (
+                <Body key={i} block={b} />
+              ))}
+            </div>
+          }
+        >
+          <div lang="id">
+            {post.blocks.map((b, i) => (
+              <Body key={i} block={b} />
+            ))}
+          </div>
+        </T>
 
         <a
           href={WHATSAPP_URL}
@@ -215,7 +217,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                   >
                     <span className={pillClass}>{p.category}</span>
                     <p className="mt-3 font-heading font-semibold leading-snug tracking-wide text-card-foreground transition-colors group-hover:text-teal-ink">
-                      {p.title}
+                      <T en={p.en.title}>{p.title}</T>
                     </p>
                   </Link>
                 </li>
