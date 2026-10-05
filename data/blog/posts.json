@@ -10,9 +10,9 @@
    "role": "Copywriter"
   },
   "hero": {
-   "src": "/blog/5-meeting-room-medan-terbaik.webp",
-   "w": 836,
-   "h": 626
+   "src": "/blog/pexels-kindel-media-6774956.webp",
+   "w": 1137,
+   "h": 853
   },
   "blocks": [
    {
@@ -105,14 +105,15 @@
    },
    {
     "t": "img",
-    "src": "/blog/clapham-collective.webp",
-    "w": 1016,
-    "h": 675,
-    "alt": "Ruang kerja bersama Clapham dengan rak kayu, meja tinggi, kursi bar, dan lampu gantung industrial."
+    "src": "/blog/2020-10-07.webp",
+    "w": 680,
+    "h": 453,
+    "srcW": 680,
+    "alt": "Clapham coworking space di medan"
    },
    {
     "t": "p",
-    "text": "Clapham merupakan meeting room Medan terbaik yang menjadi pilihan banyak pebisnis. Terhitung 200 lebih perusahaan sudah menggunakan jasa Clapham. Mulai dari Gojek, Kominfo, SMLONE, Google, dan banyak lainnya. Lokasinya di Ruko Centre Point, jalan Timor Blok G nomor III/IV Medan."
+    "text": "[Clapham](/) merupakan meeting room Medan terbaik yang menjadi pilihan banyak pebisnis. Terhitung 200 lebih perusahaan sudah menggunakan jasa Clapham. Mulai dari Gojek, Kominfo, SMLONE, Google, dan banyak lainnya. Lokasinya di Ruko Centre Point, jalan Timor Blok G nomor III/IV Medan."
    },
    {
     "t": "p",
@@ -124,7 +125,7 @@
    },
    {
     "t": "p",
-    "text": "Untuk menyewa ruang pertemuan, harganya dimulai dari 110 ribu. Model ruangan, kapasitas, fasilitas, dan sebagainya bisa menyesuaikan kebutuhan. Untuk mendapatkan informasi lebih lanjut tentang ketersediaan ruang, bisa menghubungi Clapham dari kontak WhatsApp."
+    "text": "Untuk menyewa ruang pertemuan, harganya dimulai dari 110 ribu. Model ruangan, kapasitas, fasilitas, dan sebagainya bisa menyesuaikan kebutuhan. Untuk mendapatkan informasi lebih lanjut tentang ketersediaan ruang, bisa [menghubungi Clapham dari kontak WhatsApp](wa:)."
    },
    {
     "t": "h3",
@@ -195,9 +196,9 @@
    "role": "Copywriter"
   },
   "hero": {
-   "src": "/blog/7-coworking-space-di-medan.webp",
-   "w": 836,
-   "h": 556
+   "src": "/blog/group-three-young-multi-ethnic-startups-working-together-cow.webp",
+   "w": 1000,
+   "h": 667
   },
   "blocks": [
    {
@@ -205,15 +206,16 @@
     "text": "Medan, sebagai salah satu kota terbesar di Indonesia, terkenal dengan kehidupan bisnis yang dinamis dan berkembang pesat. Bagi para profesional, kewirausahaan, atau freelancer, mencari tempat kerja yang inspiratif dan nyaman adalah suatu kebutuhan. Oleh karena itu, tak heran banyak coworking space yang bermunculan di kota Medan. Berikut daftar 7 coworking space di Medan yang wajib kamu kunjungi. Setiap tempat ini menawarkan fasilitas coworking space yang modern, lingkungan yang kreatif, dan ruang yang fleksibel untuk meningkatkan produktivitas dan kolaborasi."
    },
    {
-    "t": "h3",
+    "t": "h2",
     "text": "1. Clapham"
    },
    {
     "t": "img",
-    "src": "/blog/clapham-collective.webp",
-    "w": 1016,
-    "h": 675,
-    "alt": "Area kerja bersama Clapham dengan rak kayu, meja tinggi, dan kursi bar di dekat dinding kaca."
+    "src": "/blog/2020-10-07.webp",
+    "w": 680,
+    "h": 453,
+    "srcW": 680,
+    "alt": "Clapham coworking space di medan"
    },
    {
     "t": "p",
@@ -224,8 +226,21 @@
     "text": "**Lokasi**: Komp. Ruko Centre Point Medan Jalan Timor Blok G No. III/IV 2nd Floor, Gang Buntu, Medan Timur, Medan City, North Sumatra 20231"
    },
    {
-    "t": "h3",
+    "t": "embed",
+    "src": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.977545847708!2d98.67886107375607!3d3.5926234502690426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131c784afcce9%3A0x1c0f6a9ddeb16361!2sClapham%20Collective!5e0!3m2!1sen!2sid!4v1696484499035!5m2!1sen!2sid",
+    "title": "Peta lokasi: 1. Clapham"
+   },
+   {
+    "t": "h2",
     "text": "2. Yafurni"
+   },
+   {
+    "t": "img",
+    "src": "/blog/whatsapp-image-2022-09-21-at-1-23-07-pm.webp",
+    "w": 680,
+    "h": 510,
+    "srcW": 680,
+    "alt": "Yafurni coworking space di medan"
    },
    {
     "t": "p",
@@ -236,15 +251,21 @@
     "text": "**Lokasi**: Jl. Iskandar Muda No.7, Petisah Hulu, Kec. Medan Baru, Kota Medan, Sumatera Utara 20153"
    },
    {
+    "t": "embed",
+    "src": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.0180569985546!2d98.65690616840534!3d3.5833273423818195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30313119284c93e1%3A0x37957c852bec59d7!2sYafurni%20Working%20Space!5e0!3m2!1sen!2sid!4v1696484568465!5m2!1sen!2sid",
+    "title": "Peta lokasi: 2. Yafurni"
+   },
+   {
     "t": "h3",
     "text": "3. Kalingga"
    },
    {
     "t": "img",
-    "src": "/blog/7-coworking-space-di-medan--kalingga.webp",
-    "w": 1016,
-    "h": 506,
-    "alt": "Area coworking Kalingga pada malam hari dengan gerbang kuning bercahaya dan orang-orang duduk di meja tinggi."
+    "src": "/blog/whatsapp-image-2021-01-10-at-19-06-41.webp",
+    "w": 680,
+    "h": 340,
+    "srcW": 680,
+    "alt": "me& Kalingga cafe coworking space di medan"
    },
    {
     "t": "p",
@@ -255,15 +276,21 @@
     "text": "**Lokasi**: Jl. Kalingga No.14, Petisah Tengah, Kec. Medan Petisah, Kota Medan, Sumatera Utara 20112"
    },
    {
-    "t": "h3",
+    "t": "embed",
+    "src": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.01028674807!2d98.66816447375597!3d3.5851122503205852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131d206853261%3A0xa395ba7dc4f524eb!2sJl.%20Kalingga%20No.14%2C%20Petisah%20Tengah%2C%20Kec.%20Medan%20Petisah%2C%20Kota%20Medan%2C%20Sumatera%20Utara%2020151!5e0!3m2!1sen!2sid!4v1696484624218!5m2!1sen!2sid",
+    "title": "Peta lokasi: 3. Kalingga"
+   },
+   {
+    "t": "h2",
     "text": "4. Spasi"
    },
    {
     "t": "img",
-    "src": "/blog/7-coworking-space-di-medan--spasi.webp",
-    "w": 1042,
-    "h": 666,
-    "alt": "Interior coworking space Spasi dengan langit-langit kayu, meja dan kursi kayu, serta area pantry."
+    "src": "/blog/491f8195-original.webp",
+    "w": 1352,
+    "h": 866,
+    "srcW": 1352,
+    "alt": "4. Spasi"
    },
    {
     "t": "p",
@@ -274,7 +301,12 @@
     "text": "**Lokasi**: Komplek Multatuli Indah, Jl. Multatuli No.30-31, Hamdan, Kec. Medan Maimun, Kota Medan, Sumatera Utara 20212"
    },
    {
-    "t": "h3",
+    "t": "embed",
+    "src": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.0499035901626!2d98.67768397375596!3d3.576002550382977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30313195dbd63ff9%3A0x858bf63a8cce57b9!2sSpasi%20Hub!5e0!3m2!1sen!2sid!4v1696484656470!5m2!1sen!2sid",
+    "title": "Peta lokasi: 4. Spasi"
+   },
+   {
+    "t": "h2",
     "text": "5. GoWork Medan"
    },
    {
@@ -286,8 +318,21 @@
     "text": "**Lokasi**: Jl. Sutomo No.1C, Petisah Tengah, Kec. Medan Petisah, Kota Medan, Sumatera Utara 20112"
    },
    {
-    "t": "h3",
+    "t": "embed",
+    "src": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.0186109921688!2d98.66988747375599!3d3.5832000503336907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3031316bc6f910b7%3A0x7006547214d977e!2sGoWork%20Sinar%20Mas%20Land%20Plaza%20Medan%20-%20Coworking%20And%20Office%20Space!5e0!3m2!1sen!2sid!4v1696484696019!5m2!1sen!2sid",
+    "title": "Peta lokasi: 5. GoWork Medan"
+   },
+   {
+    "t": "h2",
     "text": "6. Origin"
+   },
+   {
+    "t": "img",
+    "src": "/blog/dsc2361-e1630263666753.webp",
+    "w": 1312,
+    "h": 686,
+    "srcW": 1312,
+    "alt": "Origin Workspace Bristol | Offices & Coworking | Join Our Community"
    },
    {
     "t": "p",
@@ -298,8 +343,21 @@
     "text": "**Lokasi**: Jl. Gaharu Blok P No.1, Tj. Mulia, Kec. Medan Baru, Kota Medan, Sumatera Utara 20153"
    },
    {
-    "t": "h3",
+    "t": "embed",
+    "src": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.937169242188!2d98.67228986840581!3d3.6018648422134336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131c1f0c92439%3A0xd65cac1092e9adba!2sJl.%20Gaharu%2C%20Kec.%20Medan%20Tim.%2C%20Kota%20Medan%2C%20Sumatera%20Utara!5e0!3m2!1sen!2sid!4v1696484769194!5m2!1sen!2sid",
+    "title": "Peta lokasi: 6. Origin"
+   },
+   {
+    "t": "h2",
     "text": "7. Edison Co-Working Space"
+   },
+   {
+    "t": "img",
+    "src": "/blog/location-office-ovl02-12.webp",
+    "w": 1178,
+    "h": 736,
+    "srcW": 1178,
+    "alt": "Edison Spaces"
    },
    {
     "t": "p",
@@ -314,16 +372,17 @@
     "text": "**Lokasi**: Jl. Wahidin Sudirohusodo No.71, Petisah Tengah, Kec. Medan Petisah, Kota Medan, Sumatera Utara 20119"
    },
    {
+    "t": "embed",
+    "src": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d591.9276343951218!2d98.6948709537527!3d3.58779358381307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131afb2c94529%3A0x6dbb9278dc570607!2sJl.%20Wahidin%20No.71%2C%20Pandau%20Hulu%20I%2C%20Kec.%20Medan%20Kota%2C%20Kota%20Medan%2C%20Sumatera%20Utara%2020233!5e0!3m2!1sen!2sid!4v1696484945633!5m2!1sen!2sid",
+    "title": "Peta lokasi: 7. Edison Co-Working Space"
+   },
+   {
     "t": "p",
     "text": "Dari Clapham yang modern hingga Edison Co-Working Space yang inovatif, setiap coworking space yang disebutkan dalam artikel ini menawarkan lingkungan yang inspiratif, fasilitas yang lengkap, dan kemudahan akses untuk mendukung produktivitas dan kolaborasi."
    },
    {
     "t": "p",
-    "text": "Jelajahi pilihan-pilihan tersebut, kunjungi dan rasakan sendiri atmosfer yang ditawarkan!"
-   },
-   {
-    "t": "p",
-    "text": "Temukan coworking space yang sesuai dengan kebutuhan bisnis Anda di kota Medan yang berkembang pesat ini bersama Workfrom. Booking coworking space sekarang!"
+    "text": "Jelajahi pilihan-pilihan tersebut, kunjungi dan rasakan sendiri atmosfer yang ditawarkan! Temukan coworking space yang sesuai dengan kebutuhan bisnis Anda di kota Medan yang berkembang pesat ini bersama Workfrom. [Booking coworking space sekarang!](/atur-kunjungan)"
    }
   ]
  },
@@ -338,14 +397,14 @@
    "role": "Copywriter"
   },
   "hero": {
-   "src": "/blog/fasilitas-sewa-private-office.webp",
-   "w": 836,
-   "h": 556
+   "src": "/blog/contemporary-office.webp",
+   "w": 1500,
+   "h": 1000
   },
   "blocks": [
    {
     "t": "p",
-    "text": "Dengan kelebihan yang dimiliki oleh kantor pribadi, tak heran apabila banyak yang sedang mencari informasi mengenai sewa *private office* terdekat. Akan tetapi, setiap tempat penyewaan kantor tentu memiliki penawaran dan fasilitas yang berbeda-beda."
+    "text": "Dengan kelebihan yang dimiliki oleh kantor pribadi, tak heran apabila banyak yang sedang mencari informasi mengenai sewa *priva**t**e office* terdekat. Akan tetapi, setiap tempat penyewaan kantor tentu memiliki penawaran dan fasilitas yang berbeda-beda."
    },
    {
     "t": "p",
@@ -442,14 +501,15 @@
    },
    {
     "t": "img",
-    "src": "/blog/clapham-collective.webp",
-    "w": 1016,
-    "h": 675,
-    "alt": "Area kerja Clapham Collective dengan rak kayu, meja tinggi, dan bangku bar di dekat dinding kaca."
+    "src": "/blog/2020-10-07.webp",
+    "w": 680,
+    "h": 453,
+    "srcW": 680,
+    "alt": "Clapham coworking space di medan"
    },
    {
     "t": "p",
-    "text": "Clapham Collective menawarkan solusi ruang kerja yang ideal untuk memenuhi berbagai kebutuhan profesional dan bisnis di Medan. Dengan konsep coworking space modern, Clapham Collective menyediakan lingkungan yang mendukung produktivitas dan kolaborasi."
+    "text": "[Clapham Collective](/) menawarkan solusi ruang kerja yang ideal untuk memenuhi berbagai kebutuhan profesional dan bisnis di Medan. Dengan konsep coworking space modern, Clapham Collective menyediakan lingkungan yang mendukung produktivitas dan kolaborasi."
    },
    {
     "t": "p",
@@ -465,8 +525,21 @@
     ]
    },
    {
+    "t": "embed",
+    "src": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.977545847708!2d98.67886107375607!3d3.5926234502690426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131c784afcce9%3A0x1c0f6a9ddeb16361!2sClapham%20Collective!5e0!3m2!1sen!2sid!4v1696484499035!5m2!1sen!2sid",
+    "title": "Peta lokasi: 1. Clapham Collective"
+   },
+   {
     "t": "h3",
     "text": "2. Avenue8 Office"
+   },
+   {
+    "t": "img",
+    "src": "/blog/avenue8-coworking-space-jakarta-coworking-area-1.webp",
+    "w": 680,
+    "h": 453,
+    "srcW": 680,
+    "alt": "private office dan coworking space Avenue8 Jakarta"
    },
    {
     "t": "p",
@@ -479,6 +552,11 @@
      "Fasilitas yang mengutamakan keamanan, seperti kartu kunci yang canggih, saluran telepon khusus, dan laci terkunci rapat.",
      "Layanan percetakan, pembersihan harian, penanganan email & telepon, dan Wi-Fi yang kencang."
     ]
+   },
+   {
+    "t": "embed",
+    "src": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.580553790464!2d106.82510187369947!3d-6.186845560614792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f42564fe5cf5%3A0xbc69090ddd67058d!2sAvenue8%20Offices!5e0!3m2!1sen!2sid!4v1702539062245!5m2!1sen!2sid",
+    "title": "Peta lokasi: 2. Avenue8 Office"
    },
    {
     "t": "h3",
@@ -502,8 +580,21 @@
     "text": "Meski fasilitas lengkap, *private office* di Noble House ini memiliki kapasitas yang tidak banyak. Jadi, kantor Noble House ini direkomendasi untuk tim yang berjumlah kecil, namun tetap ingin mengakses ruang pribadi."
    },
    {
+    "t": "embed",
+    "src": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2702799893314!2d106.82076526792056!3d-6.228052847174444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e46742dd59%3A0x400fe3a611237ed7!2sNoble%20House!5e0!3m2!1sen!2sid!4v1702539266868!5m2!1sen!2sid",
+    "title": "Peta lokasi: 3. Noble House"
+   },
+   {
     "t": "h3",
     "text": "4. Revenue Tower"
+   },
+   {
+    "t": "img",
+    "src": "/blog/2022-11-18-1.webp",
+    "w": 680,
+    "h": 510,
+    "srcW": 680,
+    "alt": "Ruang kerja di kantor Reveneu Tower SCBD"
    },
    {
     "t": "p",
@@ -514,16 +605,29 @@
     "text": "Adapun fasilitas unik di Revenue Tower ini adalah parkir, ruang acara khusus, dan ruang untuk laktasi. Jadi, perusahaan dengan kebutuhan tersebut dapat memilih *private office* yang berada di Revenue Tower ini."
    },
    {
+    "t": "embed",
+    "src": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2759242549787!2d106.80455277370007!3d-6.227305660984438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1142e0348b9%3A0xf0a9c79e79f514db!2sRevenue%20Tower!5e0!3m2!1sen!2sid!4v1702539302672!5m2!1sen!2sid",
+    "title": "Peta lokasi: 4. Revenue Tower"
+   },
+   {
     "t": "h2",
     "text": "Clapham: Solusi Sewa Ruang Kantor dan Acara Anda di Medan"
    },
    {
     "t": "p",
-    "text": "Apakah Anda sedang mencari ruang kerja yang tidak hanya fungsional, tetapi juga inspiratif dan mendukung pertumbuhan bisnis Anda? Clapham Collective Medan hadir sebagai solusi sempurna untuk kebutuhan ruang kerja modern Anda di jantung kota Medan."
+    "text": "Apakah Anda sedang mencari ruang kerja yang tidak hanya fungsional, tetapi juga inspiratif dan mendukung pertumbuhan bisnis Anda? [Clapham Collective Medan](/) hadir sebagai solusi sempurna untuk kebutuhan ruang kerja modern Anda di jantung kota Medan."
+   },
+   {
+    "t": "img",
+    "src": "/blog/gallery1.webp",
+    "w": 1280,
+    "h": 504,
+    "srcW": 1280,
+    "alt": "clapham medan sewa ruang kantor"
    },
    {
     "t": "p",
-    "text": "Sejak 2015, Clapham Collective telah menjadi rumah bagi berbagai pengusaha dan kreator yang ingin melepaskan diri dari lingkungan kerja tradisional. Dengan lokasi strategis di Kompleks Ruko Centre Point Medan, kami menawarkan berbagai pilihan ruang kerja yang dapat disesuaikan dengan kebutuhan Anda!"
+    "text": "Sejak 2015, Clapham Collective telah menjadi rumah bagi berbagai pengusaha dan kreator yang ingin melepaskan diri dari lingkungan kerja tradisional. Dengan lokasi strategis di Kompleks Ruko Centre Point Medan, [kami menawarkan berbagai pilihan ruang kerja yang dapat disesuaikan dengan kebutuhan Anda!](/)"
    },
    {
     "t": "p",
@@ -546,9 +650,9 @@
    "role": "Copywriter"
   },
   "hero": {
-   "src": "/blog/sewa-kantor-murah.webp",
-   "w": 836,
-   "h": 556
+   "src": "/blog/3-sewa-kantor-murah.webp",
+   "w": 1279,
+   "h": 854
   },
   "blocks": [
    {
@@ -589,14 +693,15 @@
    },
    {
     "t": "p",
-    "text": "Jika Anda tengah mencari sewa ruang kantor dengan fasilitas terbaik di Medan, maka Clapham Collective adalah pilihan yang tepat. Berlokasi strategis di lantai 2 Kompleks Ruko Centre Point Medan, Clapham Collective menawarkan berbagai opsi ruang kantor privat yang sesuai dengan kebutuhan Anda. Mulai dari ruangan untuk 2 orang hingga kapasitas 15 orang, setiap ruangan dilengkapi dengan fasilitas modern seperti meja ergonomis, kursi nyaman, koneksi internet berkecepatan tinggi, dan perlengkapan kantor esensial lainnya."
+    "text": "Jika Anda tengah mencari sewa ruang kantor dengan fasilitas terbaik di Medan, maka [Clapham Collective](/) adalah pilihan yang tepat. Berlokasi strategis di lantai 2 Kompleks Ruko Centre Point Medan, Clapham Collective menawarkan berbagai opsi ruang kantor privat yang sesuai dengan kebutuhan Anda. Mulai dari ruangan untuk 2 orang hingga kapasitas 15 orang, setiap ruangan dilengkapi dengan fasilitas modern seperti meja ergonomis, kursi nyaman, koneksi internet berkecepatan tinggi, dan perlengkapan kantor esensial lainnya."
    },
    {
     "t": "img",
-    "src": "/blog/clapham-collective.webp",
-    "w": 1016,
-    "h": 675,
-    "alt": "Ruang kerja bersama Clapham dengan rak kayu, meja tinggi, kursi bar, dan lampu gantung."
+    "src": "/blog/2020-10-07.webp",
+    "w": 680,
+    "h": 453,
+    "srcW": 680,
+    "alt": "Clapham coworking space di medan"
    },
    {
     "t": "p",
@@ -752,11 +857,19 @@
    },
    {
     "t": "p",
-    "text": "Apakah Anda sedang mencari ruang kerja yang tidak hanya fungsional, tetapi juga inspiratif dan mendukung pertumbuhan bisnis Anda? Clapham Collective Medan hadir sebagai solusi sempurna untuk kebutuhan ruang kerja modern Anda di jantung kota Medan."
+    "text": "Apakah Anda sedang mencari ruang kerja yang tidak hanya fungsional, tetapi juga inspiratif dan mendukung pertumbuhan bisnis Anda? [Clapham Collective Medan](/) hadir sebagai solusi sempurna untuk kebutuhan ruang kerja modern Anda di jantung kota Medan."
+   },
+   {
+    "t": "img",
+    "src": "/blog/gallery1.webp",
+    "w": 1280,
+    "h": 504,
+    "srcW": 1280,
+    "alt": "clapham medan sewa ruang kantor"
    },
    {
     "t": "p",
-    "text": "Sejak 2015, Clapham Collective telah menjadi rumah bagi berbagai pengusaha dan kreator yang ingin melepaskan diri dari lingkungan kerja tradisional. Dengan lokasi strategis di Kompleks Ruko Centre Point Medan, kami menawarkan berbagai pilihan ruang kerja yang dapat disesuaikan dengan kebutuhan Anda!"
+    "text": "Sejak 2015, Clapham Collective telah menjadi rumah bagi berbagai pengusaha dan kreator yang ingin melepaskan diri dari lingkungan kerja tradisional. Dengan lokasi strategis di Kompleks Ruko Centre Point Medan, [kami menawarkan berbagai pilihan ruang kerja yang dapat disesuaikan dengan kebutuhan Anda!](/)"
    },
    {
     "t": "p",
@@ -779,9 +892,9 @@
    "role": "Copywriter"
   },
   "hero": {
-   "src": "/blog/coworking-space-vs-sewa-kantor.webp",
-   "w": 836,
-   "h": 556
+   "src": "/blog/pexels-mike-van-schoonderwalt-5506057.webp",
+   "w": 1600,
+   "h": 1067
   },
   "blocks": [
    {
@@ -855,6 +968,14 @@
    {
     "t": "h2",
     "text": "Perbandingan Efektivitas Bagi Pekerja"
+   },
+   {
+    "t": "img",
+    "src": "/blog/group-casually-dressed-colleagues-sitting-office-open-door-t.webp",
+    "w": 1500,
+    "h": 1001,
+    "srcW": 1500,
+    "alt": "Coworking Space vs Private Office"
    },
    {
     "t": "p",
@@ -954,16 +1075,24 @@
     "text": "Karena itu, adalah hal yang sia-sia untuk mencari yang terbaik antara coworking space vs sewa kantor. Lebih ideal, pengusaha lebih fokus untuk menentukan kebutuhan kemampuan perusahaan dalam menyediakan ruang kerja barulah menentukan pilihan."
    },
    {
-    "t": "h3",
+    "t": "h2",
     "text": "Clapham: Pilihna Sewa Ruang Kantor Terbaik di Medan"
    },
    {
     "t": "p",
-    "text": "Apakah Anda sedang mencari ruang kerja yang tidak hanya fungsional, tetapi juga inspiratif dan mendukung pertumbuhan bisnis Anda? Clapham Collective Medan hadir sebagai solusi sempurna untuk kebutuhan ruang kerja modern Anda di jantung kota Medan."
+    "text": "Apakah Anda sedang mencari ruang kerja yang tidak hanya fungsional, tetapi juga inspiratif dan mendukung pertumbuhan bisnis Anda? [Clapham Collective Medan](/) hadir sebagai solusi sempurna untuk kebutuhan ruang kerja modern Anda di jantung kota Medan."
+   },
+   {
+    "t": "img",
+    "src": "/blog/gallery1.webp",
+    "w": 1280,
+    "h": 504,
+    "srcW": 1280,
+    "alt": "clapham medan sewa ruang kantor"
    },
    {
     "t": "p",
-    "text": "Sejak 2015, Clapham Collective telah menjadi rumah bagi berbagai pengusaha dan kreator yang ingin melepaskan diri dari lingkungan kerja tradisional. Dengan lokasi strategis di Kompleks Ruko Centre Point Medan, kami menawarkan berbagai pilihan ruang kerja yang dapat disesuaikan dengan kebutuhan Anda!"
+    "text": "Sejak 2015, Clapham Collective telah menjadi rumah bagi berbagai pengusaha dan kreator yang ingin melepaskan diri dari lingkungan kerja tradisional. Dengan lokasi strategis di Kompleks Ruko Centre Point Medan, [kami menawarkan berbagai pilihan ruang kerja yang dapat disesuaikan dengan kebutuhan Anda!](/)"
    },
    {
     "t": "p",
@@ -986,9 +1115,9 @@
    "role": "Copywriter"
   },
   "hero": {
-   "src": "/blog/coworking-space-vs-private-office-untuk-bisnis.webp",
-   "w": 836,
-   "h": 556
+   "src": "/blog/group-casually-dressed-colleagues-sitting-office-open-door-t.webp",
+   "w": 1500,
+   "h": 1001
   },
   "blocks": [
    {
@@ -1025,7 +1154,7 @@
    },
    {
     "t": "p",
-    "text": "Juga dikenal sebagai *serviced office*, pengertian *private office area* adalah ruangan kantor yang disediakan secara privat. Artinya, *private office* memiliki zona yang bersifat pribadi, yang hanya diakses oleh satu perusahaan saja."
+    "text": "Juga dikenal sebagai *serviced office*, pengertian *private office* *area* adalah ruangan kantor yang disediakan secara privat. Artinya, [*private office*](/blog/kerja-lebih-fleksibel-dengan-private-office) memiliki zona yang bersifat pribadi, yang hanya diakses oleh satu perusahaan saja."
    },
    {
     "t": "p",
@@ -1037,7 +1166,7 @@
    },
    {
     "t": "p",
-    "text": "Karena itu, *private office lebih dipilih oleh perusahaan yang mengedepankan privasi dan profesionalitas*. Dengan meminimalkan interaksi antar karyawan, produktivitas dan tingkat konsentrasi juga akan semakin besar."
+    "text": "Karena itu, [*private office* lebih dipilih oleh perusahaan yang mengedepankan privasi dan profesionalitas](/blog/kerja-lebih-fleksibel-dengan-private-office). Dengan meminimalkan interaksi antar karyawan, produktivitas dan tingkat konsentrasi juga akan semakin besar."
    },
    {
     "t": "h2",
@@ -1045,14 +1174,15 @@
    },
    {
     "t": "img",
-    "src": "/blog/coworking-space-vs-private-office-untuk-bisnis--kerja.webp",
-    "w": 908,
-    "h": 557,
-    "alt": "Dua orang bekerja dengan laptop di meja bersama di ruang coworking, salah satunya mengangkat tangan."
+    "src": "/blog/pexels-kindel-media-7651631.webp",
+    "w": 1600,
+    "h": 1200,
+    "srcW": 1920,
+    "alt": "coworking space untuk mahasiswa"
    },
    {
     "t": "p",
-    "text": "Dari penjelasan di atas, dapat diketahui apa perbedaan dari dari *coworking space* vs  *private office*. Namun untuk membantu perusahaan dalam menentukan *coworking vs private office*, berikut rangkuman keduanya:"
+    "text": "Dari penjelasan di atas, dapat diketahui apa perbedaan dari dari *coworking space* vs *private office*. Namun untuk membantu perusahaan dalam menentukan *coworking vs private office*, berikut rangkuman keduanya:"
    },
    {
     "t": "h3",
@@ -1141,9 +1271,9 @@
    {
     "t": "ul",
     "items": [
-     "Teknologi. Misalnya seperti mesin *printing, scanning,* hingga peralatan tambahan seperti proyektor dan layarnya. Semua perabotan dan fasilitas lain juga sudah siap untuk dipakai.",
-     "Ruang. Misalnya seperti *meeting room,* ruang untuk *event,* dan berbagai ruang lainnya yang penting untuk perusahaan. Opsi ini dapat dipilih secara opsional.",
-     "Layanan. Contohnya seperti layanan *concierge, office boy,* dan resepsionis yang diterima secara gratis atau berbayar. Perusahaan dapat tinggal fokus memajukan bisnisnya saja."
+     "Teknologi. Misalnya seperti mesin *printing*, *scanning*, hingga peralatan tambahan seperti proyektor dan layarnya. Semua perabotan dan fasilitas lain juga sudah siap untuk dipakai.",
+     "Ruang. Misalnya seperti *meeting room*, ruang untuk *event*, dan berbagai ruang lainnya yang penting untuk perusahaan. Opsi ini dapat dipilih secara opsional.",
+     "Layanan. Contohnya seperti layanan *concierge*, *office boy*, dan resepsionis yang diterima secara gratis atau berbayar. Perusahaan dapat tinggal fokus memajukan bisnisnya saja."
     ]
    },
    {
@@ -1187,16 +1317,24 @@
     "text": "Dengan layanan, keamanan, dan lokasi yang strategis, perusahaan akan dapat memaksimalkan produktivitas setiap individual. Hasilnya, bisnis akan lebih berkembang, sehingga perusahaan dapat memulai ekspansi kembali."
    },
    {
-    "t": "h3",
+    "t": "h2",
     "text": "Clapham: Solusi Sewa Ruang Kantor dan Acara Anda di Medan"
    },
    {
     "t": "p",
-    "text": "Apakah Anda sedang mencari ruang kerja yang tidak hanya fungsional, tetapi juga inspiratif dan mendukung pertumbuhan bisnis Anda? Clapham Collective Medan hadir sebagai solusi sempurna untuk kebutuhan ruang kerja modern Anda di jantung kota Medan."
+    "text": "Apakah Anda sedang mencari ruang kerja yang tidak hanya fungsional, tetapi juga inspiratif dan mendukung pertumbuhan bisnis Anda? [Clapham Collective Medan](/) hadir sebagai solusi sempurna untuk kebutuhan ruang kerja modern Anda di jantung kota Medan."
+   },
+   {
+    "t": "img",
+    "src": "/blog/gallery1.webp",
+    "w": 1280,
+    "h": 504,
+    "srcW": 1280,
+    "alt": "clapham medan sewa ruang kantor"
    },
    {
     "t": "p",
-    "text": "Sejak 2015, Clapham Collective telah menjadi rumah bagi berbagai pengusaha dan kreator yang ingin melepaskan diri dari lingkungan kerja tradisional. Dengan lokasi strategis di Kompleks Ruko Centre Point Medan, kami menawarkan berbagai pilihan ruang kerja yang dapat disesuaikan dengan kebutuhan Anda!"
+    "text": "Sejak 2015, Clapham Collective telah menjadi rumah bagi berbagai pengusaha dan kreator yang ingin melepaskan diri dari lingkungan kerja tradisional. Dengan lokasi strategis di Kompleks Ruko Centre Point Medan, [kami menawarkan berbagai pilihan ruang kerja yang dapat disesuaikan dengan kebutuhan Anda!](/)"
    },
    {
     "t": "p",
@@ -1219,9 +1357,9 @@
    "role": "Copywriter"
   },
   "hero": {
-   "src": "/blog/fasilitas-kantor-sewa-untuk-kerja-yang-nyaman.webp",
-   "w": 836,
-   "h": 556
+   "src": "/blog/11-fasilitas-kantor-sewa.webp",
+   "w": 1279,
+   "h": 854
   },
   "blocks": [
    {
@@ -1390,11 +1528,19 @@
    },
    {
     "t": "p",
-    "text": "Apakah Anda sedang mencari ruang kerja yang tidak hanya fungsional, tetapi juga inspiratif dan mendukung pertumbuhan bisnis Anda? Clapham Collective Medan hadir sebagai solusi sempurna untuk kebutuhan ruang kerja modern Anda di jantung kota Medan."
+    "text": "Apakah Anda sedang mencari ruang kerja yang tidak hanya fungsional, tetapi juga inspiratif dan mendukung pertumbuhan bisnis Anda? [Clapham Collective Medan](/) hadir sebagai solusi sempurna untuk kebutuhan ruang kerja modern Anda di jantung kota Medan."
+   },
+   {
+    "t": "img",
+    "src": "/blog/gallery1.webp",
+    "w": 1280,
+    "h": 504,
+    "srcW": 1280,
+    "alt": "clapham medan sewa ruang kantor"
    },
    {
     "t": "p",
-    "text": "Sejak 2015, Clapham Collective telah menjadi rumah bagi berbagai pengusaha dan kreator yang ingin melepaskan diri dari lingkungan kerja tradisional. Dengan lokasi strategis di Kompleks Ruko Centre Point Medan, kami menawarkan berbagai pilihan ruang kerja yang dapat disesuaikan dengan kebutuhan Anda!"
+    "text": "Sejak 2015, Clapham Collective telah menjadi rumah bagi berbagai pengusaha dan kreator yang ingin melepaskan diri dari lingkungan kerja tradisional. Dengan lokasi strategis di Kompleks Ruko Centre Point Medan, [kami menawarkan berbagai pilihan ruang kerja yang dapat disesuaikan dengan kebutuhan Anda!](/)"
    },
    {
     "t": "p",
@@ -1417,9 +1563,9 @@
    "role": "Copywriter"
   },
   "hero": {
-   "src": "/blog/manfaat-private-office.webp",
-   "w": 836,
-   "h": 556
+   "src": "/blog/pexels-mikhail-nilov-7681681.webp",
+   "w": 1280,
+   "h": 854
   },
   "blocks": [
    {
@@ -1594,11 +1740,19 @@
    },
    {
     "t": "p",
-    "text": "Apakah Anda sedang mencari ruang kerja yang tidak hanya fungsional, tetapi juga inspiratif dan mendukung pertumbuhan bisnis Anda? Clapham Collective Medan hadir sebagai solusi sempurna untuk kebutuhan ruang kerja modern Anda di jantung kota Medan."
+    "text": "Apakah Anda sedang mencari ruang kerja yang tidak hanya fungsional, tetapi juga inspiratif dan mendukung pertumbuhan bisnis Anda? [Clapham Collective Medan](/) hadir sebagai solusi sempurna untuk kebutuhan ruang kerja modern Anda di jantung kota Medan."
+   },
+   {
+    "t": "img",
+    "src": "/blog/gallery1.webp",
+    "w": 1280,
+    "h": 504,
+    "srcW": 1280,
+    "alt": "clapham medan sewa ruang kantor"
    },
    {
     "t": "p",
-    "text": "Sejak 2015, Clapham Collective telah menjadi rumah bagi berbagai pengusaha dan kreator yang ingin melepaskan diri dari lingkungan kerja tradisional. Dengan lokasi strategis di Kompleks Ruko Centre Point Medan, kami menawarkan berbagai pilihan ruang kerja yang dapat disesuaikan dengan kebutuhan Anda!"
+    "text": "Sejak 2015, Clapham Collective telah menjadi rumah bagi berbagai pengusaha dan kreator yang ingin melepaskan diri dari lingkungan kerja tradisional. Dengan lokasi strategis di Kompleks Ruko Centre Point Medan, [kami menawarkan berbagai pilihan ruang kerja yang dapat disesuaikan dengan kebutuhan Anda!](/)"
    },
    {
     "t": "p",
@@ -1621,9 +1775,9 @@
    "role": "Copywriter"
   },
   "hero": {
-   "src": "/blog/keuntungan-menggunakan-virtual-office-untuk-bisnis-di-medan.webp",
-   "w": 836,
-   "h": 556
+   "src": "/blog/pexels-julia-m-cameron-4144923.webp",
+   "w": 1280,
+   "h": 854
   },
   "blocks": [
    {
@@ -1728,10 +1882,11 @@
    },
    {
     "t": "img",
-    "src": "/blog/clapham-collective.webp",
-    "w": 1016,
-    "h": 675,
-    "alt": "Ruang coworking Clapham Collective dengan rak kayu, meja tinggi, dan kursi bar di bawah lampu gantung."
+    "src": "/blog/2020-10-07.webp",
+    "w": 680,
+    "h": 453,
+    "srcW": 680,
+    "alt": "Clapham coworking space di medan"
    },
    {
     "t": "ul",
@@ -1741,11 +1896,16 @@
    },
    {
     "t": "p",
-    "text": "Clapham Collective, berlokasi strategis di lantai 2 Kompleks Ruko Centre Point Medan, adalah surga bagi para profesional dan wirausahawan yang mencari lingkungan kerja inspiratif. Ruang coworking modern ini menawarkan kombinasi sempurna antara kenyamanan dan produktivitas dengan fasilitas lengkap mulai dari area kerja bersama yang luas, ruang pertemuan privat, hingga koneksi internet super cepat."
+    "text": "[Clapham Collective](/), berlokasi strategis di lantai 2 Kompleks Ruko Centre Point Medan, adalah surga bagi para profesional dan wirausahawan yang mencari lingkungan kerja inspiratif. Ruang coworking modern ini menawarkan kombinasi sempurna antara kenyamanan dan produktivitas, dengan fasilitas lengkap mulai dari area kerja bersama yang luas, ruang pertemuan privat, hingga koneksi internet super cepat."
    },
    {
     "t": "p",
     "text": "Didukung oleh layanan profesional dan atmosfer komunitas yang dinamis, Clapham Collective tidak hanya menyediakan tempat untuk bekerja, tetapi juga platform untuk networking, kolaborasi, dan pertumbuhan bisnis. Dengan pilihan keanggotaan yang fleksibel, tempat ini menjadi solusi ideal bagi siapa pun yang ingin meningkatkan kinerja dan memperluas jaringan profesional mereka di jantung kota Medan."
+   },
+   {
+    "t": "embed",
+    "src": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.977545847708!2d98.67886107375607!3d3.5926234502690426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303131c784afcce9%3A0x1c0f6a9ddeb16361!2sClapham%20Collective!5e0!3m2!1sen!2sid!4v1696484499035!5m2!1sen!2sid",
+    "title": "Peta lokasi: 1. Clapham Collective Medan"
    },
    {
     "t": "h3",
@@ -1771,10 +1931,11 @@
    },
    {
     "t": "img",
-    "src": "/blog/keuntungan-menggunakan-virtual-office-untuk-bisnis-di-medan--forum-nine.webp",
-    "w": 716,
-    "h": 401,
-    "alt": "Gedung perkantoran Forum Nine berbentuk silinder dengan kaca biru dan aksen merah."
+    "src": "/blog/2020-10-01.webp",
+    "w": 480,
+    "h": 270,
+    "srcW": 480,
+    "alt": "3. Forum Nine Regus"
    },
    {
     "t": "ul",
@@ -1793,6 +1954,14 @@
    {
     "t": "h3",
     "text": "4. Grand Jati Junction Medan vOffice"
+   },
+   {
+    "t": "img",
+    "src": "/blog/2022-03-31.webp",
+    "w": 680,
+    "h": 510,
+    "srcW": 680,
+    "alt": "sewa kantor Grand Jati Junction Medan vOffice"
    },
    {
     "t": "ul",
@@ -1852,11 +2021,19 @@
    },
    {
     "t": "p",
-    "text": "Apakah Anda sedang mencari ruang kerja yang tidak hanya fungsional, tetapi juga inspiratif dan mendukung pertumbuhan bisnis Anda? Clapham Collective Medan hadir sebagai solusi sempurna untuk kebutuhan ruang kerja modern Anda di jantung kota Medan."
+    "text": "Apakah Anda sedang mencari ruang kerja yang tidak hanya fungsional, tetapi juga inspiratif dan mendukung pertumbuhan bisnis Anda? [Clapham Collective Medan](/) hadir sebagai solusi sempurna untuk kebutuhan ruang kerja modern Anda di jantung kota Medan."
+   },
+   {
+    "t": "img",
+    "src": "/blog/gallery1.webp",
+    "w": 1280,
+    "h": 504,
+    "srcW": 1280,
+    "alt": "clapham medan sewa ruang kantor"
    },
    {
     "t": "p",
-    "text": "Sejak 2015, Clapham Collective telah menjadi rumah bagi berbagai pengusaha dan kreator yang ingin melepaskan diri dari lingkungan kerja tradisional. Dengan lokasi strategis di Kompleks Ruko Centre Point Medan, kami menawarkan berbagai pilihan ruang kerja yang dapat disesuaikan dengan kebutuhan Anda!"
+    "text": "Sejak 2015, Clapham Collective telah menjadi rumah bagi berbagai pengusaha dan kreator yang ingin melepaskan diri dari lingkungan kerja tradisional. Dengan lokasi strategis di Kompleks Ruko Centre Point Medan, [kami menawarkan berbagai pilihan ruang kerja yang dapat disesuaikan dengan kebutuhan Anda!](/)"
    },
    {
     "t": "p",
@@ -1879,9 +2056,9 @@
    "role": "Copywriter"
   },
   "hero": {
-   "src": "/blog/kerja-lebih-fleksibel-dengan-private-office.webp",
-   "w": 836,
-   "h": 556
+   "src": "/blog/pexels-burst-374598.webp",
+   "w": 1279,
+   "h": 853
   },
   "blocks": [
    {
@@ -2007,7 +2184,7 @@
    },
    {
     "t": "p",
-    "text": "Dari fitur dan fasilitas *private office* yang disediakan, perusahaan akan dapat meningkatkan lingkungan kerja yang efektif dan produktif. Sebab, perusahaan jadi tidak memerlukan waktu lebih untuk mempersiapkan ruang kerja. Kerja juga akan menjadi lebih enak."
+    "text": "Dari fitur dan [fasilitas *private office* yang disediakan](/blog/fasilitas-sewa-private-office), perusahaan akan dapat meningkatkan lingkungan kerja yang efektif dan produktif. Sebab, perusahaan jadi tidak memerlukan waktu lebih untuk mempersiapkan ruang kerja. Kerja juga akan menjadi lebih enak."
    },
    {
     "t": "p",
@@ -2027,11 +2204,19 @@
    },
    {
     "t": "p",
-    "text": "Apakah Anda sedang mencari ruang kerja yang tidak hanya fungsional, tetapi juga inspiratif dan mendukung pertumbuhan bisnis Anda? Clapham Collective Medan hadir sebagai solusi sempurna untuk kebutuhan ruang kerja modern Anda di jantung kota Medan."
+    "text": "Apakah Anda sedang mencari ruang kerja yang tidak hanya fungsional, tetapi juga inspiratif dan mendukung pertumbuhan bisnis Anda? [Clapham Collective Medan](/) hadir sebagai solusi sempurna untuk kebutuhan ruang kerja modern Anda di jantung kota Medan."
+   },
+   {
+    "t": "img",
+    "src": "/blog/gallery1.webp",
+    "w": 1280,
+    "h": 504,
+    "srcW": 1280,
+    "alt": "clapham medan sewa ruang kantor"
    },
    {
     "t": "p",
-    "text": "Sejak 2015, Clapham Collective telah menjadi rumah bagi berbagai pengusaha dan kreator yang ingin melepaskan diri dari lingkungan kerja tradisional. Dengan lokasi strategis di Kompleks Ruko Centre Point Medan, kami menawarkan berbagai pilihan ruang kerja yang dapat disesuaikan dengan kebutuhan Anda!"
+    "text": "Sejak 2015, Clapham Collective telah menjadi rumah bagi berbagai pengusaha dan kreator yang ingin melepaskan diri dari lingkungan kerja tradisional. Dengan lokasi strategis di Kompleks Ruko Centre Point Medan, [kami menawarkan berbagai pilihan ruang kerja yang dapat disesuaikan dengan kebutuhan Anda!](/)"
    },
    {
     "t": "p",

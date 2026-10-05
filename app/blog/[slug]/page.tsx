@@ -93,9 +93,23 @@ function Body({ block }: { block: Block }) {
             height={block.h}
             sizes="(min-width: 1024px) 820px, 100vw"
             quality={90}
-            className="h-auto w-full rounded-lg"
+            style={{ maxWidth: Math.min(block.w, 820) }}
+            className="mx-auto h-auto w-full rounded-lg"
           />
         </figure>
+      );
+    case "embed":
+      return (
+        <div className="my-8 overflow-hidden rounded-lg border border-border">
+          <iframe
+            src={block.src}
+            title={block.title}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+            className="aspect-[4/3] w-full border-0 md:aspect-video"
+          />
+        </div>
       );
   }
 }
