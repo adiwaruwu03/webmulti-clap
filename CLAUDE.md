@@ -104,3 +104,8 @@ Testimonials are REAL Google reviews (6, all 5-star) of the Maps listing "COHIVE
 - EVERY new visible string must be wrapped in `<T>` (or use `useT`) with both languages. Arrays with copy get `descEn`/`titleEn`/`quoteEn` fields. Proper names (Coworking Space, Event Management Service, partner names, the address) stay untranslated.
 - Not translated on purpose: image `alt` text, iframe title, page `metadata` (title/description stay Indonesian for SEO), JSON-LD.
 - Nav label is "Tentang" (ID) / "About" (EN), never "About" in Indonesian mode.
+
+## Favicon / app icon
+
+- Owner chose the full nav wordmark (`public/logo.nav/logo-clapham-2.png`, dark version) centered on a white rounded tile (white so it stays visible on dark browser themes). It is wide (4:1) so it is tiny at 16px; owner accepted that. Do not switch back to the "C" monogram unless asked.
+- Files: `app/favicon.ico` (16/32/48), `app/icon.png` (512), `app/apple-icon.png` (180). Next 16 auto-injects the `<link rel="icon">` tags. Regenerate with sharp from the logo if it changes.

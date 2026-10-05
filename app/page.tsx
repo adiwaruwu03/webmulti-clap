@@ -346,7 +346,7 @@ export default function Home() {
           <div className="reveal overflow-hidden rounded-lg border border-border shadow-md">
             <iframe
               title="Lokasi CLAPHAM.CO di Ruko Centre Point Medan"
-              src="https://www.google.com/maps?q=Komp.+Ruko+Centre+Point+Medan+Jalan+Timor+Blok+G+No.+III%2FIV&output=embed"
+              src="https://www.google.com/maps?q=COHIVE+at+Clapham&ll=3.5926181,98.681436&z=17&hl=id&output=embed"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="h-80 w-full md:h-[26rem]"
@@ -374,7 +374,7 @@ export default function Home() {
               </T>
             </p>
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Komp.+Ruko+Centre+Point+Medan+Jalan+Timor+Blok+G+No.+III%2FIV"
+              href="https://www.google.com/maps/place/COHIVE+at+Clapham/@3.5926181,98.681436,17z/data=!4m6!3m5!1s0x303131c784afcce9:0x1c0f6a9ddeb16361!8m2!3d3.5926181!4d98.681436"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-md bg-primary px-7 py-3.5 font-semibold text-primary-foreground hover:brightness-95 active:scale-[0.98] transition-all duration-300"
@@ -537,7 +537,7 @@ export default function Home() {
                 </p>
               </div>
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Komp.+Ruko+Centre+Point+Medan+Jalan+Timor+Blok+G+No.+III%2FIV"
+                href="https://www.google.com/maps/place/COHIVE+at+Clapham/@3.5926181,98.681436,17z/data=!4m6!3m5!1s0x303131c784afcce9:0x1c0f6a9ddeb16361!8m2!3d3.5926181!4d98.681436"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-foreground hover:border-teal-ink hover:text-teal-ink transition-colors duration-300"
