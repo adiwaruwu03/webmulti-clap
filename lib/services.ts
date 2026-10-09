@@ -102,6 +102,19 @@ export const services: Record<string, Service> = {
         unit: ["/bulan", "/month"],
       },
     ],
+    includedTitle: ["Fasilitas yang tersedia", "Facilities available"],
+    included: [
+      ["Internet", "Internet"],
+      ["Free flow drink", "Free flow drink"],
+      ["Perpustakaan mini", "Mini library"],
+      ["Booth kerja privat", "Private work booth"],
+      ["Member's gathering", "Member's gatherings"],
+      ["Printing & copies", "Printing & copies"],
+      ["Locker", "Locker"],
+      ["Alamat surat (mailing address)", "Mailing address"],
+      ["Ruang ibadah", "Prayer room"],
+    ],
+    ctaNote: ["Beberapa fasilitas bergantung pada paket yang Anda pilih. Lihat perbandingannya di tabel paket.", "Some facilities depend on the plan you choose. See the comparison in the plans table."],
     gallery: [
       { src: `${CW}/7DBA37B6-4F58-43D0-8C19-D7647029C782-1726-000000EB215CEB66.jpg`, alt: "Mesin kopi di pantry" },
       { src: `${CW}/1F9BBDE9-E35F-4C66-91F1-E99E942B6302-1726-000000E070D6D00E.jpg`, alt: "Rak buku perpustakaan mini" },
@@ -186,6 +199,13 @@ export const services: Record<string, Service> = {
         ].map(([label, price]) => ({ label: label as L, price: price as string })),
       },
     ],
+    includedTitle: ["Fasilitas ruang meeting", "Meeting room facilities"],
+    included: [
+      ["Meja panjang untuk rapat", "Long tables for meetings"],
+      ["Jendela besar dengan cahaya alami", "Big windows with natural light"],
+      ["TV atau whiteboard untuk presentasi", "A TV or whiteboard for presentations"],
+      ["Proyektor dan sound system", "Projector and sound system"],
+    ],
     gallery: [
       { src: `${MR}/stephen.jpg`, alt: "Ruang meeting Stephen dengan pemandangan kota" },
       { src: `${MR}/Newton 01.jpeg`, alt: "Ruang meeting Newton dengan TV" },
@@ -230,6 +250,13 @@ export const services: Record<string, Service> = {
       { name: ["3 orang", "3 people"], note: ["Ruang privat untuk 3 orang", "Private room for 3 people"], price: "Rp7.500.000", unit: ["/bulan", "/month"] },
       { name: ["5 orang", "5 people"], note: ["Ruang privat untuk 5 orang", "Private room for 5 people"], price: "Rp12.500.000", unit: ["/bulan", "/month"] },
       { name: ["6 orang", "6 people"], note: ["Ruang privat untuk 6 orang", "Private room for 6 people"], price: "Rp15.000.000", unit: ["/bulan", "/month"] },
+    ],
+    includedTitle: ["Yang Anda dapatkan", "What you get"],
+    included: [
+      ["Ruang tertutup khusus untuk tim Anda", "A closed room just for your team"],
+      ["Meja dan kursi kerja siap pakai", "Desks and chairs ready to use"],
+      ["Pilihan ruang untuk 2, 3, 5, atau 6 orang", "Rooms for 2, 3, 5, or 6 people"],
+      ["Tanpa biaya renovasi atau perabot", "No renovation or furniture costs"],
     ],
     gallery: [
       { src: `${PO}/15696171-D198-4AB5-B28F-FC717377787E-1726-000000D87B20B704.jpg`, alt: "Private office dengan lemari dan jendela" },

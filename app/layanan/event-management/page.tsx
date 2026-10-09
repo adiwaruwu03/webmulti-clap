@@ -5,6 +5,7 @@ import Link from "next/link";
 import { T } from "../../../components/Lang";
 import HeroCarousel from "../../../components/events/HeroCarousel";
 import EventGrid from "../../../components/events/EventGrid";
+import ServiceCta from "../../../components/service/ServiceCta";
 import { whatsappLink } from "../../../lib/contact";
 import { BASE, featuredEvents } from "../../../lib/events";
 
@@ -73,17 +74,7 @@ const strengths = [
   { title: "Kemitraan Kolaboratif", en: "Collaborative Partnership", desc: "Kami bekerja sebagai partner, bukan sekadar vendor.", descEn: "We work as partners, not just vendors." },
 ];
 
-const stats = [
-  { value: "2016", id: "Berdiri Sejak", en: "Founded" },
-  { value: "300+", id: "Event Terselenggara", en: "Events Hosted" },
-  { value: "100+", id: "Brand Partner", en: "Brand Partners" },
-  { value: "10K+", id: "Peserta Event", en: "Event Participants" },
-];
-
 const h2 = "font-heading text-3xl font-semibold tracking-wide text-foreground md:text-4xl";
-const btnDark =
-  "inline-flex items-center justify-center rounded-md bg-foreground px-8 py-3.5 font-semibold text-background shadow-md transition-all duration-300 hover:bg-teal-ink hover:shadow-xl active:scale-[0.98]";
-
 export default function EventManagementPage() {
   const wa = whatsappLink("Halo CLAPHAM.CO, saya ingin berkonsultasi tentang Event Management Service.");
   return (
@@ -230,72 +221,8 @@ export default function EventManagementPage() {
         <EventGrid />
       </section>
 
-      {/* About + stats */}
-      <section className="bg-chart-4/25 py-24">
-        <div className="container mx-auto max-w-7xl px-4">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,26rem)_1fr] lg:gap-20">
-            <h2 className={`reveal ${h2}`}>
-              <T en={<>Designed with purpose, executed with <span className="text-brick">precision</span></>}>
-                Dirancang dengan tujuan, dieksekusi dengan <span className="text-brick">presisi</span>
-              </T>
-            </h2>
-            <div className="reveal space-y-5 text-lg leading-loose text-muted-foreground md:text-justify" style={{ "--i": 1 } as CSSProperties}>
-              <p>
-                <T en="Since 2016, Clapham Collective has served as a collaborative space and event ecosystem based in Medan. Starting as a coworking space, we have grown into a strategic partner for brands, organizations, and communities aiming to create meaningful experiences.">
-                  Sejak 2016, Clapham Collective telah hadir sebagai ruang kolaborasi dan ekosistem event yang berbasis di Medan. Berawal dari sebuah coworking space, kami berkembang menjadi mitra strategis bagi brand, organisasi, dan komunitas yang ingin menciptakan pengalaman bermakna.
-                </T>
-              </p>
-              <p>
-                <T en="We believe every event is an opportunity to build connections, inspire audiences, and deliver real impact. Our philosophy is simple: design with purpose, execute with precision, and always collaborate as partners.">
-                  Kami percaya bahwa setiap event adalah kesempatan untuk membangun koneksi, menginspirasi audiens, dan menghasilkan dampak nyata. Filosofi kami sederhana: merancang dengan tujuan, mengeksekusi dengan presisi, dan selalu berkolaborasi sebagai partner.
-                </T>
-              </p>
-              <p>
-                <T en="With experience managing hundreds of events from intimate gatherings to large conferences, we understand that success lies in careful attention to detail and strategic planning.">
-                  Dengan pengalaman mengelola ratusan event dari skala intim hingga konferensi besar, kami memahami bahwa kesuksesan terletak pada detail dan strategi yang matang.
-                </T>
-              </p>
-            </div>
-          </div>
-          <div className="mt-16 grid grid-cols-2 gap-8 text-center md:grid-cols-4">
-            {stats.map((st) => (
-              <div key={st.value}>
-                <div className="font-heading text-4xl font-semibold tracking-wide text-brick md:text-5xl">{st.value}</div>
-                <div className="mt-2 font-medium text-muted-foreground">
-                  <T en={st.en}>{st.id}</T>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA: teal band sits between the light page and the dark footer */}
-      <section className="bg-primary py-20 text-foreground md:py-24">
-        <div className="container mx-auto max-w-7xl px-4">
-         <div className="reveal grid items-center gap-10 rounded-lg bg-card p-8 shadow-xl md:p-14 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-16">
-          <div className="max-w-2xl">
-            <h2 className="font-heading text-3xl font-semibold leading-tight tracking-wide md:text-5xl">
-              <T en="Planning an event?">Punya rencana acara?</T>
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed md:text-xl">
-              <T en="Tell us your idea and we will help shape it into an event that runs smoothly. Visit our space first, or chat with the team right away.">
-                Ceritakan idenya, kami bantu wujudkan menjadi acara yang berjalan lancar. Kunjungi ruang kami lebih dulu, atau langsung chat dengan tim.
-              </T>
-            </p>
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-            <Link href="/atur-kunjungan?layanan=event-management" className={`group ${btnDark} gap-3 px-10`}>
-              <T en="Contact Us">Kontak Kami</T>
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
-            </Link>
-            <a href={wa} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-md border border-foreground/40 px-10 py-3.5 font-semibold text-foreground transition-all duration-300 hover:border-foreground hover:bg-foreground/10 active:scale-[0.98]">
-              <T en="Chat on WhatsApp">Chat via WhatsApp</T>
-            </a>
-          </div>
-         </div>
-        </div>
-      </section>
+      {/* CTA (same as the other service pages) */}
+      <ServiceCta contact="/atur-kunjungan?layanan=event-management" wa={wa} />
     </div>
   );
 }

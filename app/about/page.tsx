@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
 import { T } from "../../components/Lang";
+import Odometer from "../../components/Odometer";
 
 export const metadata = {
   title: "Tentang Kami",
@@ -8,6 +9,13 @@ export const metadata = {
 };
 
 const i = (n: number) => ({ "--i": n }) as CSSProperties;
+
+const stats = [
+  { value: "2016", id: "Berdiri Sejak", en: "Founded" },
+  { value: "300+", id: "Event Terselenggara", en: "Events Hosted" },
+  { value: "100+", id: "Brand Partner", en: "Brand Partners" },
+  { value: "10K+", id: "Peserta Event", en: "Event Participants" },
+];
 
 export default function AboutPage() {
   return (
@@ -102,6 +110,51 @@ export default function AboutPage() {
                 </T>
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="bg-chart-4/25 py-28">
+        <div className="container mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[minmax(0,26rem)_1fr] lg:gap-20">
+          <h2 className="reveal font-heading text-3xl font-semibold leading-tight tracking-wide text-foreground md:text-4xl">
+            <T
+              en={
+                <>
+                  Designed with purpose, executed with <span className="text-brick">precision</span>
+                </>
+              }
+            >
+              Dirancang dengan tujuan, dieksekusi dengan <span className="text-brick">presisi</span>
+            </T>
+          </h2>
+          <div className="reveal space-y-6 text-lg leading-loose text-muted-foreground md:text-justify" style={i(1)}>
+            <p>
+              <T en="Since 2016, Clapham Collective has served as a collaborative space and event ecosystem based in Medan. Starting as a coworking space, we have grown into a strategic partner for brands, organizations, and communities aiming to create meaningful experiences.">
+                Sejak 2016, Clapham Collective telah hadir sebagai ruang kolaborasi dan ekosistem event yang berbasis di Medan. Berawal dari sebuah coworking space, kami berkembang menjadi mitra strategis bagi brand, organisasi, dan komunitas yang ingin menciptakan pengalaman bermakna.
+              </T>
+            </p>
+            <p>
+              <T en="We believe every event is an opportunity to build connections, inspire audiences, and deliver real impact. Our philosophy is simple: design with purpose, execute with precision, and always collaborate as partners.">
+                Kami percaya bahwa setiap event adalah kesempatan untuk membangun koneksi, menginspirasi audiens, dan menghasilkan dampak nyata. Filosofi kami sederhana: merancang dengan tujuan, mengeksekusi dengan presisi, dan selalu berkolaborasi sebagai partner.
+              </T>
+            </p>
+            <p>
+              <T en="With experience managing hundreds of events from intimate gatherings to large conferences, we understand that success lies in careful attention to detail and strategic planning.">
+                Dengan pengalaman mengelola ratusan event dari skala intim hingga konferensi besar, kami memahami bahwa kesuksesan terletak pada detail dan strategi yang matang.
+              </T>
+            </p>
+
+            <dl className="!mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-foreground/15 pt-10 sm:grid-cols-4">
+              {stats.map((st) => (
+                <div key={st.id}>
+                  <dd className="font-heading text-4xl font-semibold tracking-wide text-brick md:text-5xl">
+                    <Odometer value={st.value} />
+                  </dd>
+                  <dt className="mt-2 text-base font-medium text-muted-foreground md:text-sm lg:text-base">
+                    <T en={st.en}>{st.id}</T>
+                  </dt>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>

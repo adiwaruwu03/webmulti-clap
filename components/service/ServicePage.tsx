@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_DISPLAY, whatsappLink } from "../../lib/contact";
+import { whatsappLink } from "../../lib/contact";
 import dims from "../../data/photo-dims.json";
 import { serviceOrder, services, type L } from "../../lib/services";
 import { T } from "../Lang";
+import ServiceCta from "./ServiceCta";
 import YouTubeCard from "./YouTubeCard";
+import { iconFor } from "./icons";
 
 const h2 = "font-heading text-3xl font-semibold leading-tight tracking-wide text-foreground md:text-4xl";
 const btnDark =
@@ -122,11 +124,15 @@ export default function ServicePage({ slug }: { slug: string }) {
             </div>
             {s.highlights && (
               <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-2 border-t border-border pt-6 text-muted-foreground">
-                {s.highlights.map((h) => (
-                  <li key={h[0]} className={dash}>
-                    <Tl v={h} />
-                  </li>
-                ))}
+                {s.highlights.map((h) => {
+                  const Icon = iconFor(h[0]);
+                  return (
+                    <li key={h[0]} className="inline-flex items-center gap-2.5">
+                      <Icon size={20} strokeWidth={1.6} aria-hidden className="text-teal-ink" />
+                      <Tl v={h} />
+                    </li>
+                  );
+                })}
               </ul>
             )}
           </div>
@@ -329,26 +335,41 @@ export default function ServicePage({ slug }: { slug: string }) {
         </section>
       )}
 
-      {/* Included */}
+      {/* Included: line-icon grid (same look as the home "Fasilitas" section) */}
       {s.included && s.includedTitle && !s.bento && (
-        <section className="container mx-auto max-w-7xl px-4 py-24">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,24rem)_1fr] lg:gap-20">
+        <section className="py-24">
+          <div className="container mx-auto max-w-7xl px-4">
             <h2 className={`reveal ${h2}`}>
               <Tl v={s.includedTitle} />
             </h2>
-            <ul className="reveal grid gap-x-10 gap-y-4 text-lg text-muted-foreground sm:grid-cols-2" style={{ "--i": 1 } as CSSProperties}>
-              {s.included.map((f) => (
-                <li key={f[0]} className={dash}>
-                  <Tl v={f} />
-                </li>
-              ))}
+            <ul className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 md:gap-x-10 lg:grid-cols-4">
+              {s.included.map((f, n) => {
+                const Icon = iconFor(f[0]);
+                return (
+                  <li
+                    key={f[0]}
+                    className="reveal group border-t border-foreground/15 pt-6"
+                    style={{ "--i": n % 4 } as CSSProperties}
+                  >
+                    <Icon
+                      size={36}
+                      strokeWidth={1.4}
+                      aria-hidden
+                      className="text-teal-ink transition-all duration-500 group-hover:-translate-y-1 group-hover:text-brick"
+                    />
+                    <p className="mt-4 text-lg font-medium leading-snug text-foreground">
+                      <Tl v={f} />
+                    </p>
+                  </li>
+                );
+              })}
             </ul>
+            {s.ctaNote && (
+              <p className="reveal mt-10 text-lg text-muted-foreground">
+                <Tl v={s.ctaNote} />
+              </p>
+            )}
           </div>
-          {s.ctaNote && (
-            <p className="mt-10 text-lg text-muted-foreground">
-              <Tl v={s.ctaNote} />
-            </p>
-          )}
         </section>
       )}
 
@@ -479,12 +500,12 @@ export default function ServicePage({ slug }: { slug: string }) {
               {s.map && (
                 <div className="overflow-hidden rounded-lg border border-border shadow-md">
                   <iframe
-                    src="https://www.google.com/maps?q=3.5926181,98.681436&z=17&output=embed"
+                    src="https://www.google.com/maps?q=3.5926181,98.681436&z=15&output=embed"
                     title="Peta CLAPHAM.CO"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     allowFullScreen
-                    className="aspect-video w-full max-w-xl border-0"
+                    className="aspect-video w-full border-0"
                   />
                 </div>
               )}
@@ -514,57 +535,7 @@ export default function ServicePage({ slug }: { slug: string }) {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-primary py-20 text-foreground md:py-28">
-        <div aria-hidden className="absolute -right-24 -top-24 h-96 w-96 animate-float rounded-full bg-white/45 blur-3xl" />
-        <div aria-hidden className="absolute -bottom-32 -left-24 h-96 w-96 animate-float rounded-full bg-brick/15 blur-3xl [animation-delay:-6s]" />
-        <div className="container relative mx-auto max-w-6xl px-4">
-          <div className="reveal grid overflow-hidden rounded-lg bg-card shadow-xl lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
-            <div className="p-8 md:p-14">
-              <h2 className="font-heading text-3xl font-semibold leading-tight tracking-wide md:text-5xl">
-                <T en={<>Ready to <span className="text-brick">get started?</span></>}>
-                  Siap <span className="text-brick">memulai?</span>
-                </T>
-              </h2>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                <T en="Tell us what you need and our team will help you pick the right option.">
-                  Ceritakan kebutuhan Anda dan tim kami akan membantu memilih opsi yang tepat.
-                </T>
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link href={contact} className={`${btnDark} gap-3 px-9`}>
-                  <T en="Contact Us">Kontak Kami</T>
-                  <span aria-hidden>→</span>
-                </Link>
-                <a href={wa} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-md border border-border px-9 py-3.5 font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-ink hover:text-teal-ink active:scale-[0.98]">
-                  WhatsApp
-                </a>
-              </div>
-            </div>
-            <dl className="divide-y divide-border bg-secondary p-8 md:p-14">
-              {[
-                { k: ["Telepon", "Phone"] as L, v: PHONE_DISPLAY, href: `tel:${PHONE_TEL}` },
-                { k: ["WhatsApp", "WhatsApp"] as L, v: WHATSAPP_DISPLAY, href: wa },
-                { k: ["Jam operasional", "Opening hours"] as L, v: ["Senin–Jumat, 09.00–17.00", "Monday–Friday, 09.00–17.00"] as L },
-              ].map((r) => (
-                <div key={r.k[0]} className="py-5 first:pt-0 last:pb-0">
-                  <dt className="text-sm text-muted-foreground">
-                    <Tl v={r.k} />
-                  </dt>
-                  <dd className="mt-1 font-heading text-lg font-semibold tracking-wide text-foreground">
-                    {typeof r.v === "string" ? (
-                      <a href={r.href} className="transition-colors hover:text-teal-ink" {...(r.href?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
-                        {r.v}
-                      </a>
-                    ) : (
-                      <Tl v={r.v} />
-                    )}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
-      </section>
+      <ServiceCta contact={contact} wa={wa} />
     </div>
   );
 }

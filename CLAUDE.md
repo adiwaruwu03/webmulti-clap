@@ -172,3 +172,37 @@ Testimonials are REAL Google reviews (6, all 5-star) of the Maps listing "COHIVE
 - Photo galleries on service pages are a symmetric grid: landscape photo = one 3:2 cell, portrait photo (ratio < 1.1) = 2 rows tall. `arrange()` in `components/service/ServicePage.tsx` finds a hole-free order for the 3-col and 2-col grid (a landscape photo in every row) and, if the set cannot tile, skips the fewest photos (max 4). Just list the photos in `lib/services.ts`; sizes come from `data/photo-dims.json` (regenerate it after adding photos, including .webp). Every service page also has a why-us band, a use-cases list, 3 steps and a location block (facts from the brochure). Coworking uses a comparison table (`matrix`) instead of plan cards.
 - Illustration exception: Virtual Office has no real photo, so its hero uses `public/ilustrasi/virtual-office.svg` (isometric office in brand colors, hand-built SVG, field `art` in `lib/services.ts`). Everywhere else photos stay the rule; do not replace real photos with illustrations.
 - Virtual Office uses the optional fields `title` (h1 with one brick word, service name kept in the h1 as sr-only), `bento` (3 feature cards with watermark number, hover glow and "Tanya detail" link, replacing the why band) and `steps` (custom 3 steps). The illustration hero sits in a framed card with ambient glows and a "Centre Point Medan" pin badge. Steps on every service page are a connected strip (dashed line, numbered circle that fills brick on hover). Feature copy only states facts we have (address, mailing address from the brochure, meeting rooms, community); no legal/domicile or WhatsApp-notification claims until the owner confirms the package.
+
+## About page story + animated stats
+
+- The company story text "Dirancang dengan tujuan, dieksekusi dengan presisi" (3 paragraphs, ID + EN) lives on `/about` (last section, `bg-chart-4/25`), moved there from `/layanan/event-management` at the boss's request. Do not put it back on the event page.
+- `/layanan/event-management` keeps only the 4 stats (2016 / 300+ / 100+ / 10K+) as a row on `bg-chart-4/25`, rendered with `components/CountUp.tsx` (counts up once when scrolled into view at 60% visibility, ease-out, ~1.8 s; the year counts from 2000; SSR and `prefers-reduced-motion` show the final value). Each stat uses `.reveal` with a stagger.
+- `CountUp` props: `value` ("300+", "10K+", "2016"), `from`, `duration`, `className`. Stats are placeholders from the old site; confirm the real numbers with the client before launch.
+
+## About story + stats, event page CTA
+
+- The company-story text ("Dirancang dengan tujuan, dieksekusi dengan presisi", 3 paragraphs) AND the four numbers (2016, 300+, 100+, 10K+) live on `/about` (third section): numbers sit in the same right column right under the text, behind a hairline (boss request: numbers merged with the text). `/layanan/event-management` has neither.
+- Numbers use `components/Odometer.tsx` (slot-machine reels, chosen as a motion different from the partner marquee): each digit is a vertical 0-9 strip that spins 2 turns and lands on its digit, staggered per digit, starts when 60% visible, re-spins every 9 s while visible (pauses off-screen), final value on server render and under `prefers-reduced-motion`; reel width follows the final digit so spacing is normal; `role="img"` + `aria-label` carry the real value. The old CountUp component was deleted. Reuse Odometer for any new stat.
+- Event Management uses the same teal "Siap memulai?" CTA as all other service pages: shared `components/service/ServiceCta.tsx` (props `contact`, `wa`), also used by `ServicePage`. Do not re-create page-specific CTA cards on `/layanan/*`.
+
+## Home: Fasilitas section
+
+- `components/Facilities.tsx`, placed on Home between Layanan and Lokasi (`bg-secondary`). Boss request (WhatsApp, 2026-10-09): general facilities were missing on the front page; reference was GoWork's "Dukungan Untuk Bisnis Anda". 9 main items in a 3x3 grid with thin line icons and a short description (Internet Cepat, Ruang Meeting Lengkap, Layanan Resepsionis & Dokumen, Area Santai & Lounge, Pantry & Free Flow Drink, Ruang Privat, Paket Akses Fleksibel, Jaringan Komunitas, Lokasi Strategis) + a "Juga tersedia" row of chips (AC, Toilet, Mushola, Smoke Area). All bilingual in the component's data arrays.
+- Icons come from `lucide-react` (re-added as a dependency for this; only imported icons are bundled). Icons are bare line icons, NO colored boxes (owner earlier rejected icon boxes on cards); they turn brick red on hover.
+- Descriptions only restate what the boss listed (no new claims such as hours, counts or prices). Edit the `main`/`extras` arrays to change items.
+
+## Service pages: icon facility grid
+
+- Design reference (boss, GoWork Podcast Studio page): design only, NOT their prices or copy. Clapham keeps its own prices/plans already on the pages.
+- `ServicePage` "Included" section is now a bare line-icon grid (4 columns, `grid-cols-2` on phones; no boxes, hairline on top, icon turns brick red on hover), same look as the Home "Fasilitas" section. It renders when a service has `included` + `includedTitle` and no `bento` (Virtual Office keeps its bento cards). Hero `highlights` also get icons.
+- Icons are picked by keyword from the label in `components/service/icons.ts` (`iconFor`, first match wins, fallback = check mark). When adding an `included` item, check the mapped icon in the browser; add a rule there if it falls back.
+- Content rule: `included` lists only use facts already on that page or from the owner's facilities list (coworking: matrix/gallery captions; meeting room: page text + projector/sound system; private office: page text; podcast: equipment list). Meeting-room items and "Booth kerja privat/Ruang ibadah" are derived, confirm with the owner before launch. Do not add claims (hours, counts, prices).
+- Section backgrounds alternate: Plans = `bg-secondary`, Included = page background (do not make both secondary or they merge).
+
+## Service pages: line-icon design (from the GoWork Podcast Studio reference)
+
+- Reference gave only the look (bare thin line icons, 3-up cards, "how it works" icons); prices/packages from the reference were NOT copied and all existing content and prices stay.
+- Icons live in `components/service/icons.ts`: `iconFor(label)` maps Indonesian text to a lucide icon by keyword (first match wins, specific before generic, words anchored: "strategis" must not hit "rate", "nyaman" must not hit "aman"); fallback is a check mark. `stepIcons` = contact / visit / start by position.
+- Where used in `ServicePage.tsx`: ONLY the hero `highlights` chips and the "Termasuk" grid (4 columns, bare icon above the label, brick red on hover). Owner rejected icons INSIDE cards (2026-10-09), so "Mengapa" cards, bento cards and "Cara memulai" step cards stay icon-free (only the number circle / big faded number). Do not add icons to those cards again. Icons are bare (no filled boxes), teal, `strokeWidth` 1.4-1.6.
+- When adding a service or item, check `iconFor` returns something sensible (a quick tsx script over `services` lists each label with its icon); add a rule instead of leaving the check-mark fallback.
+- Two Claude sessions edited this area at the same time once (duplicate `icons.tsx`, since removed). Check file mtimes before editing shared service files.

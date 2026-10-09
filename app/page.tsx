@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { T } from "../components/Lang";
+import Facilities from "../components/Facilities";
 import { serviceOrder, services as allServices } from "../lib/services";
 import ContactSection from "../components/ContactSection";
 import Faq from "../components/Faq";
@@ -311,13 +312,16 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Fasilitas */}
+      <Facilities />
+
       {/* Lokasi */}
       <section className="py-28 bg-card">
         <div className="container mx-auto px-4 max-w-7xl grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="reveal overflow-hidden rounded-lg border border-border shadow-md">
             <iframe
               title="Lokasi CLAPHAM.CO di Ruko Centre Point Medan"
-              src="https://www.google.com/maps?q=COHIVE+at+Clapham&ll=3.5926181,98.681436&z=17&hl=id&output=embed"
+              src="https://www.google.com/maps?q=COHIVE+at+Clapham&ll=3.5926181,98.681436&z=15&hl=id&output=embed"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="h-80 w-full md:h-[26rem]"
