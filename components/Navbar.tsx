@@ -21,7 +21,8 @@ const underline =
 
 export default function Navbar() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  // pages whose first section is a full-screen photo: nav starts transparent and turns solid on scroll
+  const isHome = pathname === "/" || pathname === "/layanan/event-management";
   const [scrolled, setScrolled] = useState(false);
   const { lang, setLang } = useLang();
 
@@ -112,7 +113,7 @@ export default function Navbar() {
                 : "bg-white text-foreground hover:bg-primary"
             }`}
           >
-            <T en="Schedule a Visit">Atur Kunjungan</T>
+            <T en="Contact Us">Kontak Kami</T>
           </Link>
 
           <div

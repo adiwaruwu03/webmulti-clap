@@ -1,18 +1,15 @@
 import type { Metadata } from "next";
+import ServicePage from "../../../components/service/ServicePage";
+import { services } from "../../../lib/services";
 
-// Placeholder page: noindex until real content exists (remove `robots` and add to app/sitemap.ts then).
+const slug = "virtual-office";
+
 export const metadata: Metadata = {
-  title: "Virtual Office di Medan",
-  description: "Virtual office dengan alamat bisnis profesional di Ruko Centre Point Medan.",
-  robots: { index: false, follow: true },
+  ...services[slug].meta,
+  alternates: { canonical: `/layanan/${slug}` },
+  robots: services[slug].index ? undefined : { index: false, follow: true }, // virtual office stays noindex until the owner sends package details
 };
 
-import { T } from "@/components/Lang";
-
 export default function VirtualOfficePage() {
-  return (
-    <main className="flex min-h-[60vh] flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold capitalize text-gray-900"><T en="Virtual Office Page">Halaman Virtual Office</T></h1>
-    </main>
-  );
+  return <ServicePage slug={slug} />;
 }

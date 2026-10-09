@@ -53,7 +53,8 @@ Rules:
 
 ## Navbar
 
-- Content is fixed: Home, Layanan/Services (hover dropdown with 7 service pages), Tentang/About, Blog, plus an ID/EN toggle at the right end (owner asked for it). Plus a CTA button "Atur Kunjungan" / "Schedule a Visit" (owner/boss request) that goes to the dedicated page `/atur-kunjungan`, NOT to the form card on the home page. Do not add other links, icons, or a mobile pill nav unless asked.
+- Content is fixed: Home, Layanan/Services (hover dropdown with 7 service pages), Tentang/About, Blog, plus an ID/EN toggle at the right end (owner asked for it). Plus a CTA button "Kontak Kami" / "Contact Us" (owner/boss request; was "Atur Kunjungan" until 2026-10-08) that goes to the dedicated page `/atur-kunjungan`, NOT to the form card on the home page. Do not add other links, icons, or a mobile pill nav unless asked.
+- Nav animation on service pages: `/layanan/event-management` behaves exactly like home (transparent over a full-screen photo hero, solid after 40px scroll, white logo -> dark logo). Controlled by `isHome` in `components/Navbar.tsx`; add a pathname there for any other page that opens with a full-screen photo hero (that hero needs `-mt-16 min-h-svh`). All other routes stay solid.
 - Behavior: `fixed`, transparent over the hero on `/`, turns solid (blurred card background, dark logo) after 40px scroll and on all other routes. `main` has `pt-16` and the hero uses `-mt-16` to sit under the header.
 
 ## Things the owner explicitly rejected (do not reintroduce)
@@ -125,12 +126,15 @@ Testimonials are REAL Google reviews (6, all 5-star) of the Maps listing "COHIVE
 - Blog is fully bilingual: each post in `data/blog/posts.json` has `en: { title, excerpt, blocks }` with the SAME block layout/order as the Indonesian blocks (links, `**` markers and image/embed blocks aligned). Pages render both through `<T en={...}>` (title, excerpt, body, card titles); Indonesian stays the default and the SEO/metadata language. English was machine-translated by me on 2026-10-05 (proper names, addresses, brand names kept as is); when editing an Indonesian block, edit the same index in `en.blocks` too. Brand quirk kept: article 2 still says "with Workfrom" in both languages (source text). The index subtitle's English original is used for EN and I translated it for ID.
 - Fixes vs the old site: date typo `2014-09-20` corrected to 2024 (kept in the API as 2014); typo "perabtotan" fixed; "Artikel Serupa" lists the reference's 4 titles minus the current article; WhatsApp button shown on every article. Old-site contact data (hello@clapham.id, social icons) was NOT copied; the footer stays ours.
 
-## Booking page (/atur-kunjungan)
+## Contact page (/atur-kunjungan) and home contact card
 
-- Dedicated visit/consultation page reached from the navbar CTA (reference: GoWork "Atur Kunjungan Lokasi"; layout adapted, single location so no location picker). `app/atur-kunjungan/page.tsx` + client form `components/BookingForm.tsx`.
-- Fields: name, company email, +62 phone, company, workspace of interest (7 services), visit date (weekdays only, min today), time (09:00-16:30, 30-min slots), planned start, number of people stepper, business needs. All bilingual via `useT`.
-- No backend: submit builds an Indonesian message and opens WhatsApp (`lib/contact.ts` -> wa.me/6285353729190). A fallback link shows after submit in case the popup is blocked. The home page consult form (`ConsultForm`) is still a dummy with no submit.
+- Navbar CTA "Kontak Kami" goes to `/atur-kunjungan` (route name kept so links/sitemap stay valid). The page renders the SAME `components/ContactSection.tsx` as the home page (teal band, white consult card, location/hours/Maps column); on the page its heading is the h1, on home an h2. The old visit-date/time form (`BookingForm`) was removed on 2026-10-08.
+- `components/ConsultForm.tsx` (shared): workspace select (7 services), name, company email, +62 phone, company, details. No backend: submit builds an Indonesian message and opens WhatsApp (`lib/contact.ts` -> wa.me/6285353729190), with a fallback link after submit. `?layanan=<value>` (e.g. `event-management`) preselects the workspace; service pages use it in their CTA.
 - Contact constants (WhatsApp, phone) live in `lib/contact.ts`; the phone `(061) 80510977` comes from the Maps listing, WhatsApp from the old site's footer. Verify both are still active.
+
+## FAQ (home)
+
+- `components/Faq.tsx`, placed above the contact band (testimonials -> FAQ on white `bg-card` -> teal contact). Native `<details>` accordion (no JS), 6 questions, bilingual, plus FAQPage JSON-LD. Answers only state facts we know (services, address, hours, contact flow); no prices.
 
 ## SEO / performance audit (2026-10-05, Lighthouse 12 on production build)
 
@@ -147,3 +151,22 @@ Testimonials are REAL Google reviews (6, all 5-star) of the Maps listing "COHIVE
 
 - 3 photos in a row, middle one offset down. Left photo is the Clapham meeting room (`public/layanan/Meeting-Room/WhatsApp Image 2025-02-13 at 14.20.34_29bf9eef.jpg`, 4032x3024, shown with `object-[25%_50%]` so the TV, table and window stay in the crop). The other two are in `public/foto-home/New folder/`.
 - Photos are wider from 1200px up (`min-[1200px]:max-w-7xl` + `aspect-[5/6]`), keeping the same height as the earlier `aspect-[3/4]`; below 1200px they stay 3/4. The meeting-room source is large (~1.2 MB); Next serves a 828px optimised copy.
+
+## Event Management Service (/layanan/event-management)
+
+- Ported from the earlier design in `D:\projek\Clapham_co\clpaham-page` (events section + `/events/[slug]`), restyled with our tokens. Intro, 8 service scope cards (text only, no icons), 3 featured events, portfolio grid with type filter + lightbox, teal CTA band.
+- Data: `data/events.json` (typed in `lib/events.ts`), 90 events. Only 4 have a detail page (`/layanan/event-management/[slug]`, static): above-and-beyond-open-house, above-and-beyond-seminar-100, clapham-conference-2025, community-creative-gathering. The other 86 show name + type only (old per-event descriptions were generic filler, dropped). Detail events carry an `en` block (machine-translated by me 2026-10-07). Event names stay untranslated.
+- Photos: `public/layanan/Event-Management-Service/<slug>.webp` (max 1600px, q84), story photos `<slug>-story-N.webp` shown at native ratio. To add an event, convert the photo the same way and add an entry to `data/events.json`.
+- Page is indexed and in `app/sitemap.ts` (service placeholders elsewhere stay noindex). "Seminar Above and Beyond Seminar" renamed to "Above and Beyond Seminar" (typo). Numbers in the old Community Creative Gathering copy (200+ members) came from the old design, verify with the owner.
+- Event Management hero (`components/events/HeroCarousel.tsx`): 6 slides = the first 6 portfolio photos (`hero-event-N.webp`, renamed from `hero-N` to dodge the Next image cache). Headline in white with the last phrase in `text-primary`; left-to-right dark gradient for legibility; keyword "Event Management Service di Medan" is `sr-only` inside the h1.
+- Event detail pages (`[slug]/page.tsx`) use the same layout and body styles as the blog article page (back link, pill, h1, excerpt, hero, justified body, Highlights list, story sections as h2 + photo + paragraph, WhatsApp button, sticky "Event Serupa" sidebar). Keep them in sync with `app/blog/[slug]/page.tsx`.
+
+## Service pages (/layanan/*)
+
+- Coworking Space, Meeting Room, Private Office, Virtual Office and Podcast Studio share one template: `components/service/ServicePage.tsx` (hero with "Mulai dari" price, plan cards, included list, photo gallery, other services, contact card) fed by `lib/services.ts` ([id, en] pairs). Each `app/layanan/<slug>/page.tsx` is a few lines. Event Management has its own page; Event Space is still a noindex placeholder (on hold).
+- Prices come from `D:\projek\Clapham_co\desain-layanan\Brosur Clapham (1).pdf` (+ podcast price list from the owner): DayPass 100k, Flexible Desk 1.250k/mo, Dedicated Desk 2.250k/mo, Cube from 5.000k/mo; Meeting Room Stephen (10) 220k/hr, Newton and Elliot (6) 165k/hr, member rate 137,5k and 82,5k; Private Office 2/3/5/6 pax = 5.000k/7.500k/12.500k/15.000k per month (per room, not per person); Podcast Record Only 299k/hr, Ready to Post 599k/hr. Never invent numbers or inclusions.
+- Only 3 meeting rooms exist: Stephen, Newton, Elliot. Photos are named after the room (`public/layanan/Meeting-Room/stephen*.jpg`, `newton*.jpg`, `elliot.jpeg`). The home collage left photo is now `stephen3.jpg`.
+- Podcast hero shows the click-to-play YouTube card (`components/service/YouTubeCard.tsx`, video `pJ1xKfAnqUI`; thumbnail loads first, iframe only after click).
+- Virtual Office has no package/price info from the owner yet, so it stays `index: false` (noindex, not in the sitemap). Set `index: true` in `lib/services.ts` once it has real content. The other four are indexed and in `app/sitemap.ts`.
+- The reference designs in `desain-layanan/*.png` are GoWork pages (structure only: hero + "mulai dari" price, plans, benefits, other packages); do not copy their wording or claims.
+- Photo galleries on service pages are a symmetric grid: landscape photo = one 3:2 cell, portrait photo (ratio < 1.1) = 2 rows tall. `arrange()` in `components/service/ServicePage.tsx` finds a hole-free order for the 3-col and 2-col grid (a landscape photo in every row) and, if the set cannot tile, skips the fewest photos (max 4). Just list the photos in `lib/services.ts`; sizes come from `data/photo-dims.json` (regenerate it after adding photos, including .webp). Every service page also has a why-us band, a use-cases list, 3 steps and a location block (facts from the brochure). Coworking uses a comparison table (`matrix`) instead of plan cards.
