@@ -60,23 +60,35 @@ const partners = [
   { name: "Mekari", src: "/partners/mekari-logo.webp", w: 520, h: 100 },
   { name: "DBS", src: "/partners/dbs-logo.webp", w: 493, h: 144 },
   { name: "BCA", src: "/partners/bca.webp", w: 465, h: 144 },
+  { name: "Metrohm", src: "/partners/metrohm.webp", w: 520, h: 100 },
   { name: "Kartu Prakerja", src: "/partners/logo-kartu-prakerja.webp", w: 450, h: 144 },
   { name: "Indonesia Baik", src: "/partners/indonesia-baik-logo.webp", w: 349, h: 144 },
   { name: "Zahav Techno Creative", src: "/partners/zahav-techno-creative-logo.webp", w: 268, h: 66 },
+  { name: "Akara Capital", src: "/partners/akara.webp", w: 346, h: 130 },
   { name: "Asosiasi Blockchain Indonesia", src: "/partners/asosiasi-blockchain-indonesia.webp", w: 344, h: 102 },
   { name: "GUAlokal", src: "/partners/gualokal.webp", w: 318, h: 76 },
   { name: "Letterist.co", src: "/partners/letterist.webp", w: 520, h: 131 },
+  { name: "Bhinneka.com", src: "/partners/bhinneka.webp", w: 520, h: 66 },
   { name: "Soulmate", src: "/partners/soulmate.webp", w: 160, h: 160, label: "Soulmate" },
   { name: "Bakeout", src: "/partners/bakeout.webp", w: 520, h: 104 },
   { name: "Bakeout Society", src: "/partners/bakeout-society.webp", w: 272, h: 144 },
+  { name: "Denali Capital", src: "/partners/denali.webp", w: 380, h: 144 },
   { name: "M-Burger", src: "/partners/m-burger.webp", w: 520, h: 129 },
   { name: "Coffeenatics", src: "/partners/coffeenatics.webp", w: 144, h: 144, label: "Coffeenatics" },
   { name: "LivWell Clinic Medan", src: "/partners/livwell-clinic-medan-logo.webp", w: 171, h: 81 },
+  { name: "Lemon Hexa", src: "/partners/lemon.webp", w: 520, h: 125 },
   { name: "Sistech Kharisma", src: "/partners/sistec-logo.webp", w: 159, h: 144 },
   { name: "PT Sumatra Tobacco Trading Company", src: "/partners/pt-sumatra-tobacco-trading-company-logo.webp", w: 402, h: 144 },
   { name: "Haengun.id", src: "/partners/haengun-id.webp", w: 97, h: 123 },
+  { name: "Miss Planner", src: "/partners/miss-planner.webp", w: 520, h: 108 },
   { name: "Clapham Education Series - Higher Education Day 2024", src: "/partners/clapham-education-series.webp", w: 488, h: 144 },
   { name: "PT Kanvas Mitra Aktiva", src: "/partners/pt-kanvas-mitra-aktiva.webp", w: 520, h: 37 },
+  { name: "PT Surya Bumi Niaga", src: "/partners/pt-surya-bumi-niaga.webp", w: 520, h: 134 },
+  { name: "SMLONE", src: "/partners/sml-one.webp", w: 143, h: 144 },
+  { name: "Tokudoku", src: "/partners/tokudoku.webp", w: 520, h: 70 },
+  { name: "Avokado", src: "/partners/avokado.webp", w: 206, h: 144 },
+  { name: "Ternak AI", src: "/partners/ternak-ai.webp", w: 520, h: 133 },
+  { name: "Trainedu", src: "/partners/wa-2025-06-16.webp", w: 435, h: 144 },
 ];
 
 const testimonials = [
@@ -370,7 +382,7 @@ export default function Home() {
 
         </div>
         <div className="group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-          <div className="flex w-max items-center animate-marquee [animation-duration:110s] group-hover:[animation-play-state:paused]">
+          <div className="flex w-max items-center animate-marquee group-hover:[animation-play-state:paused]" style={{ animationDuration: `${partners.length * 5.5}s` }}>
             {[...partners, ...partners].map((p, n) => (
               <div key={n} className={`mx-8 md:mx-12 flex h-20 items-center justify-center gap-3 ${"label" in p ? "w-auto" : "w-44 md:w-52"}`} aria-hidden={n >= partners.length}>
                 <img

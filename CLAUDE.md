@@ -206,3 +206,9 @@ Testimonials are REAL Google reviews (6, all 5-star) of the Maps listing "COHIVE
 - Where used in `ServicePage.tsx`: ONLY the hero `highlights` chips and the "Termasuk" grid (4 columns, bare icon above the label, brick red on hover). Owner rejected icons INSIDE cards (2026-10-09), so "Mengapa" cards, bento cards and "Cara memulai" step cards stay icon-free (only the number circle / big faded number). Do not add icons to those cards again. Icons are bare (no filled boxes), teal, `strokeWidth` 1.4-1.6.
 - When adding a service or item, check `iconFor` returns something sensible (a quick tsx script over `services` lists each label with its icon); add a rule instead of leaving the check-mark fallback.
 - Two Claude sessions edited this area at the same time once (duplicate `icons.tsx`, since removed). Check file mtimes before editing shared service files.
+
+## Partner logos: second batch (2026-10-09)
+
+- 12 more logos were added from `public/logo.nav/logo tamabahan/` (raw originals stay there): Akara Capital, Denali Capital, Lemon Hexa, Avokado, Metrohm, Miss Planner, PT Surya Bumi Niaga, Bhinneka.com, SMLONE, Ternak AI, Tokudoku, Trainedu. Processed the same way as before into `public/partners/*.webp`; interleaved with the old ones in the `partners` array (32 total).
+- That folder also held Bahana Bara Mahanusa, Citra Buana Kemala, CV Cahaya Material and CV Makmurindo Bersama, which the owner had asked to remove earlier, and PT Kanvas (already shown). They were intentionally NOT re-added; ask before adding them.
+- Marquee duration now scales with the list: `partners.length * 5.5` seconds (about 55 px/s), so adding logos does not speed it up.
