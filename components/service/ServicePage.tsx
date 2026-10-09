@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import { whatsappLink } from "../../lib/contact";
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_DISPLAY, whatsappLink } from "../../lib/contact";
 import dims from "../../data/photo-dims.json";
 import { serviceOrder, services, type L } from "../../lib/services";
 import { T } from "../Lang";
@@ -85,7 +85,19 @@ export default function ServicePage({ slug }: { slug: string }) {
       <section className="container mx-auto max-w-7xl overflow-x-clip px-4 pb-20 pt-12 md:pt-16">
         <div className={`grid items-center gap-10 lg:gap-16 ${s.video ? "lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]" : "lg:grid-cols-2"}`}>
           <div className="reveal">
-            <h1 className="font-heading text-4xl font-semibold tracking-wide text-foreground md:text-6xl">{s.name}</h1>
+            <h1 className="font-heading text-4xl font-semibold leading-tight tracking-wide text-foreground md:text-6xl">
+              {s.title ? (
+                <>
+                  <span className="sr-only">{s.name}: </span>
+                  <T en={<>{s.title.pre[1]}<span className="text-brick">{s.title.accent[1]}</span>{s.title.post[1]}</>}>
+                    {s.title.pre[0]}<span className="text-brick">{s.title.accent[0]}</span>{s.title.post[0]}
+                  </T>
+                </>
+              ) : (
+                s.name
+              )}
+            </h1>
+            {s.title && <p className="mt-4 font-heading text-lg font-semibold tracking-wide text-teal-ink">{s.name}</p>}
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
               <Tl v={s.lead} />
             </p>
@@ -121,6 +133,18 @@ export default function ServicePage({ slug }: { slug: string }) {
           <div className={`reveal ${s.video ? "pr-3 md:pr-4" : ""}`} style={{ "--i": 1 } as CSSProperties}>
             {s.video ? (
               <YouTubeCard id={s.video} title={`${s.name} CLAPHAM.CO`} />
+            ) : s.art ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <div className="group relative overflow-hidden rounded-lg border border-border bg-card p-6 shadow-lg">
+                <div aria-hidden className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full bg-primary/25 blur-3xl transition-transform duration-700 group-hover:scale-125" />
+                <div aria-hidden className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-brick/10 blur-3xl" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={s.art} alt={`Ilustrasi ${s.name} CLAPHAM.CO`} width={900} height={640} className="relative h-auto w-full animate-float" />
+                <span className="absolute bottom-5 left-5 inline-flex items-center gap-1.5 rounded-full bg-secondary px-4 py-1.5 text-xs font-semibold text-teal-ink shadow-xs">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" /></svg>
+                  Centre Point Medan
+                </span>
+              </div>
             ) : (
               <div className={size(s.hero)[0] / size(s.hero)[1] < 1.1 ? "relative mx-auto w-full max-w-md pb-3 pr-3 lg:ml-auto lg:mr-0 md:pb-4 md:pr-4" : "relative"}>
                 {size(s.hero)[0] / size(s.hero)[1] < 1.1 && <div aria-hidden className="absolute bottom-0 right-0 h-[calc(100%-0.75rem)] w-[calc(100%-0.75rem)] rounded-lg bg-primary/70 md:h-[calc(100%-1rem)] md:w-[calc(100%-1rem)]" />}
@@ -139,20 +163,20 @@ export default function ServicePage({ slug }: { slug: string }) {
               <Tl v={s.plansTitle} />
             </h2>
             {s.matrix ? (
-              <div className="reveal mt-12 overflow-x-auto rounded-lg border border-border bg-card shadow-xs">
-                <table className="w-full min-w-[46rem] border-collapse text-left">
+              <div className="reveal mt-12 overflow-x-auto rounded-lg border border-border bg-card shadow-md">
+                <table className="w-full min-w-[48rem] border-collapse text-left">
                   <thead>
                     <tr>
-                      <th className="w-1/3 p-5 md:p-6" />
+                      <th className="w-[28%] bg-card p-5 md:p-6" />
                       {s.plans.map((p) => (
-                        <th key={String(p.name)} className="border-l border-border p-5 align-bottom md:p-6">
-                          <span className="block font-heading text-xl font-semibold tracking-wide text-card-foreground">{typeof p.name === "string" ? p.name : <Tl v={p.name} />}</span>
-                          <span className="mt-2 block text-sm font-normal text-muted-foreground">
+                        <th key={String(p.name)} className="bg-primary/25 p-5 align-bottom transition-colors duration-300 hover:bg-primary/45 md:p-6">
+                          <span className="block font-heading text-lg font-semibold tracking-wide text-foreground">{typeof p.name === "string" ? p.name : <Tl v={p.name} />}</span>
+                          <span className="mt-3 block text-sm font-medium text-foreground/70">
                             {p.prefix ? <Tl v={p.prefix} /> : <>&nbsp;</>}
                           </span>
-                          <span className="block font-heading text-2xl font-semibold tracking-wide text-brick">{p.price}</span>
+                          <span className="block font-heading text-2xl font-semibold tracking-wide text-brick md:text-3xl">{p.price}</span>
                           {p.unit && (
-                            <span className="text-sm font-normal text-muted-foreground">
+                            <span className="text-sm font-medium text-foreground/70">
                               <Tl v={p.unit} />
                             </span>
                           )}
@@ -162,20 +186,22 @@ export default function ServicePage({ slug }: { slug: string }) {
                   </thead>
                   <tbody>
                     {s.matrix.map((r) => (
-                      <tr key={r.label[0]} className="border-t border-border transition-colors hover:bg-secondary/50">
-                        <th scope="row" className="px-5 py-4 font-normal text-muted-foreground md:px-6">
+                      <tr key={r.label[0]} className="group/row transition-colors duration-200 even:bg-secondary/40 hover:bg-primary/20">
+                        <th scope="row" className="px-5 py-4 font-medium text-foreground/80 transition-colors group-hover/row:text-foreground md:px-6">
                           <Tl v={r.label} />
                         </th>
                         {r.v.map((v, i) => (
-                          <td key={i} className="border-l border-border px-5 py-4 text-center md:px-6">
+                          <td key={i} className="px-5 py-4 text-center md:px-6">
                             {v === true ? (
-                              <span className="font-semibold text-teal-ink" aria-label="Ya">✓</span>
+                              <span aria-label="Ya" className="mx-auto flex h-6 w-6 items-center justify-center rounded-full bg-teal-ink text-white">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="m5 12 5 5L20 7" /></svg>
+                              </span>
                             ) : v === false ? (
-                              <span className="text-muted-foreground/50" aria-label="Tidak">—</span>
+                              <span className="text-muted-foreground/40" aria-label="Tidak">—</span>
                             ) : typeof v === "string" ? (
-                              <span className="font-medium text-foreground">{v}</span>
+                              <span className="font-semibold text-foreground">{v}</span>
                             ) : (
-                              <span className="font-medium text-foreground">
+                              <span className="font-semibold text-foreground">
                                 <Tl v={v} />
                               </span>
                             )}
@@ -183,13 +209,13 @@ export default function ServicePage({ slug }: { slug: string }) {
                         ))}
                       </tr>
                     ))}
-                    <tr className="border-t border-border">
-                      <td className="px-5 py-5 md:px-6" />
+                    <tr>
+                      <td className="px-5 py-6 md:px-6" />
                       {s.plans.map((p) => (
-                        <td key={String(p.name)} className="border-l border-border px-5 py-5 text-center md:px-6">
-                          <Link href={contact} className="inline-flex items-center gap-2 font-semibold text-teal-ink hover:underline">
+                        <td key={String(p.name)} className="px-3 py-6 text-center md:px-4">
+                          <Link href={contact} className="group inline-flex items-center gap-2 rounded-md bg-foreground px-5 py-2.5 text-sm font-semibold text-background shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-ink hover:shadow-md">
                             <T en="Ask">Tanya</T>
-                            <span aria-hidden>→</span>
+                            <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                           </Link>
                         </td>
                       ))}
@@ -262,8 +288,49 @@ export default function ServicePage({ slug }: { slug: string }) {
         </section>
       )}
 
+      {/* Bento features */}
+      {s.bento && s.bentoTitle && (
+        <section className="bg-secondary py-24">
+          <div className="container mx-auto max-w-7xl px-4">
+            <h2 className={`reveal ${h2}`}>
+              <Tl v={s.bentoTitle} />
+            </h2>
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {s.bento.map((b, i) => (
+                <Link
+                  key={b.t[0]}
+                  href={contact}
+                  className="reveal group relative flex flex-col overflow-hidden rounded-lg border border-border bg-card p-7 shadow-xs transition-all duration-300 ease-out hover:-translate-y-2 hover:border-teal-ink/40 hover:shadow-xl md:p-8"
+                  style={{ "--i": i } as CSSProperties}
+                >
+                  <span aria-hidden className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-primary/30 opacity-0 blur-3xl transition-all duration-500 group-hover:scale-110 group-hover:opacity-100" />
+                  <span aria-hidden className="relative font-heading text-4xl font-bold text-foreground/10 transition-colors duration-300 group-hover:text-teal-ink/25">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="relative mt-4 font-heading text-xl font-semibold leading-snug tracking-wide text-card-foreground">
+                    <Tl v={b.t} />
+                  </h3>
+                  <p className="relative mt-3 flex-1 leading-relaxed text-muted-foreground">
+                    <Tl v={b.d} />
+                  </p>
+                  <span className="relative mt-6 inline-flex items-center gap-2 text-sm font-semibold text-teal-ink">
+                    <T en="Ask for details">Tanya detail</T>
+                    <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+                  </span>
+                </Link>
+              ))}
+            </div>
+            {s.ctaNote && (
+              <p className="reveal mt-10 text-lg text-muted-foreground">
+                <Tl v={s.ctaNote} />
+              </p>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* Included */}
-      {s.included && s.includedTitle && (
+      {s.included && s.includedTitle && !s.bento && (
         <section className="container mx-auto max-w-7xl px-4 py-24">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,24rem)_1fr] lg:gap-20">
             <h2 className={`reveal ${h2}`}>
@@ -286,6 +353,7 @@ export default function ServicePage({ slug }: { slug: string }) {
       )}
 
       {/* Why */}
+      {!s.bento && (
       <section className="bg-chart-4/25 py-24">
         <div className="container mx-auto max-w-7xl px-4">
           <h2 className={`reveal ${h2}`}>
@@ -305,6 +373,8 @@ export default function ServicePage({ slug }: { slug: string }) {
           </div>
         </div>
       </section>
+
+      )}
 
       {/* Uses */}
       <section className="container mx-auto max-w-7xl px-4 py-24">
@@ -358,11 +428,18 @@ export default function ServicePage({ slug }: { slug: string }) {
               Cara <span className="text-brick">memulai</span>
             </T>
           </h2>
-          <ol className="mt-12 grid gap-6 md:grid-cols-3">
-            {steps.map((st, i) => (
-              <li key={st.t[0]} className="reveal rounded-lg border border-border bg-card p-6 shadow-xs md:p-8" style={{ "--i": i } as CSSProperties}>
-                <span className="font-heading text-3xl font-semibold tracking-wide text-brick">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-3 font-heading text-xl font-semibold tracking-wide text-card-foreground">
+          <ol className="relative mt-12 grid gap-6 md:grid-cols-3 md:gap-8">
+            <span aria-hidden className="absolute left-[16%] right-[16%] top-12 hidden border-t-2 border-dashed border-foreground/20 md:block" />
+            {(s.steps ?? steps).map((st, i) => (
+              <li
+                key={st.t[0]}
+                className="reveal group relative rounded-lg border border-border bg-card p-6 shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl md:p-8"
+                style={{ "--i": i } as CSSProperties}
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-dashed border-brick/50 bg-card font-heading text-lg font-semibold text-brick transition-colors duration-300 group-hover:border-solid group-hover:bg-brick group-hover:text-white">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-5 font-heading text-xl font-semibold tracking-wide text-card-foreground">
                   <Tl v={st.t} />
                 </h3>
                 <p className="mt-2 leading-relaxed text-muted-foreground">
@@ -399,6 +476,18 @@ export default function ServicePage({ slug }: { slug: string }) {
                 <T en="Open in Google Maps">Buka di Google Maps</T>
                 <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </a>
+              {s.map && (
+                <div className="overflow-hidden rounded-lg border border-border shadow-md">
+                  <iframe
+                    src="https://www.google.com/maps?q=3.5926181,98.681436&z=17&output=embed"
+                    title="Peta CLAPHAM.CO"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                    className="aspect-video w-full max-w-xl border-0"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -425,27 +514,54 @@ export default function ServicePage({ slug }: { slug: string }) {
       </section>
 
       {/* CTA */}
-      <section className="bg-primary py-20 text-foreground md:py-24">
-        <div className="container mx-auto max-w-7xl px-4">
-          <div className="reveal grid items-center gap-10 rounded-lg bg-card p-8 shadow-xl md:p-14 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-16">
-            <div className="max-w-2xl">
+      <section className="relative overflow-hidden bg-primary py-20 text-foreground md:py-28">
+        <div aria-hidden className="absolute -right-24 -top-24 h-96 w-96 animate-float rounded-full bg-white/45 blur-3xl" />
+        <div aria-hidden className="absolute -bottom-32 -left-24 h-96 w-96 animate-float rounded-full bg-brick/15 blur-3xl [animation-delay:-6s]" />
+        <div className="container relative mx-auto max-w-6xl px-4">
+          <div className="reveal grid overflow-hidden rounded-lg bg-card shadow-xl lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+            <div className="p-8 md:p-14">
               <h2 className="font-heading text-3xl font-semibold leading-tight tracking-wide md:text-5xl">
-                <T en="Interested?">Tertarik?</T>
+                <T en={<>Ready to <span className="text-brick">get started?</span></>}>
+                  Siap <span className="text-brick">memulai?</span>
+                </T>
               </h2>
-              <p className="mt-5 text-lg leading-relaxed text-muted-foreground md:text-xl">
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
                 <T en="Tell us what you need and our team will help you pick the right option.">
                   Ceritakan kebutuhan Anda dan tim kami akan membantu memilih opsi yang tepat.
                 </T>
               </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href={contact} className={`${btnDark} gap-3 px-9`}>
+                  <T en="Contact Us">Kontak Kami</T>
+                  <span aria-hidden>→</span>
+                </Link>
+                <a href={wa} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-md border border-border px-9 py-3.5 font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-ink hover:text-teal-ink active:scale-[0.98]">
+                  WhatsApp
+                </a>
+              </div>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <Link href={contact} className={`${btnDark} px-10`}>
-                <T en="Contact Us">Kontak Kami</T>
-              </Link>
-              <a href={wa} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-md border border-foreground/40 px-10 py-3.5 font-semibold text-foreground transition-all duration-300 hover:border-foreground hover:bg-foreground/10 active:scale-[0.98]">
-                <T en="Chat via WhatsApp">Chat via WhatsApp</T>
-              </a>
-            </div>
+            <dl className="divide-y divide-border bg-secondary p-8 md:p-14">
+              {[
+                { k: ["Telepon", "Phone"] as L, v: PHONE_DISPLAY, href: `tel:${PHONE_TEL}` },
+                { k: ["WhatsApp", "WhatsApp"] as L, v: WHATSAPP_DISPLAY, href: wa },
+                { k: ["Jam operasional", "Opening hours"] as L, v: ["Senin–Jumat, 09.00–17.00", "Monday–Friday, 09.00–17.00"] as L },
+              ].map((r) => (
+                <div key={r.k[0]} className="py-5 first:pt-0 last:pb-0">
+                  <dt className="text-sm text-muted-foreground">
+                    <Tl v={r.k} />
+                  </dt>
+                  <dd className="mt-1 font-heading text-lg font-semibold tracking-wide text-foreground">
+                    {typeof r.v === "string" ? (
+                      <a href={r.href} className="transition-colors hover:text-teal-ink" {...(r.href?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+                        {r.v}
+                      </a>
+                    ) : (
+                      <Tl v={r.v} />
+                    )}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>

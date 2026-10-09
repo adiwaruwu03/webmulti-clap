@@ -20,6 +20,12 @@ export type Service = {
   lead: L;
   from?: { price: string; unit: L };
   hero: string;
+  title?: { pre: L; accent: L; post: L }; // visible h1 with one brick word; s.name stays in the h1 for SEO (sr-only)
+  bentoTitle?: L;
+  bento?: { t: L; d: L }[]; // feature cards, replace the "why" band on this page
+  steps?: { t: L; d: L }[]; // overrides the default 3 steps
+  map?: boolean; // embed a Google Map of the office in the location block
+  art?: string; // illustration used instead of a photo (no real photo available yet)
   video?: string; // YouTube id, replaces the hero photo
   plansTitle: L;
   plans?: Plan[];
@@ -261,6 +267,20 @@ export const services: Record<string, Service> = {
       "Gunakan alamat bisnis di Ruko Centre Point Medan untuk perusahaan Anda tanpa harus menyewa kantor penuh. Hubungi kami untuk detail paket dan penawaran.",
       "Use a business address at Ruko Centre Point Medan for your company without renting a full office. Contact us for package details and a quote.",
     ],
+    title: { pre: ["Alamat Bisnis ", "A "], accent: ["Prestisius", "Prestigious"], post: [" di Pusat Kota Medan", " Business Address in Central Medan"] },
+    bentoTitle: ["Apa yang Anda dapatkan", "What you get"],
+    bento: [
+      { t: ["Alamat bisnis di Centre Point Medan", "A business address at Centre Point Medan"], d: ["Gunakan alamat Komp. Ruko Centre Point Medan untuk identitas usaha Anda, di pusat kota dan dekat Stasiun Railink.", "Use the Komp. Ruko Centre Point Medan address for your company, in the city center near Railink Station."] },
+      { t: ["Alamat surat", "Mailing address"], d: ["Surat untuk usaha Anda dikirim ke alamat kami. Tanyakan detail penanganan surat dan paket saat menghubungi tim.", "Mail for your business is sent to our address. Ask our team how letters and parcels are handled."] },
+      { t: ["Meeting room & komunitas", "Meeting rooms & community"], d: ["Butuh bertemu klien? Sewa Stephen, Newton, atau Elliot per jam, dan ikut kegiatan komunitas CLAPHAM.CO.", "Meeting a client? Book Stephen, Newton, or Elliot by the hour, and join the CLAPHAM.CO community."] },
+    ],
+    steps: [
+      { t: ["Pilih paket", "Pick a package"], d: ["Ceritakan kebutuhan usaha Anda, kami bantu pilihkan paket yang pas.", "Tell us about your business and we help you pick the right package."] },
+      { t: ["Konfirmasi dengan tim", "Confirm with our team"], d: ["Tim kami menjelaskan persyaratan dan menjawab pertanyaan Anda. Singkat, tanpa ribet.", "Our team explains what is needed and answers your questions. Short and simple."] },
+      { t: ["Alamat siap dipakai", "Address ready to use"], d: ["Mulai gunakan alamat Centre Point Medan untuk usaha Anda.", "Start using the Centre Point Medan address for your business."] },
+    ],
+    map: true,
+    art: "/ilustrasi/virtual-office.svg",
     hero: `${CW}/7F246124-E588-4CBE-8F6C-8ADD8DC80F47-1726-000000E549EFCA4F.jpg`,
     plansTitle: ["", ""],
     includedTitle: ["Yang bisa Anda dapatkan", "What you can get"],

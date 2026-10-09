@@ -2,67 +2,27 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { T } from "../components/Lang";
+import { serviceOrder, services as allServices } from "../lib/services";
 import ContactSection from "../components/ContactSection";
 import Faq from "../components/Faq";
 
+// Home service grid. Copy and "Mulai dari" prices come from lib/services.ts (same source as the /layanan pages).
+const card = (slug: string, img: string, cls: string, big = false) => {
+  // Event Space is on hold and not in serviceOrder yet, so it keeps its own copy here.
+  const o = serviceOrder.find((x) => x.slug === slug) ?? {
+    name: "Event Space",
+    blurb: ["Ruang acara untuk seminar, workshop, dan pertemuan komunitas.", "A venue for seminars, workshops, and community gatherings."],
+  };
+  return { title: o.name, desc: o.blurb[0], descEn: o.blurb[1], href: `/layanan/${slug}`, img, cls, big, from: allServices[slug]?.from };
+};
 const services = [
-  {
-    title: "Coworking Space",
-    desc: "Kursi fleksibel di ruang bersama yang nyaman, hangat, dan mendukung kolaborasi.",
-    descEn: "Flexible seats in a shared space that is comfortable, warm, and built for collaboration.",
-    href: "/layanan/coworking-space",
-    img: "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?q=80&w=1000&auto=format&fit=crop",
-    cls: "md:col-span-2 lg:row-span-2",
-    big: true,
-  },
-  {
-    title: "Private Office",
-    desc: "Ruang privat yang tenang untuk tim yang butuh fokus tanpa gangguan.",
-    descEn: "A quiet private space for teams that need focus without distraction.",
-    href: "/layanan/private-office",
-    img: "https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=800&auto=format&fit=crop",
-    cls: "",
-  },
-  {
-    title: "Meeting Room",
-    desc: "Ruang rapat profesional dengan perangkat lengkap untuk presentasi lancar.",
-    descEn: "Professional meeting rooms with complete equipment for smooth presentations.",
-    href: "/layanan/meeting-room",
-    img: "https://images.unsplash.com/photo-1600508774634-4e11d34730e2?q=80&w=800&auto=format&fit=crop",
-    cls: "",
-  },
-  {
-    title: "Event Space",
-    desc: "Ruang acara fleksibel untuk workshop, seminar, peluncuran produk, dan pertemuan komunitas.",
-    descEn: "A flexible venue for workshops, seminars, product launches, and community gatherings.",
-    href: "/layanan/event-space",
-    img: "/foto-home/New%20folder/clapham-foto2.webp",
-    cls: "md:col-span-2",
-  },
-  {
-    title: "Virtual Office",
-    desc: "Alamat bisnis premium untuk membangun kredibilitas perusahaan Anda.",
-    descEn: "A premium business address to build your company's credibility.",
-    href: "/layanan/virtual-office",
-    img: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800&auto=format&fit=crop",
-    cls: "",
-  },
-  {
-    title: "Event Management Service",
-    desc: "Perencanaan hingga pelaksanaan acara, dari konsep dan teknis sampai dokumentasi.",
-    descEn: "Planning through execution for your events, from concept and logistics to documentation.",
-    href: "/layanan/event-management",
-    img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=900&auto=format&fit=crop",
-    cls: "",
-  },
-  {
-    title: "Podcast Studio",
-    desc: "Studio rekaman yang nyaman dengan perangkat audio siap pakai untuk konten Anda.",
-    descEn: "A comfortable recording studio with ready-to-use audio equipment for your content.",
-    href: "/layanan/podcast-studio",
-    img: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?q=80&w=1200&auto=format&fit=crop",
-    cls: "md:col-span-2",
-  },
+  card("coworking-space", "/layanan/Coworking-Space/CA - Flexible Desk.jpeg", "md:col-span-2 lg:row-span-2", true),
+  card("private-office", "/layanan/Private-Office/brosur-private-office.webp", ""),
+  card("meeting-room", "/layanan/Meeting-Room/brosur-stephen.webp", ""),
+  card("event-space", "/layanan/Event-Space/brosur-event-space.webp", "md:col-span-2"),
+  card("virtual-office", "/layanan/Coworking-Space/7F246124-E588-4CBE-8F6C-8ADD8DC80F47-1726-000000E549EFCA4F.jpg", ""),
+  card("event-management", "/layanan/Event-Management-Service/hero-event-3.webp", ""),
+  card("podcast-studio", "https://i.ytimg.com/vi/pJ1xKfAnqUI/maxresdefault.jpg", "md:col-span-2"),
 ];
 
 const values = [
@@ -316,21 +276,29 @@ export default function Home() {
                   href={s.href}
                   className="group relative block h-full overflow-hidden rounded-lg bg-secondary shadow-sm hover:shadow-xl transition-shadow duration-500"
                 >
-                  <img
-                    src={s.img}
-                    alt={s.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/5" />
-                  <div className="absolute inset-x-0 bottom-0 p-6 md:p-7 text-white">
+                  {s.img.startsWith("http") ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={s.img} alt={s.title} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110" />
+                  ) : (
+                    <Image src={s.img} alt={s.title} fill sizes={s.big ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 50vw, (min-width: 768px) 50vw, 100vw"} quality={90} className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110" />
+                  )}
+                  {/* dark scrim so the white text always reads */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/25 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/15" />
+                  <div className="absolute inset-x-0 bottom-0 p-6 md:p-7 text-white [text-shadow:0_1px_12px_rgb(0_0_0/0.45)]">
                     <h3 className={`font-heading tracking-wide font-semibold ${s.big ? "text-2xl md:text-3xl" : "text-xl"} mb-2`}>
                       {s.title}
                     </h3>
                     <p className={`text-sm md:text-base leading-relaxed text-white/85 max-w-md transition-all duration-500 ${s.big ? "" : "lg:max-h-0 lg:opacity-0 lg:group-hover:max-h-32 lg:group-hover:opacity-100"}`}>
                       <T en={s.descEn}>{s.desc}</T>
                     </p>
+                    {s.from && (
+                      <p className="mt-3 text-sm text-white/80">
+                        <T en="From">Mulai dari</T>{" "}
+                        <span className="font-heading text-base font-semibold text-white">{s.from.price}</span>
+                        <T en={s.from.unit[1]}>{s.from.unit[0]}</T>
+                      </p>
+                    )}
                     <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
                       <T en="Learn more">Pelajari selengkapnya</T>
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1.5"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
