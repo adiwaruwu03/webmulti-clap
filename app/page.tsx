@@ -6,21 +6,18 @@ import Facilities from "../components/Facilities";
 import { serviceOrder, services as allServices } from "../lib/services";
 import ContactSection from "../components/ContactSection";
 import Faq from "../components/Faq";
+import LazyMount from "../components/LazyMount";
 
 // Home service grid. Copy and "Mulai dari" prices come from lib/services.ts (same source as the /layanan pages).
 const card = (slug: string, img: string, cls: string, big = false) => {
-  // Event Space is on hold and not in serviceOrder yet, so it keeps its own copy here.
-  const o = serviceOrder.find((x) => x.slug === slug) ?? {
-    name: "Event Space",
-    blurb: ["Ruang acara untuk seminar, workshop, dan pertemuan komunitas.", "A venue for seminars, workshops, and community gatherings."],
-  };
+  const o = serviceOrder.find((x) => x.slug === slug)!;
   return { title: o.name, desc: o.blurb[0], descEn: o.blurb[1], href: `/layanan/${slug}`, img, cls, big, from: allServices[slug]?.from };
 };
 const services = [
   card("coworking-space", "/layanan/Coworking-Space/CA - Flexible Desk.jpeg", "md:col-span-2 lg:row-span-2", true),
   card("private-office", "/layanan/Private-Office/brosur-private-office.webp", ""),
   card("meeting-room", "/layanan/Meeting-Room/brosur-stephen.webp", ""),
-  card("event-space", "/layanan/Event-Space/brosur-event-space.webp", "md:col-span-2"),
+  card("event-space", "/event-space/wilberforce-extension/03.webp", "md:col-span-2"),
   card("virtual-office", "/layanan/Coworking-Space/7F246124-E588-4CBE-8F6C-8ADD8DC80F47-1726-000000E549EFCA4F.jpg", ""),
   card("event-management", "/layanan/Event-Management-Service/hero-event-3.webp", ""),
   card("podcast-studio", "https://i.ytimg.com/vi/pJ1xKfAnqUI/maxresdefault.jpg", "md:col-span-2"),
@@ -152,7 +149,7 @@ export default function Home() {
           loading="eager"
           fetchPriority="high"
           sizes="100vw"
-          quality={90}
+          quality={75}
           className="object-cover animate-kenburns"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/45" />
@@ -381,7 +378,7 @@ export default function Home() {
           </h2>
 
         </div>
-        <div className="group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <LazyMount className="group min-h-20 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <div className="flex w-max items-center animate-marquee group-hover:[animation-play-state:paused]" style={{ animationDuration: `${partners.length * 5.5}s` }}>
             {[...partners, ...partners].map((p, n) => (
               <div key={n} className="mx-8 md:mx-12 flex h-20 shrink-0 items-center justify-center gap-3" aria-hidden={n >= partners.length}>
@@ -403,7 +400,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
+        </LazyMount>
       </section>
 
       {/* Virtual Office */}
