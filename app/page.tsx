@@ -384,7 +384,7 @@ export default function Home() {
         <div className="group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <div className="flex w-max items-center animate-marquee group-hover:[animation-play-state:paused]" style={{ animationDuration: `${partners.length * 5.5}s` }}>
             {[...partners, ...partners].map((p, n) => (
-              <div key={n} className={`mx-8 md:mx-12 flex h-20 items-center justify-center gap-3 ${"label" in p ? "w-auto" : "w-44 md:w-52"}`} aria-hidden={n >= partners.length}>
+              <div key={n} className="mx-8 md:mx-12 flex h-20 shrink-0 items-center justify-center gap-3" aria-hidden={n >= partners.length}>
                 <img
                   src={p.src}
                   fetchPriority="low"
@@ -392,7 +392,8 @@ export default function Home() {
                   alt={n < partners.length ? p.name : ""}
                   width={p.w}
                   height={p.h}
-                  className={`${p.w / p.h < 1.3 ? "max-h-[4.5rem] md:max-h-20" : "max-h-14 md:max-h-16"} w-auto max-w-full object-contain mix-blend-multiply transition duration-500 hover:scale-110`}
+                  style={{ height: `min(var(--lh), ${(14 / (p.w / p.h)).toFixed(2)}rem)` }}
+                  className={`${p.w / p.h < 1.3 ? "[--lh:4.5rem] md:[--lh:5rem]" : "[--lh:3.5rem] md:[--lh:4rem]"} w-auto max-w-none object-contain mix-blend-multiply transition duration-500 hover:scale-110`}
                 />
                 {"label" in p && (
                   <span className="font-heading text-lg md:text-xl font-semibold tracking-wide text-foreground whitespace-nowrap">

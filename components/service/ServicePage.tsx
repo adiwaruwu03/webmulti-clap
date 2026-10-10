@@ -6,6 +6,7 @@ import dims from "../../data/photo-dims.json";
 import { serviceOrder, services, type L } from "../../lib/services";
 import { T } from "../Lang";
 import ServiceCta from "./ServiceCta";
+import RoomGallery from "./RoomGallery";
 import YouTubeCard from "./YouTubeCard";
 import { iconFor } from "./icons";
 
@@ -27,7 +28,7 @@ const steps: { t: L; d: L }[] = [
 // a landscape photo in every row (so tall photos line up flush). Seeded search, so builds are stable. If the set cannot tile,
 // the fewest photos are skipped (up to 4); otherwise the given order is used.
 const isTall = (src: string) => size(src)[0] / size(src)[1] < 1.1;
-function fits(tall: boolean[], cols: number) {
+function fits(tall: boolean[], cols: number, needWide = true) {
   const units = tall.reduce((n, t) => n + (t ? 2 : 1), 0);
   if (units % cols) return false;
   const rows = units / cols;
@@ -46,20 +47,20 @@ function fits(tall: boolean[], cols: number) {
         }
     if (!done) return false;
   }
-  return g.slice(0, rows).every((row) => row.every(Boolean)) && g.slice(rows).every((row) => !row.some(Boolean)) && hasL.slice(0, rows).every(Boolean);
+  return g.slice(0, rows).every((row) => row.every(Boolean)) && g.slice(rows).every((row) => !row.some(Boolean)) && (!needWide || hasL.slice(0, rows).every(Boolean));
 }
 function arrange<T extends { src: string }>(items: T[]): T[] {
   let rnd = 7;
   const next = () => ((rnd = (rnd * 1664525 + 1013904223) >>> 0) / 2 ** 32);
   const tries = (list: T[]) => {
     const order = [...list];
-    for (let n = 0; n < 300; n++) {
+    for (let n = 0; n < 30000; n++) {
       for (let i = order.length - 1; i > 0; i--) {
         const j = Math.floor(next() * (i + 1));
         [order[i], order[j]] = [order[j], order[i]];
       }
       const tall = order.map((o) => isTall(o.src));
-      if (fits(tall, 3) && fits(tall, 2)) return [...order];
+      if (fits(tall, 3) && fits(tall, 2, false)) return [...order];
     }
     return null;
   };
@@ -290,6 +291,49 @@ export default function ServicePage({ slug }: { slug: string }) {
               ))}
             </div>
             )}
+            {s.plansNote && (
+              <p className="reveal mt-8 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+                <Tl v={s.plansNote} />
+              </p>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* Rooms: specs + photo strip per room */}
+      {s.rooms && s.roomsTitle && (
+        <section className="py-24">
+          <div className="container mx-auto max-w-7xl px-4">
+            <h2 className={`reveal ${h2}`}>
+              <Tl v={s.roomsTitle} />
+            </h2>
+            <div className="mt-12 space-y-16 md:space-y-20">
+              {s.rooms.map((r, n) => (
+                <article key={r.name} className="reveal grid items-center gap-8 border-t border-foreground/15 pt-10 lg:grid-cols-[minmax(0,22rem)_1fr] lg:gap-14" style={{ "--i": n % 2 } as CSSProperties}>
+                  <div>
+                    <p className="font-heading text-sm font-semibold tracking-widest text-brick">{String(n + 1).padStart(2, "0")}</p>
+                    <h3 className="mt-2 font-heading text-3xl font-semibold tracking-wide text-foreground">{r.name}</h3>
+                    <p className="mt-2 text-lg font-medium text-teal-ink">{r.area}</p>
+                    <p className="mt-4 leading-relaxed text-muted-foreground">
+                      <Tl v={r.desc} />
+                    </p>
+                    <dl className="mt-7 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-6">
+                      {r.setups.map((u) => (
+                        <div key={u.label[0]}>
+                          <dd className="font-heading text-3xl font-semibold tracking-wide text-foreground">
+                            {u.n} <span className="text-base font-medium text-muted-foreground"><T en="people">orang</T></span>
+                          </dd>
+                          <dt className="text-sm text-muted-foreground">
+                            <Tl v={u.label} />
+                          </dt>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                  <RoomGallery photos={r.photos} name={r.name} />
+                </article>
+              ))}
+            </div>
           </div>
         </section>
       )}
@@ -426,17 +470,33 @@ export default function ServicePage({ slug }: { slug: string }) {
             <h2 className={`reveal ${h2}`}>
               <T en="A look inside">Lihat ruangannya</T>
             </h2>
-            <div className="mt-12 grid grid-flow-dense grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
-              {arrange(s.gallery).map((g, i) => {
-                
-                const tall = isTall(g.src);
-                return (
-                  <div key={g.src} className={`reveal group relative overflow-hidden rounded-lg shadow-md ${tall ? "row-span-2 aspect-[3/4] md:aspect-auto" : "aspect-[3/2]"}`} style={{ "--i": i % 3 } as CSSProperties}>
-                    <Image src={g.src} alt={g.alt} fill sizes="(min-width: 768px) 40vw, 50vw" quality={90} className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
-                  </div>
-                );
-              })}
-            </div>
+            {(() => {
+              const list = arrange(s.gallery);
+              const tallFlags = list.map((g) => isTall(g.src));
+              // A flush grid needs the right mix of tall and wide photos. When it cannot be built with every photo,
+              // fall back to balanced columns, which never leave holes and always show all photos.
+              const flush = list.length === s.gallery.length && fits(tallFlags, 3) && fits(tallFlags, 2, false);
+              return flush ? (
+                <div className="mt-12 grid grid-flow-dense grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
+                  {list.map((g, i) => (
+                    <div key={g.src} className={`reveal group relative overflow-hidden rounded-lg shadow-md ${isTall(g.src) ? "row-span-2 aspect-[3/4] md:aspect-auto" : "aspect-[3/2]"}`} style={{ "--i": i % 3 } as CSSProperties}>
+                      <Image src={g.src} alt={g.alt} fill sizes="(min-width: 768px) 40vw, 50vw" quality={90} className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="mt-12 columns-2 gap-4 md:columns-3 md:gap-6">
+                  {s.gallery.map((g) => {
+                    const [w, h] = size(g.src);
+                    return (
+                      <div key={g.src} className="reveal group relative mb-4 break-inside-avoid overflow-hidden rounded-lg shadow-md md:mb-6" style={{ aspectRatio: `${w} / ${h}` }}>
+                        <Image src={g.src} alt={g.alt} fill sizes="(min-width: 768px) 40vw, 50vw" quality={90} className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })()}
           </div>
         </section>
       )}

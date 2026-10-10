@@ -4,7 +4,7 @@ import { BASE, detailEvents } from "../lib/events";
 import { services } from "../lib/services";
 import { SITE_URL } from "../lib/site";
 
-// Service pages with `index: true` in lib/services.ts are listed; event-space (placeholder) and virtual-office (no package details yet) are noindex and left out.
+// Service pages with `index: true` in lib/services.ts are listed; pages still marked noindex (virtual-office until the owner sends package details) are left out.
 export default function sitemap(): MetadataRoute.Sitemap {
   const latest = new Date(posts[0].date);
   return [
