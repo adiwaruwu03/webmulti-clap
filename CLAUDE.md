@@ -185,6 +185,8 @@ Testimonials are REAL Google reviews (6, all 5-star) of the Maps listing "COHIVE
 - Numbers use `components/Odometer.tsx` (slot-machine reels, chosen as a motion different from the partner marquee): each digit is a vertical 0-9 strip that spins 2 turns and lands on its digit, staggered per digit, starts when 60% visible, re-spins every 9 s while visible (pauses off-screen), final value on server render and under `prefers-reduced-motion`; reel width follows the final digit so spacing is normal; `role="img"` + `aria-label` carry the real value. The old CountUp component was deleted. Reuse Odometer for any new stat.
 - Event Management uses the same teal "Siap memulai?" CTA as all other service pages: shared `components/service/ServiceCta.tsx` (props `contact`, `wa`), also used by `ServicePage`. Do not re-create page-specific CTA cards on `/layanan/*`.
 
+- 2026-10-12: owner tried a dark story section on `/about` (deep teal `.dark-teal` theme, still defined in `globals.css`, usable for dark bands touching the footer), then asked for plain white. Section is now `bg-card` with a faint top hairline.
+
 ## Home: Fasilitas section
 
 - `components/Facilities.tsx`, placed on Home between Layanan and Lokasi (`bg-secondary`). Boss request (WhatsApp, 2026-10-09): general facilities were missing on the front page; reference was GoWork's "Dukungan Untuk Bisnis Anda". 9 main items in a 3x3 grid with thin line icons and a short description (Internet Cepat, Ruang Meeting Lengkap, Layanan Resepsionis & Dokumen, Area Santai & Lounge, Pantry & Free Flow Drink, Ruang Privat, Paket Akses Fleksibel, Jaringan Komunitas, Lokasi Strategis) + a "Juga tersedia" row of chips (AC, Toilet, Mushola, Smoke Area). All bilingual in the component's data arrays.

@@ -113,7 +113,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      <section className="bg-chart-4/25 py-28">
+      <section className="relative overflow-hidden bg-card py-28 text-foreground">
+        <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
         <div className="container mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[minmax(0,26rem)_1fr] lg:gap-20">
           <h2 className="reveal font-heading text-3xl font-semibold leading-tight tracking-wide text-foreground md:text-4xl">
             <T

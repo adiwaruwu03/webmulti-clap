@@ -220,3 +220,18 @@
 @media (min-width: 2560px) {
   html { font-size: 24px; }
 }
+
+/* Deep teal dark theme (from the Pale Teal primary). Used for dark bands that sit next to the carbon footer, so the two do not merge. */
+.dark-teal {
+  --background: #17302d;
+  --foreground: #f4f7f6;
+  --card: #1f3f3b;
+  --card-foreground: #f4f7f6;
+  --primary: #accfcc;
+  --primary-foreground: #17302d;
+  --secondary: #24474a;
+  --muted-foreground: #b9d3d0;
+  --border: #3a6560;
+  --teal-ink: #accfcc;
+  --brick: #e8806a;
+}
