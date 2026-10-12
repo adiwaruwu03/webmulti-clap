@@ -1,14 +1,48 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Photo = { src: string; w: number; h: number };
 
-/** Horizontal scroll-snap photo strip with previous/next buttons. Touch and trackpad scroll work natively. */
+const STEP_MS = 5000; // time each photo stays
+const RESUME_MS = 9000; // pause after the visitor touches the strip
+
+/**
+ * Horizontal scroll-snap photo strip with previous/next buttons (touch and trackpad scroll work natively).
+ * It also advances one photo every few seconds, right to left, and loops back to the first. It stops while the pointer
+ * or focus is on it, for a while after the visitor interacts, when off-screen, in a hidden tab, and for reduced motion.
+ */
 export default function RoomGallery({ photos, name }: { photos: Photo[]; name: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState({ atStart: true, atEnd: photos.length < 2 });
+
+  const hold = useRef({ hover: false, until: 0, visible: false });
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || photos.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const h = hold.current;
+    const io = new IntersectionObserver(([e]) => (h.visible = e.isIntersecting), { threshold: 0.4 });
+    io.observe(el);
+    let timer: ReturnType<typeof setTimeout>;
+    const tick = () => {
+      if (h.visible && !h.hover && Date.now() > h.until && !document.hidden) {
+        const cards = Array.from(el.children) as HTMLElement[];
+        const i = cards.findIndex((c) => c.offsetLeft >= el.scrollLeft + 8);
+        const last = el.scrollLeft + el.clientWidth >= el.scrollWidth - 8;
+        el.scrollTo({ left: last || i < 0 ? 0 : cards[i].offsetLeft, behavior: "smooth" });
+      }
+      timer = setTimeout(tick, STEP_MS);
+    };
+    timer = setTimeout(tick, STEP_MS + Math.random() * 2000); // rooms do not all move together
+    return () => {
+      io.disconnect();
+      clearTimeout(timer);
+    };
+  }, [photos.length]);
+
+  const pause = () => (hold.current.until = Date.now() + RESUME_MS);
 
   const sync = () => {
     const el = ref.current;
@@ -18,6 +52,7 @@ export default function RoomGallery({ photos, name }: { photos: Photo[]; name: s
   const go = (dir: 1 | -1) => {
     const el = ref.current;
     if (!el) return;
+    pause();
     el.scrollBy({ left: dir * el.clientWidth * 0.8, behavior: "smooth" });
   };
 
@@ -29,6 +64,11 @@ export default function RoomGallery({ photos, name }: { photos: Photo[]; name: s
       <div
         ref={ref}
         onScroll={sync}
+        onMouseEnter={() => (hold.current.hover = true)}
+        onMouseLeave={() => (hold.current.hover = false)}
+        onPointerDown={pause}
+        onWheel={pause}
+        onFocus={pause}
         className="flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:gap-4"
         tabIndex={0}
         aria-label={name}
