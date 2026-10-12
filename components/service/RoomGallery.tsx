@@ -80,7 +80,7 @@ export default function RoomGallery({ photos, name }: { photos: Photo[]; name: s
               alt={`${name}, foto ${i + 1}`}
               fill
               sizes="(min-width: 1280px) 40vw, (min-width: 768px) 55vw, 88vw"
-              quality={85}
+              quality={80}
               className="object-cover"
               {...(i > 1 ? {} : { loading: "lazy" as const })}
             />
