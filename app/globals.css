@@ -235,3 +235,16 @@
   --teal-ink: #accfcc;
   --brick: #e8806a;
 }
+
+/* Time-based reveal (matches the old clpaham-page); `Reveal` adds `rv-on` to <html> and `rv-active` per element. */
+@layer components {
+.rv-on .rv {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.rv-on .rv.rv-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+}
