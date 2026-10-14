@@ -2,48 +2,41 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { T } from "../components/Lang";
-import Facilities from "../components/Facilities";
+import { LayoutGrid, MapPin, Sprout } from "lucide-react";
+import ServiceArt from "../components/ServiceArt";
 import { serviceOrder, services as allServices } from "../lib/services";
 import ContactSection from "../components/ContactSection";
 import Faq from "../components/Faq";
 import LazyMount from "../components/LazyMount";
 
 // Home service grid. Copy and "Mulai dari" prices come from lib/services.ts (same source as the /layanan pages).
-const card = (slug: string, img: string, cls: string, big = false) => {
+const card = (slug: string) => {
   const o = serviceOrder.find((x) => x.slug === slug)!;
-  return { title: o.name, desc: o.blurb[0], descEn: o.blurb[1], href: `/layanan/${slug}`, img, cls, big, from: allServices[slug]?.from };
+  return { slug, title: o.name, desc: o.blurb[0], descEn: o.blurb[1], href: `/layanan/${slug}` };
 };
-const services = [
-  card("coworking-space", "/layanan/Coworking-Space/CA - Flexible Desk.jpeg", "md:col-span-2 lg:row-span-2", true),
-  card("private-office", "/layanan/Private-Office/brosur-private-office.webp", ""),
-  card("meeting-room", "/layanan/Meeting-Room/brosur-stephen.webp", ""),
-  card("event-space", "/event-space/wilberforce-extension/03.webp", "md:col-span-2"),
-  card("virtual-office", "/layanan/Coworking-Space/7F246124-E588-4CBE-8F6C-8ADD8DC80F47-1726-000000E549EFCA4F.jpg", ""),
-  card("event-management", "/layanan/Event-Management-Service/hero-event-3.webp", ""),
-  card("podcast-studio", "https://i.ytimg.com/vi/pJ1xKfAnqUI/maxresdefault.jpg", "md:col-span-2"),
-];
+const services = ["coworking-space", "private-office", "meeting-room", "event-space", "virtual-office", "event-management", "podcast-studio"].map(card);
 
 const values = [
   {
-    no: "01",
-    title: "Tenang",
-    titleEn: "Calm",
-    desc: "Suasana kerja yang adem dan nyaman, agar Anda dan tim bisa fokus tanpa gangguan.",
-    descEn: "A cool, comfortable working atmosphere so you and your team can focus without interruption.",
+    Icon: MapPin,
+    title: "Di Jantung Kota Medan",
+    titleEn: "In the Heart of Medan",
+    desc: "Lokasi strategis yang dekat dengan fasilitas kota.",
+    descEn: "A strategic location close to city amenities.",
   },
   {
-    no: "02",
-    title: "Elegan",
-    titleEn: "Elegant",
-    desc: "Interior hangat dengan sentuhan modern yang membuat setiap hari kerja terasa istimewa.",
-    descEn: "Warm interiors with a modern touch that make every workday feel special.",
+    Icon: LayoutGrid,
+    title: "Ruang yang Sesuai Kebutuhan",
+    titleEn: "Spaces That Fit You",
+    desc: "Pilihan ruang untuk bekerja, rapat, dan berkumpul.",
+    descEn: "Options for working, meeting, and gathering.",
   },
   {
-    no: "03",
-    title: "Aman",
-    titleEn: "Secure",
-    desc: "Akses yang terjaga dan lingkungan yang aman, sehingga Anda bisa bekerja dengan tenang.",
-    descEn: "Controlled access and a safe environment, so you can work with peace of mind.",
+    Icon: Sprout,
+    title: "Ruang untuk Bertumbuh",
+    titleEn: "Room to Grow",
+    desc: "Lingkungan profesional untuk tahap bisnis Anda berikutnya.",
+    descEn: "A professional environment for your next stage.",
   },
 ];
 
@@ -241,20 +234,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Nilai */}
-      <section className="dark bg-background text-foreground py-24 md:py-28">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <h2 className="reveal font-heading tracking-wide font-semibold text-3xl md:text-5xl leading-tight max-w-3xl mb-16">
-            <T en="A calm workspace, for a clear mind">Ruang kerja yang tenang, untuk pikiran yang jernih</T>
+      {/* Mengapa CLAPHAM.CO */}
+      <section className="bg-secondary py-24 md:py-28">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="reveal mx-auto mb-16 max-w-3xl text-center font-heading text-3xl font-semibold leading-tight tracking-wide text-foreground md:text-5xl">
+            <T en={<>Why choose <span className="text-brick">CLAPHAM.CO</span></>}>Mengapa memilih <span className="text-brick">CLAPHAM.CO</span></T>
           </h2>
-          <div className="grid md:grid-cols-3 gap-10 md:gap-12">
-            {values.map((v, n) => (
-              <div key={v.no} className="reveal border-t border-border pt-8" style={i(n)}>
-                <p className="font-heading font-semibold text-6xl text-teal-ink mb-6">{v.no}</p>
-                <h3 className="font-heading tracking-wide font-semibold text-2xl mb-3">
+          <div className="grid gap-12 md:grid-cols-3 md:gap-10">
+            {values.map(({ Icon, ...v }, n) => (
+              <div key={v.title} className="reveal text-center" style={i(n)}>
+                <Icon className="mx-auto h-11 w-11 text-teal-ink" strokeWidth={1.3} aria-hidden />
+                <h3 className="mt-6 font-heading text-2xl font-semibold tracking-wide text-foreground">
                   <T en={v.titleEn}>{v.title}</T>
                 </h3>
-                <p className="text-muted-foreground text-lg leading-relaxed">
+                <p className="mx-auto mt-3 max-w-xs text-lg leading-relaxed text-muted-foreground">
                   <T en={v.descEn}>{v.desc}</T>
                 </p>
               </div>
@@ -279,40 +272,19 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[18rem] lg:auto-rows-[17rem] lg:grid-flow-dense gap-4 md:gap-5">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:[&>*:last-child]:col-start-2">
             {services.map((s, n) => (
-              <div key={s.title} className={`reveal ${s.cls}`} style={i(n % 4)}>
+              <div key={s.slug} className="reveal" style={i(n % 3)}>
                 <Link
                   href={s.href}
-                  className="group relative block h-full overflow-hidden rounded-lg bg-secondary shadow-sm hover:shadow-xl transition-shadow duration-500"
+                  className="group flex h-full items-center gap-5 rounded-lg border border-border bg-card p-5 shadow-xs transition-all duration-500 hover:-translate-y-1 hover:border-brick/60 hover:shadow-lg sm:gap-6 sm:p-6"
                 >
-                  {s.img.startsWith("http") ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={s.img} alt={s.title} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110" />
-                  ) : (
-                    <Image src={s.img} alt={s.title} fill sizes={s.big ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 50vw, (min-width: 768px) 50vw, 100vw"} quality={90} className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110" />
-                  )}
-                  {/* dark scrim so the white text always reads */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/25 transition-colors duration-500" />
-                  <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/15" />
-                  <div className="absolute inset-x-0 bottom-0 p-6 md:p-7 text-white [text-shadow:0_1px_12px_rgb(0_0_0/0.45)]">
-                    <h3 className={`font-heading tracking-wide font-semibold ${s.big ? "text-2xl md:text-3xl" : "text-xl"} mb-2`}>
-                      {s.title}
-                    </h3>
-                    <p className={`text-sm md:text-base leading-relaxed text-white/85 max-w-md transition-all duration-500 ${s.big ? "" : "lg:max-h-0 lg:opacity-0 lg:group-hover:max-h-32 lg:group-hover:opacity-100"}`}>
+                  <ServiceArt slug={s.slug} className="h-28 w-32 shrink-0 transition-transform duration-500 group-hover:scale-105" />
+                  <div>
+                    <h3 className="font-heading text-base font-semibold uppercase tracking-[0.18em] text-foreground transition-colors duration-300 group-hover:text-brick">{s.title}</h3>
+                    <p className="mt-2 leading-relaxed text-muted-foreground">
                       <T en={s.descEn}>{s.desc}</T>
                     </p>
-                    {s.from && (
-                      <p className="mt-3 text-sm text-white/80">
-                        <T en="From">Mulai dari</T>{" "}
-                        <span className="font-heading text-base font-semibold text-white">{s.from.price}</span>
-                        <T en={s.from.unit[1]}>{s.from.unit[0]}</T>
-                      </p>
-                    )}
-                    <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                      <T en="Learn more">Pelajari selengkapnya</T>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1.5"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
-                    </span>
                   </div>
                 </Link>
               </div>
@@ -321,8 +293,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Fasilitas */}
-      <Facilities />
+      {/* Fasilitas disembunyikan: boss akan membuat fasilitas per produk (components/Facilities.tsx tetap ada) */}
 
       {/* Lokasi */}
       <section className="py-28 bg-card">

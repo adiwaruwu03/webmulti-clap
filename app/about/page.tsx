@@ -1,7 +1,6 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
 import { T } from "../../components/Lang";
-import AboutClapham from "../../components/AboutClapham";
 
 export const metadata = {
   title: "Tentang Kami",
@@ -13,8 +12,7 @@ const i = (n: number) => ({ "--i": n }) as CSSProperties;
 export default function AboutPage() {
   return (
     <>
-      <AboutClapham />
-      <section className="py-28 bg-background">
+      <section className="py-28 bg-card">
         <div className="container mx-auto px-4 max-w-7xl grid md:grid-cols-2 gap-14 md:gap-20 items-center">
           <div className="reveal">
             <h1 className="font-heading tracking-wide font-semibold text-4xl md:text-5xl text-foreground mb-8 leading-tight">
