@@ -1,8 +1,6 @@
 import { Fragment } from "react";
 import Link from "next/link";
-import { whatsappLink } from "../../lib/contact";
-
-const WA_MESSAGE = "Halo CLAPHAM.CO, saya tertarik dengan layanan ruang kerja Anda.";
+import { waAsk } from "../../lib/contact";
 
 /** Renders [text](url), ***bold italic***, **bold** and *italic* markers as elements (no raw HTML). `wa:` links open WhatsApp. */
 export default function Rich({ text }: { text: string }) {
@@ -15,7 +13,7 @@ export default function Rich({ text }: { text: string }) {
           const [, label, to] = link;
           const cls = "font-medium text-teal-ink underline underline-offset-2 hover:text-foreground";
           if (to === "wa:")
-            return <a key={i} href={whatsappLink(WA_MESSAGE)} target="_blank" rel="noopener noreferrer" className={cls}><Rich text={label} /></a>;
+            return <a key={i} href={waAsk("ruang kerja")} target="_blank" rel="noopener noreferrer" className={cls}><Rich text={label} /></a>;
           if (to.startsWith("/"))
             return <Link key={i} href={to} className={cls}><Rich text={label} /></Link>;
           return <a key={i} href={to} target="_blank" rel="noopener noreferrer" className={cls}><Rich text={label} /></a>;

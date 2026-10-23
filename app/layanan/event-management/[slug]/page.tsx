@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { T } from "../../../../components/Lang";
 import { pillClass } from "../../../../components/blog/PostCard";
-import { whatsappLink } from "../../../../lib/contact";
+import { waAsk } from "../../../../lib/contact";
 import { BASE, detailEvents, getEvent, typeLabel } from "../../../../lib/events";
 import { clip } from "../../../../lib/site";
 
@@ -35,7 +35,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
   const e = getEvent(slug);
   if (!e) notFound();
   const en = e.en!;
-  const wa = whatsappLink(`Halo CLAPHAM.CO, saya tertarik membuat event seperti "${e.name}".`);
+  const wa = waAsk(`pembuatan event seperti "${e.name}"`);
   const type = typeLabel[e.type];
   const similar = detailEvents.filter((x) => x.slug !== e.slug);
 

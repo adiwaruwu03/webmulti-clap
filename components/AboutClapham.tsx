@@ -30,12 +30,12 @@ export default function AboutClapham({ heading = "h2" }: { heading?: "h1" | "h2"
   }, [n]);
 
   return (
-    <section className="overflow-x-clip bg-card py-24">
+    <section className={`overflow-x-clip bg-card ${heading === "h1" ? "pb-24 pt-12 md:pt-16" : "py-24"}`}>
       <Reveal />
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <div className="rv">
-            <Heading className="font-heading text-3xl font-semibold leading-tight tracking-wide text-foreground md:text-4xl">
+            <Heading className={`font-heading font-semibold leading-tight tracking-wide text-foreground ${heading === "h1" ? "text-4xl md:text-5xl" : "text-3xl md:text-4xl"}`}>
               <T en={<>About <span className="text-brick">Clapham Collective</span></>}>
                 Tentang <span className="text-brick">Clapham Collective</span>
               </T>

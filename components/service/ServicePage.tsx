@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import { whatsappLink } from "../../lib/contact";
+import { waAsk } from "../../lib/contact";
 import dims from "../../data/photo-dims.json";
 import { serviceOrder, services, type L } from "../../lib/services";
 import { T } from "../Lang";
@@ -79,7 +79,7 @@ const Tl = ({ v }: { v: L }) => <T en={v[1]}>{v[0]}</T>;
 export default function ServicePage({ slug }: { slug: string }) {
   const s = services[slug];
   const contact = `/atur-kunjungan?layanan=${slug}`;
-  const wa = whatsappLink(`Halo CLAPHAM.CO, saya ingin bertanya tentang ${s.name}.`);
+  const wa = waAsk(s.name);
   const others = serviceOrder.filter((o) => o.slug !== slug);
 
   return (

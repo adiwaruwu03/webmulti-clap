@@ -7,8 +7,7 @@ import HeroCarousel from "../../../components/events/HeroCarousel";
 import EventGrid from "../../../components/events/EventGrid";
 import ServiceCta from "../../../components/service/ServiceCta";
 import Reveal from "../../../components/Reveal";
-import AboutClapham from "../../../components/AboutClapham";
-import { whatsappLink } from "../../../lib/contact";
+import { waAsk } from "../../../lib/contact";
 import { BASE, featuredEvents } from "../../../lib/events";
 
 export const metadata: Metadata = {
@@ -88,7 +87,7 @@ const steps = [
 
 const h2 = "font-heading text-3xl font-semibold tracking-wide text-foreground md:text-4xl";
 export default function EventManagementPage() {
-  const wa = whatsappLink("Halo CLAPHAM.CO, saya ingin berkonsultasi tentang Event Management Service.");
+  const wa = waAsk("Event Management Service");
   return (
     <div className="bg-background">
       <Reveal />
@@ -264,8 +263,6 @@ export default function EventManagementPage() {
         <EventGrid />
       </section>
 
-      {/* About Clapham Collective (text + photo slider + stats) */}
-      <AboutClapham />
 
       {/* CTA (same as the other service pages) */}
       <ServiceCta contact="/atur-kunjungan?layanan=event-management" wa={wa} />

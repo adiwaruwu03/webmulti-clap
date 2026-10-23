@@ -5,7 +5,8 @@ import { T } from "../components/Lang";
 import { LayoutGrid, MapPin, Sprout } from "lucide-react";
 import ServiceArt from "../components/ServiceArt";
 import { serviceOrder, services as allServices } from "../lib/services";
-import ContactSection from "../components/ContactSection";
+import ServiceCta from "../components/service/ServiceCta";
+import { waAsk } from "../lib/contact";
 import Faq from "../components/Faq";
 import LazyMount from "../components/LazyMount";
 
@@ -202,7 +203,7 @@ export default function Home() {
           </div>
           <div className="reveal mt-10 flex flex-wrap justify-center gap-4" style={i(2)}>
             <a
-              href="#booking"
+              href="/atur-kunjungan"
               className="inline-flex items-center rounded-md bg-primary px-7 py-3.5 font-semibold text-primary-foreground hover:brightness-95 active:scale-[0.98] transition-all duration-300"
             >
               <T en="Contact Us">Kontak Kami</T>
@@ -457,7 +458,7 @@ export default function Home() {
       <Faq />
 
       {/* Booking + Lokasi */}
-      <ContactSection />
+      <ServiceCta contact="/atur-kunjungan" wa={waAsk()} />
     </div>
   );
 }

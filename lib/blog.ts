@@ -1,5 +1,5 @@
 import raw from "../data/blog/posts.json";
-import { whatsappLink } from "./contact";
+import { waAsk } from "./contact";
 
 export type Block =
   | { t: "p"; text: string }
@@ -51,4 +51,4 @@ export const similar = (slug: string) =>
     "kerja-lebih-fleksibel-dengan-private-office",
   ]).filter((p) => p.slug !== slug);
 
-export const WHATSAPP_URL = whatsappLink("Halo CLAPHAM.CO, saya tertarik dengan layanan ruang kerja Anda.");
+export const WHATSAPP_URL = waAsk("ruang kerja");
