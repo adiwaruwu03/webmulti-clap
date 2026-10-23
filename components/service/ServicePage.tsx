@@ -313,10 +313,11 @@ export default function ServicePage({ slug }: { slug: string }) {
                   <div>
                     <p className="font-heading text-sm font-semibold tracking-widest text-brick">{String(n + 1).padStart(2, "0")}</p>
                     <h3 className="mt-2 font-heading text-3xl font-semibold tracking-wide text-foreground">{r.name}</h3>
-                    <p className="mt-2 text-lg font-medium text-teal-ink">{r.area}</p>
+                    {r.area && <p className="mt-2 text-lg font-medium text-teal-ink">{r.area}</p>}
                     <p className="mt-4 leading-relaxed text-muted-foreground">
                       <Tl v={r.desc} />
                     </p>
+                    {r.setups && (
                     <dl className="mt-7 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-6">
                       {r.setups.map((u) => (
                         <div key={u.label[0]}>
@@ -329,6 +330,7 @@ export default function ServicePage({ slug }: { slug: string }) {
                         </div>
                       ))}
                     </dl>
+                    )}
                   </div>
                   <RoomGallery photos={r.photos} name={r.name} />
                 </article>
