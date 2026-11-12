@@ -468,7 +468,7 @@ export default function SpaceFinder() {
             />
             <span className="text-sm leading-relaxed text-foreground">
               {t("Saya ingin survei lokasi (melihat ruangan) sebelum memesan", "I would like to visit and see the space before booking")}
-              <span className="block text-muted-foreground">{t("Kunjungan Senin–Jumat, 09.00–17.00", "Visits Monday–Friday, 09.00–17.00")}</span>
+              <span className="block text-muted-foreground">{t("Kunjungan Senin–Jumat 09.00–17.00, Sabtu 09.00–15.00", "Visits Monday–Friday 09.00–17.00, Saturday 09.00–15.00")}</span>
             </span>
           </label>
           {form.visit === "yes" && (

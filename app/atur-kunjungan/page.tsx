@@ -80,7 +80,7 @@ export default function ContactPage() {
                   <T en="Opening hours">Jam operasional</T>
                 </dt>
                 <dd className={dd}>
-                  <T en="Mon–Fri, 09.00–17.00">Senin–Jumat, 09.00–17.00</T>
+                  <T en="Mon–Fri, 09.00–17.00 · Sat, 09.00–15.00">Senin–Jumat, 09.00–17.00 · Sabtu, 09.00–15.00</T>
                 </dd>
               </div>
               <div>

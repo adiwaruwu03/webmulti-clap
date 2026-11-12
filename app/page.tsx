@@ -159,7 +159,7 @@ export default function Home() {
             <span>Ruko Center Point Medan</span>
             <span className="hidden sm:block h-3 w-px bg-white/30" />
             <span>
-              <T en="Monday–Friday, 09.00–17.00">Senin–Jumat, 09.00–17.00</T>
+              <T en="Monday–Friday, 09.00–17.00 · Saturday, 09.00–15.00">Senin–Jumat, 09.00–17.00 · Sabtu, 09.00–15.00</T>
             </span>
             <span className="hidden sm:block h-3 w-px bg-white/30" />
             <span>

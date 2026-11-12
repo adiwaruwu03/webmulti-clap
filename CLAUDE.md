@@ -292,3 +292,7 @@ Testimonials are REAL Google reviews (6, all 5-star) of the Maps listing "COHIVE
 
 - Owner prepared folders `public/layanan/Private-Office/2org|3org|5org|6org` and `ruangan_Norg.jpg` (6000px raw). The 4 size cards use `ruangan-Norg.webp` (1600 px copies of `ruangan_Norg.jpg`). Below the cards a photo row (`components/service/StepStrip.tsx`, data field `strip` in `lib/services.ts`) shows the folder photos together: 4 visible on desktop, 3 on tablet, about 1.4 on phones; it slides one photo every 2 s, left to right (not a continuous drift like the home partner marquee), loops seamlessly (list rendered twice), pauses on hover/focus, off-screen and hidden tab, and does not move under `prefers-reduced-motion` (scrollable by hand).
 - `3org/ruangan_3org.jpg` is the same photo as the 3-person card, so it is not repeated in the row (owner rule: never show a shot twice). Raw originals are still in the folders (deployed): move them out of `public/` when convenient.
+
+## Opening hours (2026-11-12, owner)
+
+- Hours are Monday-Friday 09.00-17.00 AND Saturday 09.00-15.00 (the old "Monday-Friday only" text was wrong; the brochure said Saturday until 14.00 but the owner corrected it to 15.00). Updated in: Home hero line, Footer, `ServiceCta`, contact page, FAQ answer, SpaceFinder visit note and the JSON-LD `openingHoursSpecification` (two entries). Older notes above that say "Monday-Friday" are superseded; keep the same wording wherever hours appear.

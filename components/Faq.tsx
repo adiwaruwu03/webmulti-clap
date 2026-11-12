@@ -17,8 +17,8 @@ const faqs = [
   {
     q: "Apa jam operasional Clapham Collective?",
     qEn: "What are the opening hours?",
-    a: "Kami buka Senin sampai Jumat, pukul 09.00 sampai 17.00.",
-    aEn: "We are open Monday to Friday, 09.00 to 17.00.",
+    a: "Kami buka Senin sampai Jumat pukul 09.00 sampai 17.00, dan Sabtu pukul 09.00 sampai 15.00.",
+    aEn: "We are open Monday to Friday, 09.00 to 17.00, and Saturday, 09.00 to 15.00.",
   },
   {
     q: "Bagaimana cara melihat ruang atau berkonsultasi dengan tim?",

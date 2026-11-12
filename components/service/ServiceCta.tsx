@@ -10,7 +10,7 @@ export default function ServiceCta({ contact, wa }: { contact: string; wa: strin
   const rows = [
     { k: <T en="Phone">Telepon</T>, key: "tel", v: PHONE_DISPLAY, href: `tel:${PHONE_TEL}` },
     { k: "WhatsApp", key: "wa", v: WHATSAPP_DISPLAY, href: wa },
-    { k: <T en="Opening hours">Jam operasional</T>, key: "hours", v: <T en="Monday–Friday, 09.00–17.00">Senin–Jumat, 09.00–17.00</T> },
+    { k: <T en="Opening hours">Jam operasional</T>, key: "hours", v: <T en="Monday–Friday, 09.00–17.00 · Saturday, 09.00–15.00">Senin–Jumat, 09.00–17.00 · Sabtu, 09.00–15.00</T> },
   ];
   return (
     <section className="relative overflow-hidden bg-primary py-20 text-foreground md:py-28">

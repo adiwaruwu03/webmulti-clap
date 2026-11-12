@@ -73,6 +73,12 @@ const jsonLd = {
       opens: "09:00",
       closes: "17:00",
     },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "09:00",
+      closes: "15:00",
+    },
   ],
   sameAs: ["https://instagram.com/claphamco", "https://linktr.ee/claphamco"],
 };
