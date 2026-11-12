@@ -3,19 +3,19 @@ import { T } from "./Lang";
 
 const faqs = [
   {
-    q: "Layanan apa saja yang tersedia di CLAPHAM.CO?",
-    qEn: "What services does CLAPHAM.CO offer?",
+    q: "Layanan apa saja yang tersedia di Clapham Collective?",
+    qEn: "What services does Clapham Collective offer?",
     a: "Coworking Space, Private Office, Meeting Room, Event Space, Virtual Office, Event Management Service, dan Podcast Studio.",
     aEn: "Coworking Space, Private Office, Meeting Room, Event Space, Virtual Office, Event Management Service, and Podcast Studio.",
   },
   {
-    q: "Di mana lokasi CLAPHAM.CO?",
-    qEn: "Where is CLAPHAM.CO located?",
+    q: "Di mana lokasi Clapham Collective?",
+    qEn: "Where is Clapham Collective located?",
     a: "Kami berada di Komp. Ruko Centre Point Medan, Jalan Timor Blok G No. III/IV, 2nd Floor, Medan Timur, Medan.",
     aEn: "We are at Komp. Ruko Centre Point Medan, Jalan Timor Blok G No. III/IV, 2nd Floor, Medan Timur, Medan.",
   },
   {
-    q: "Apa jam operasional CLAPHAM.CO?",
+    q: "Apa jam operasional Clapham Collective?",
     qEn: "What are the opening hours?",
     a: "Kami buka Senin sampai Jumat, pukul 09.00 sampai 17.00.",
     aEn: "We are open Monday to Friday, 09.00 to 17.00.",
@@ -27,8 +27,8 @@ const faqs = [
     aEn: "Click Contact Us and fill in the short form. Your message is sent through WhatsApp, and our team will get back to you to arrange a visit or answer your needs.",
   },
   {
-    q: "Apakah CLAPHAM.CO bisa membantu menyelenggarakan event?",
-    qEn: "Can CLAPHAM.CO help organize an event?",
+    q: "Apakah Clapham Collective bisa membantu menyelenggarakan event?",
+    qEn: "Can Clapham Collective help organize an event?",
     a: "Bisa. Anda dapat menyewa Event Space, atau memakai Event Management Service kami untuk konsep, produksi, penyelenggaraan, dokumentasi, dan promosi acara.",
     aEn: "Yes. You can rent our Event Space, or use our Event Management Service for concept, production, organizing, documentation, and promotion.",
   },

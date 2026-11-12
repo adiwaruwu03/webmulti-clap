@@ -42,9 +42,9 @@ const values = [
 ];
 
 const collage = [
-  { src: "/layanan/Meeting-Room/stephen3.jpg", alt: "Ruang meeting CLAPHAM.CO dengan meja kayu, TV, dan jendela besar", cls: "", pos: "object-[25%_50%]" },
-  { src: "/foto-home/New%20folder/clpham-foto.webp", alt: "Area bar dan perpustakaan mini CLAPHAM.CO", cls: "md:mt-14" },
-  { src: "/foto-home/New%20folder/clapham-foto2.webp", alt: "Lounge CLAPHAM.CO", cls: "" },
+  { src: "/layanan/Meeting-Room/stephen3.jpg", alt: "Ruang meeting Clapham Collective dengan meja kayu, TV, dan jendela besar", cls: "", pos: "object-[25%_50%]" },
+  { src: "/foto-home/New%20folder/clpham-foto.webp", alt: "Area bar dan perpustakaan mini Clapham Collective", cls: "md:mt-14" },
+  { src: "/foto-home/New%20folder/clapham-foto2.webp", alt: "Lounge Clapham Collective", cls: "" },
 ];
 
 const partners = [
@@ -138,7 +138,7 @@ export default function Home() {
       <section id="home" className="relative w-full min-h-screen -mt-16 flex items-end overflow-hidden bg-black">
         <Image
           src="/foto-home/hero.jpg.jpeg"
-          alt="Interior CLAPHAM.CO"
+          alt="Interior Clapham Collective"
           fill
           loading="eager"
           fetchPriority="high"
@@ -148,7 +148,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/45" />
         <h1 className="sr-only">
-          <T en="Coworking Space and Office Rental in Medan - CLAPHAM.CO">Coworking Space dan Sewa Kantor di Medan - CLAPHAM.CO</T>
+          <T en="Coworking Space and Office Rental in Medan - Clapham Collective">Coworking Space dan Sewa Kantor di Medan - Clapham Collective</T>
         </h1>
 
         <div className="relative z-10 w-full px-4 pb-12 md:pb-16">
@@ -176,20 +176,20 @@ export default function Home() {
             <T
               en={
                 <>
-                  CLAPHAM.CO is a provider of{" "}
+                  Clapham Collective is a provider of{" "}
                   <span className="text-brick">coworking space and office rental</span> in Medan
                 </>
               }
             >
-              CLAPHAM.CO adalah penyedia{" "}
+              Clapham Collective adalah penyedia{" "}
               <span className="text-brick">coworking space dan sewa kantor</span> di Medan
             </T>
           </h2>
           <div className="reveal space-y-5 text-muted-foreground text-lg leading-loose" style={i(1)}>
             <p>
-              <T en="Optimize your team's productivity with the right workspace. CLAPHAM.CO offers modern, flexible, and comprehensive solutions for a dynamic, ever-changing world of work.">
+              <T en="Optimize your team's productivity with the right workspace. Clapham Collective offers modern, flexible, and comprehensive solutions for a dynamic, ever-changing world of work.">
                 Optimalkan produktivitas tim Anda dengan ruang kerja yang tepat.
-                CLAPHAM.CO menyediakan solusi modern, fleksibel, dan komprehensif
+                Clapham Collective menyediakan solusi modern, fleksibel, dan komprehensif
                 di dunia kerja yang dinamis dan terus berubah.
               </T>
             </p>
@@ -235,11 +235,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mengapa CLAPHAM.CO */}
+      {/* Mengapa Clapham Collective */}
       <section className="bg-secondary py-24 md:py-28">
         <div className="container mx-auto px-4 max-w-6xl">
           <h2 className="reveal mx-auto mb-16 max-w-3xl text-center font-heading text-3xl font-semibold leading-tight tracking-wide text-foreground md:text-5xl">
-            <T en={<>Why choose <span className="text-brick">CLAPHAM.CO</span></>}>Mengapa memilih <span className="text-brick">CLAPHAM.CO</span></T>
+            <T en={<>Why choose <span className="text-brick">Clapham Collective</span></>}>Mengapa memilih <span className="text-brick">Clapham Collective</span></T>
           </h2>
           <div className="grid gap-12 md:grid-cols-3 md:gap-10">
             {values.map(({ Icon, ...v }, n) => (
@@ -301,7 +301,7 @@ export default function Home() {
         <div className="container mx-auto px-4 max-w-7xl grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="reveal overflow-hidden rounded-lg border border-border shadow-md">
             <iframe
-              title="Lokasi CLAPHAM.CO di Ruko Centre Point Medan"
+              title="Lokasi Clapham Collective di Ruko Centre Point Medan"
               src="https://www.google.com/maps?q=COHIVE+at+Clapham&ll=3.5926181,98.681436&z=15&hl=id&output=embed"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -321,11 +321,11 @@ export default function Home() {
               </T>
             </h2>
             <p className="text-muted-foreground text-lg leading-loose mb-8 text-justify hyphens-auto">
-              <T en="With a strategic location in East Medan, your team can work productively from a space that fits their needs. Whether working closer to home, accessing various workspaces, or working from headquarters, CLAPHAM.CO gives you the flexibility to grow in any environment.">
+              <T en="With a strategic location in East Medan, your team can work productively from a space that fits their needs. Whether working closer to home, accessing various workspaces, or working from headquarters, Clapham Collective gives you the flexibility to grow in any environment.">
                 Dengan lokasi strategis di Medan Timur, tim Anda dapat bekerja
                 produktif dari ruang yang sesuai dengan kebutuhan. Baik itu bekerja
                 lebih dekat ke rumah, mengakses berbagai ruang kerja, atau bekerja
-                dari kantor pusat, CLAPHAM.CO memberikan fleksibilitas bagi Anda
+                dari kantor pusat, Clapham Collective memberikan fleksibilitas bagi Anda
                 untuk berkembang di lingkungan apa pun.
               </T>
             </p>
@@ -346,7 +346,7 @@ export default function Home() {
       <section className="py-24 bg-card border-b border-border">
         <div className="reveal container mx-auto px-4 text-center mb-14">
           <h2 className="font-heading tracking-wide font-semibold text-3xl md:text-4xl text-foreground mb-4">
-            <T en="CLAPHAM.CO Partners">Partner CLAPHAM.CO</T>
+            <T en="Clapham Collective Partners">Partner Clapham Collective</T>
           </h2>
 
         </div>
@@ -381,7 +381,7 @@ export default function Home() {
           <div className="reveal relative aspect-[4/3] overflow-hidden rounded-lg">
             <Image
               src="/foto-home/hero.jpg.jpeg"
-              alt="Area kerja bersama CLAPHAM.CO"
+              alt="Area kerja bersama Clapham Collective"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
               quality={90}

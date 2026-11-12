@@ -24,7 +24,7 @@ export default function Footer() {
             <Image
               src="/logo.nav/logo-clapham-white.png"
               loading="eager"
-              alt="CLAPHAM.CO"
+              alt="Clapham Collective"
               width={180}
               height={50}
               className="h-9 w-auto object-contain mb-5"
@@ -77,14 +77,14 @@ export default function Footer() {
         </div>
         <div className="border-t border-border mt-12 pt-8 text-center text-sm text-muted-foreground">
           <p className="max-w-3xl mx-auto mb-4 leading-relaxed">
-            <T en="Find your ideal workspace with CLAPHAM.CO — offering a range of workspace options, including shared workspace, private offices, virtual offices, and meeting rooms in Medan.">
-              Temukan ruang kerja ideal Anda bersama CLAPHAM.CO — menawarkan
+            <T en="Find your ideal workspace with Clapham Collective — offering a range of workspace options, including shared workspace, private offices, virtual offices, and meeting rooms in Medan.">
+              Temukan ruang kerja ideal Anda bersama Clapham Collective — menawarkan
               berbagai pilihan ruang kerja, termasuk ruang kerja bersama, kantor
               pribadi, kantor virtual, dan ruang meeting di Medan.
             </T>
           </p>
           <p>
-            &copy; {new Date().getFullYear()} CLAPHAM.CO. <T en="All rights reserved.">Hak cipta dilindungi.</T>
+            &copy; {new Date().getFullYear()} Clapham Collective. <T en="All rights reserved.">Hak cipta dilindungi.</T>
           </p>
         </div>
       </div>

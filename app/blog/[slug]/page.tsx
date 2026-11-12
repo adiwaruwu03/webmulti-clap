@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       type: "article",
-      siteName: "CLAPHAM.CO",
+      siteName: "Clapham Collective",
       locale: "id_ID",
       title: post.title,
       description: clip(post.excerpt),
@@ -126,7 +126,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     description: post.excerpt,
     datePublished: post.date,
     author: { "@type": "Person", name: post.author.name, jobTitle: post.author.role },
-    publisher: { "@type": "Organization", name: "CLAPHAM.CO" },
+    publisher: { "@type": "Organization", name: "Clapham Collective" },
     image: post.hero.src,
     inLanguage: "id",
   };

@@ -7,6 +7,7 @@ import { serviceOrder, services, type L } from "../../lib/services";
 import { T } from "../Lang";
 import ServiceCta from "./ServiceCta";
 import RoomGallery from "./RoomGallery";
+import StepStrip from "./StepStrip";
 import YouTubeCard from "./YouTubeCard";
 import { iconFor } from "./icons";
 
@@ -139,14 +140,14 @@ export default function ServicePage({ slug }: { slug: string }) {
           </div>
           <div className={`reveal ${s.video ? "pr-3 md:pr-4" : ""}`} style={{ "--i": 1 } as CSSProperties}>
             {s.video ? (
-              <YouTubeCard id={s.video} title={`${s.name} CLAPHAM.CO`} />
+              <YouTubeCard id={s.video} title={`${s.name} Clapham Collective`} />
             ) : s.art ? (
               // eslint-disable-next-line @next/next/no-img-element
               <div className="group relative overflow-hidden rounded-lg border border-border bg-card p-6 shadow-lg">
                 <div aria-hidden className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full bg-primary/25 blur-3xl transition-transform duration-700 group-hover:scale-125" />
                 <div aria-hidden className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-brick/10 blur-3xl" />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={s.art} alt={`Ilustrasi ${s.name} CLAPHAM.CO`} width={900} height={640} className="relative h-auto w-full animate-float" />
+                <img src={s.art} alt={`Ilustrasi ${s.name} Clapham Collective`} width={900} height={640} className="relative h-auto w-full animate-float" />
                 <span className="absolute bottom-5 left-5 inline-flex items-center gap-1.5 rounded-full bg-secondary px-4 py-1.5 text-xs font-semibold text-teal-ink shadow-xs">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" /></svg>
                   Centre Point Medan
@@ -155,7 +156,7 @@ export default function ServicePage({ slug }: { slug: string }) {
             ) : (
               <div className={size(s.hero)[0] / size(s.hero)[1] < 1.1 ? "relative mx-auto w-full max-w-md pb-3 pr-3 lg:ml-auto lg:mr-0 md:pb-4 md:pr-4" : "relative"}>
                 {size(s.hero)[0] / size(s.hero)[1] < 1.1 && <div aria-hidden className="absolute bottom-0 right-0 h-[calc(100%-0.75rem)] w-[calc(100%-0.75rem)] rounded-lg bg-primary/70 md:h-[calc(100%-1rem)] md:w-[calc(100%-1rem)]" />}
-                <Image src={s.hero} alt={`${s.name} CLAPHAM.CO`} width={size(s.hero)[0]} height={size(s.hero)[1]} sizes="(min-width: 1024px) 40vw, 100vw" quality={90} loading="eager" fetchPriority="high" className="relative h-auto w-full rounded-lg shadow-xl" />
+                <Image src={s.hero} alt={`${s.name} Clapham Collective`} width={size(s.hero)[0]} height={size(s.hero)[1]} sizes="(min-width: 1024px) 40vw, 100vw" quality={90} loading="eager" fetchPriority="high" className="relative h-auto w-full rounded-lg shadow-xl" />
               </div>
             )}
           </div>
@@ -290,6 +291,11 @@ export default function ServicePage({ slug }: { slug: string }) {
                 </div>
               ))}
             </div>
+            )}
+            {s.strip && (
+              <div className="reveal mt-14">
+                <StepStrip photos={s.strip} name={s.name} />
+              </div>
             )}
             {s.plansNote && (
               <p className="reveal mt-8 max-w-3xl text-sm leading-relaxed text-muted-foreground">
@@ -503,7 +509,7 @@ export default function ServicePage({ slug }: { slug: string }) {
         </section>
       )}
 
-      {/* Steps + location */}
+      {/* Steps */}
       <section className="bg-chart-4/25 py-24">
         <div className="container mx-auto max-w-7xl px-4">
           <h2 className={`reveal ${h2}`}>
@@ -531,48 +537,6 @@ export default function ServicePage({ slug }: { slug: string }) {
               </li>
             ))}
           </ol>
-
-          <div className="reveal mt-16 grid gap-10 border-t border-foreground/15 pt-12 lg:grid-cols-[minmax(0,24rem)_1fr] lg:gap-20">
-            <h2 className={h2}>
-              <T en={<>Find us in <span className="text-brick">Medan</span></>}>
-                Temukan kami di <span className="text-brick">Medan</span>
-              </T>
-            </h2>
-            <div className="space-y-5 text-lg leading-loose text-muted-foreground">
-              <p>
-                Komp. Ruko Centre Point Medan, Jalan Timor Blok G No. III/IV, 2nd Floor, Gang Buntu, Medan Timur, Medan, North Sumatra 20231.
-              </p>
-              <p>
-                <T en="Right in the city center, with access to a shopping mall and within walking distance of Railink Station, which connects directly to Kuala Namu International Airport.">
-                  Tepat di pusat kota, dengan akses ke pusat perbelanjaan dan berjarak jalan kaki dari Stasiun Railink yang terhubung langsung ke Bandara Internasional Kuala Namu.
-                </T>
-              </p>
-              <p>
-                <T en="Open Monday–Friday, 09.00–17.00.">Buka Senin–Jumat, 09.00–17.00.</T>
-              </p>
-              <a
-                href="https://www.google.com/maps/place/COHIVE+at+Clapham/@3.5926181,98.681436,17z/data=!4m6!3m5!1s0x303131c784afcce9:0x1c0f6a9ddeb16361!8m2!3d3.5926181!4d98.681436"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 font-semibold text-teal-ink hover:underline"
-              >
-                <T en="Open in Google Maps">Buka di Google Maps</T>
-                <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-              </a>
-              {s.map && (
-                <div className="overflow-hidden rounded-lg border border-border shadow-md">
-                  <iframe
-                    src="https://www.google.com/maps?q=3.5926181,98.681436&z=15&output=embed"
-                    title="Peta CLAPHAM.CO"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    allowFullScreen
-                    className="aspect-video w-full border-0"
-                  />
-                </div>
-              )}
-            </div>
-          </div>
         </div>
       </section>
 

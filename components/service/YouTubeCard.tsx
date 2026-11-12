@@ -67,7 +67,7 @@ export default function YouTubeCard({ id, title }: { id: string; title: string }
         )}
       </div>
       <figcaption className="relative mt-7 text-sm text-muted-foreground">
-        <T en="A podcast we recorded at CLAPHAM.CO.">Podcast yang pernah kami rekam di CLAPHAM.CO.</T>
+        <T en="A podcast we recorded at Clapham Collective.">Podcast yang pernah kami rekam di Clapham Collective.</T>
       </figcaption>
     </figure>
   );

@@ -104,7 +104,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center transition-opacity hover:opacity-80">
           <Image
             src={solid ? "/logo.nav/logo-clapham-2.png" : "/logo.nav/logo-clapham-white.png"}
-            alt="CLAPHAM.CO"
+            alt="Clapham Collective"
             width={180}
             height={50}
             loading="eager"

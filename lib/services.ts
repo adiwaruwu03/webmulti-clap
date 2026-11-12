@@ -37,6 +37,7 @@ export type Service = {
   video?: string; // YouTube id, replaces the hero photo
   plansTitle: L;
   plans?: Plan[];
+  strip?: { src: string; alt: string }[]; // photo row under the plan cards (steps every 4 s)
   plansNote?: L; // small print under the plan cards (surcharges etc.)
   roomsTitle?: L;
   rooms?: Room[]; // per-room details and photo strip
@@ -110,7 +111,7 @@ export const services: Record<string, Service> = {
       { src: `${CW}/1F9BBDE9-E35F-4C66-91F1-E99E942B6302-1726-000000E070D6D00E.jpg`, alt: "Rak buku perpustakaan mini" },
       { src: `${CW}/1CC38082-7EA2-4C1D-A57D-2B785E71AC15-1726-000000D8D28B863E.jpg`, alt: "Booth kerja privat" },
       { src: `${CW}/1EAF2755-EFA3-42AD-B771-5432EBB75471-1726-000000E3E9A7070A.jpg`, alt: "Meja panjang dan sudut baca" },
-      { src: `${CW}/23A428F3-B09D-435B-8476-068D3DD1F8E7-1726-000000D8B021C8D8.jpg`, alt: "Member bekerja di coworking space CLAPHAM.CO" },
+      { src: `${CW}/23A428F3-B09D-435B-8476-068D3DD1F8E7-1726-000000D8B021C8D8.jpg`, alt: "Member bekerja di coworking space Clapham Collective" },
       { src: `${CW}/1st Floor -FD.jpeg`, alt: "Area resepsionis dan meja kerja" },
       { src: `${CW}/CA - Flexible Desk2.jpeg`, alt: "Suasana kerja di Flexible Desk" },
       { src: `${CW}/A7D4C77C-DE22-4243-92A3-67AD521A43EB-1726-000000EC3488E0DB.jpg`, alt: "Ruang ibadah" },
@@ -122,8 +123,8 @@ export const services: Record<string, Service> = {
       { src: `${CW}/dedikated-1.webp`, alt: "Dedicated desk dengan sekat dan laci" },
       { src: `${CW}/dedikated-2.webp`, alt: "Deretan dedicated desk dengan papan tulis" },
 
-      { src: `${CW}/01680C53-9753-4098-B6B6-18D2367B9685-1726-000000DD1689BE8C.jpg`, alt: "Meja kerja bersama di coworking space CLAPHAM.CO" },    ],
-    whyTitle: ["Mengapa bekerja di CLAPHAM.CO", "Why work at CLAPHAM.CO"],
+      { src: `${CW}/01680C53-9753-4098-B6B6-18D2367B9685-1726-000000DD1689BE8C.jpg`, alt: "Meja kerja bersama di coworking space Clapham Collective" },    ],
+    whyTitle: ["Mengapa bekerja di Clapham Collective", "Why work at Clapham Collective"],
     why: [
       { t: ["Fleksibel sesuai kebutuhan", "Flexible by design"], d: ["Dari DayPass untuk sehari sampai Dedicated Desk untuk meja sendiri, pilih paket yang sesuai ritme kerja Anda.", "From a one-day DayPass to a Cube for your team, pick the plan that fits how you work."] },
       { t: ["Fasilitas yang menunjang", "Facilities that help"], d: ["Internet, free flow drink, locker, dan alamat surat tersedia sesuai paket yang Anda pilih.", "Internet, free flow drinks, a locker, and a mailing address, depending on the plan you pick."] },
@@ -240,7 +241,7 @@ export const services: Record<string, Service> = {
       },
     ],
     gallery: [],
-    whyTitle: ["Mengapa meeting di CLAPHAM.CO", "Why meet at CLAPHAM.CO"],
+    whyTitle: ["Mengapa meeting di Clapham Collective", "Why meet at Clapham Collective"],
     why: [
       { t: ["Pilih ruang sesuai tim", "Right size for your team"], d: ["Stephen untuk 10 orang, Newton dan Elliot untuk 6 orang.", "Stephen seats 10, Newton and Elliot seat 6."] },
       { t: ["Tarif yang jelas", "Clear rates"], d: ["Tarif per jam, 6 jam, atau 8 jam, dan tarif member yang lebih hemat.", "Hourly, 6-hour, or 8-hour rates, with a lower rate for members."] },
@@ -272,10 +273,10 @@ export const services: Record<string, Service> = {
     hero: `${PO}/hero.webp`,
     plansTitle: ["Pilih ukuran ruang", "Choose a room size"],
     plans: [
-      { name: ["2 orang", "2 people"], note: ["Ruang privat untuk 2 orang", "Private room for 2 people"], price: "Rp5.000.000", unit: ["/bulan", "/month"] },
-      { name: ["3 orang", "3 people"], note: ["Ruang privat untuk 3 orang", "Private room for 3 people"], price: "Rp7.500.000", unit: ["/bulan", "/month"] },
-      { name: ["5 orang", "5 people"], note: ["Ruang privat untuk 5 orang", "Private room for 5 people"], price: "Rp12.500.000", unit: ["/bulan", "/month"] },
-      { name: ["6 orang", "6 people"], note: ["Ruang privat untuk 6 orang", "Private room for 6 people"], price: "Rp15.000.000", unit: ["/bulan", "/month"] },
+      { name: ["2 orang", "2 people"], image: `${PO}/ruangan-2org.webp`, note: ["Ruang privat untuk 2 orang", "Private room for 2 people"], price: "Rp5.000.000", unit: ["/bulan", "/month"] },
+      { name: ["3 orang", "3 people"], image: `${PO}/ruangan-3org.webp`, note: ["Ruang privat untuk 3 orang", "Private room for 3 people"], price: "Rp7.500.000", unit: ["/bulan", "/month"] },
+      { name: ["5 orang", "5 people"], image: `${PO}/ruangan-5org.webp`, note: ["Ruang privat untuk 5 orang", "Private room for 5 people"], price: "Rp12.500.000", unit: ["/bulan", "/month"] },
+      { name: ["6 orang", "6 people"], image: `${PO}/ruangan-6org.webp`, note: ["Ruang privat untuk 6 orang", "Private room for 6 people"], price: "Rp15.000.000", unit: ["/bulan", "/month"] },
     ],
     includedTitle: ["Yang Anda dapatkan", "What you get"],
     included: [
@@ -284,24 +285,15 @@ export const services: Record<string, Service> = {
       ["Pilihan ruang untuk 2, 3, 5, atau 6 orang", "Rooms for 2, 3, 5, or 6 people"],
       ["Tanpa biaya renovasi atau perabot", "No renovation or furniture costs"],
     ],
-    gallery: [
-      { src: `${PO}/15696171-D198-4AB5-B28F-FC717377787E-1726-000000D87B20B704.jpg`, alt: "Private office dengan lemari dan jendela" },
-      { src: `${PO}/430C5262-8B54-4B3C-92A4-BD636A1E6955-1726-000000DF4B488C6E.jpg`, alt: "Private office dengan dua meja kerja" },
-      { src: `${PO}/5D0B2883-B605-4BC1-A039-B42F7213C842-1726-000000EBC616B5F8.jpg`, alt: "Private office dengan meja kerja bersama" },
-      { src: `${PO}/13D9D529-F04B-4BE6-94B2-442D0D1A9509-1726-000000DF1CF24ACB.jpg`, alt: "Private office dengan jendela besar" },
-      { src: `${PO}/CLA1-Ven1.jpeg`, alt: "Private office dengan rak dinding" },
-      { src: `${PO}/clapham-10.webp`, alt: "Private office berdinding kaca dengan meja kerja kayu" },
-      { src: `${PO}/clapham-12.webp`, alt: "Pintu kaca private office" },
-      { src: `${PO}/clapham-14.webp`, alt: "Laptop di meja kerja private office" },
-      { src: `${PO}/clapham-15.webp`, alt: "Meja kerja dan kursi ergonomis di private office" },
-      { src: `${PO}/clapham-16.webp`, alt: "Private office dilihat dari balik dinding kaca" },
-      { src: `${PO}/clapham-22.webp`, alt: "Private office dengan jendela dan rak dinding" },
-      { src: `${PO}/clapham-23.webp`, alt: "Meja kerja panjang di private office" },
-      { src: `${PO}/clapham-25.webp`, alt: "Meja kerja kayu dengan kursi hitam" },
-      { src: `${PO}/clapham-26.webp`, alt: "Meja kerja bersama di private office" },
-      { src: `${PO}/clapham-29.webp`, alt: "Private office luas dengan banyak meja kerja" },
+    strip: [
+      { src: `${PO}/2org/15696171-D198-4AB5-B28F-FC717377787E-1726-000000D87B20B704.jpg`, alt: "Private office untuk 2 orang dengan lemari dan jendela" },
+      { src: `${PO}/clapham-10.webp`, alt: "Private office untuk 2 orang berdinding kaca" },
+      { src: `${PO}/clapham-16.webp`, alt: "Private office untuk 2 orang dilihat dari balik dinding kaca" },
+      { src: `${PO}/5org/clapham-29.webp`, alt: "Private office untuk 5 orang dengan banyak meja kerja" },
+      { src: `${PO}/6org/clapham-22.webp`, alt: "Private office untuk 6 orang dengan jendela dan rak dinding" },
     ],
-    whyTitle: ["Mengapa private office di CLAPHAM.CO", "Why a private office at CLAPHAM.CO"],
+    gallery: [],
+    whyTitle: ["Mengapa private office di Clapham Collective", "Why a private office at Clapham Collective"],
     why: [
       { t: ["Privat dan tenang", "Private and calm"], d: ["Ruang tertutup khusus untuk tim Anda, jauh dari keramaian.", "A closed room just for your team, away from the crowd."] },
       { t: ["Sesuai ukuran tim", "Sized to your team"], d: ["Pilihan ruang untuk 2, 3, 5, atau 6 orang.", "Rooms for 2, 3, 5, or 6 people."] },
@@ -334,7 +326,7 @@ export const services: Record<string, Service> = {
     bento: [
       { t: ["Alamat bisnis di Centre Point Medan", "A business address at Centre Point Medan"], d: ["Gunakan alamat Komp. Ruko Centre Point Medan untuk identitas usaha Anda, di pusat kota dan dekat Stasiun Railink.", "Use the Komp. Ruko Centre Point Medan address for your company, in the city center near Railink Station."] },
       { t: ["Alamat surat", "Mailing address"], d: ["Surat untuk usaha Anda dikirim ke alamat kami. Tanyakan detail penanganan surat dan paket saat menghubungi tim.", "Mail for your business is sent to our address. Ask our team how letters and parcels are handled."] },
-      { t: ["Meeting room & komunitas", "Meeting rooms & community"], d: ["Butuh bertemu klien? Sewa Stephen, Newton, atau Elliot per jam, dan ikut kegiatan komunitas CLAPHAM.CO.", "Meeting a client? Book Stephen, Newton, or Elliot by the hour, and join the CLAPHAM.CO community."] },
+      { t: ["Meeting room & komunitas", "Meeting rooms & community"], d: ["Butuh bertemu klien? Sewa Stephen, Newton, atau Elliot per jam, dan ikut kegiatan komunitas Clapham Collective.", "Meeting a client? Book Stephen, Newton, or Elliot by the hour, and join the Clapham Collective community."] },
     ],
     steps: [
       { t: ["Pilih paket", "Pick a package"], d: ["Ceritakan kebutuhan usaha Anda, kami bantu pilihkan paket yang pas.", "Tell us about your business and we help you pick the right package."] },
@@ -352,7 +344,7 @@ export const services: Record<string, Service> = {
     ],
     gallery: [],
     ctaNote: ["Paket dan harga virtual office diberikan setelah Anda menghubungi tim kami.", "Virtual office packages and prices are shared once you contact our team."],
-    whyTitle: ["Mengapa virtual office di CLAPHAM.CO", "Why a virtual office at CLAPHAM.CO"],
+    whyTitle: ["Mengapa virtual office di Clapham Collective", "Why a virtual office at Clapham Collective"],
     why: [
       { t: ["Alamat bisnis di lokasi strategis", "A business address in a central spot"], d: ["Perusahaan Anda hadir di Komp. Ruko Centre Point Medan, pusat kota Medan.", "Your company has a presence at Komp. Ruko Centre Point Medan, in central Medan."] },
       { t: ["Tanpa sewa kantor penuh", "No full office lease"], d: ["Cocok saat Anda belum memerlukan ruang kerja tetap.", "A good fit when you do not need a permanent workspace yet."] },
@@ -368,7 +360,7 @@ export const services: Record<string, Service> = {
     index: false, // owner has not supplied package details yet
     meta: {
       title: "Virtual Office di Medan",
-      description: "Virtual office di Medan: alamat bisnis di Ruko Centre Point Medan untuk perusahaan Anda. Hubungi CLAPHAM.CO untuk penawaran.",
+      description: "Virtual office di Medan: alamat bisnis di Ruko Centre Point Medan untuk perusahaan Anda. Hubungi Clapham Collective untuk penawaran.",
     },
   },
 
@@ -419,7 +411,7 @@ export const services: Record<string, Service> = {
       ["Operator standby", "Standby operator"],
     ],
     gallery: [],
-    whyTitle: ["Mengapa rekaman di CLAPHAM.CO", "Why record at CLAPHAM.CO"],
+    whyTitle: ["Mengapa rekaman di Clapham Collective", "Why record at Clapham Collective"],
     why: [
       { t: ["Peralatan siap pakai", "Equipment ready to go"], d: ["3 kamera Sony A6400, 2 mikrofon podcast, dan mixer audio sudah disiapkan.", "3 Sony A6400 cameras, 2 podcast microphones, and an audio mixer are set up for you."] },
       { t: ["Operator standby", "A standby operator"], d: ["Anda cukup fokus berbicara, urusan teknis kami yang atur.", "You focus on talking, we handle the technical side."] },
@@ -621,7 +613,7 @@ export const services: Record<string, Service> = {
       ["Meja dan kursi sudah ditata siap pakai", "Tables and chairs set up and ready to use"],
     ],
     gallery: [],
-    whyTitle: ["Mengapa menggelar acara di CLAPHAM.CO", "Why hold your event at CLAPHAM.CO"],
+    whyTitle: ["Mengapa menggelar acara di Clapham Collective", "Why hold your event at Clapham Collective"],
     why: [
       { t: ["Empat ukuran ruang", "Four room sizes"], d: ["Dari 30 hingga 150 orang (teater), pilih ruang yang pas untuk acara Anda.", "From 30 to 150 people (theatre), pick the room that fits your event."] },
       { t: ["Penataan fleksibel", "Flexible layouts"], d: ["Susunan teater, kelas, U-shape, atau boardroom sesuai kebutuhan acara.", "Theatre, classroom, U-shape, or boardroom layouts to suit your event."] },

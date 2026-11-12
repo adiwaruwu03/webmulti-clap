@@ -7,7 +7,7 @@ import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_DISPLAY, waAsk } from "../../lib/con
 export const metadata: Metadata = {
   title: "Kontak Kami",
   description:
-    "Hubungi CLAPHAM.CO di Ruko Centre Point Medan. Ceritakan kebutuhan Anda, kami cocokkan dengan coworking space, meeting room, private office, atau event space yang tepat.",
+    "Hubungi Clapham Collective di Ruko Centre Point Medan. Ceritakan kebutuhan Anda, kami cocokkan dengan coworking space, meeting room, private office, atau event space yang tepat.",
   alternates: { canonical: "/atur-kunjungan" },
 };
 
@@ -100,7 +100,7 @@ export default function ContactPage() {
           <div className="reveal overflow-hidden rounded-lg border border-border shadow-md" style={{ "--i": 1 } as React.CSSProperties}>
             <iframe
               src="https://www.google.com/maps?q=3.5926181,98.681436&z=15&output=embed"
-              title="Peta CLAPHAM.CO"
+              title="Peta Clapham Collective"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen

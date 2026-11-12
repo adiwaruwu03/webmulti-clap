@@ -7,7 +7,7 @@ import { featured, popular, posts } from "../../lib/blog";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Artikel seputar coworking space, private office, virtual office, dan sewa kantor di Medan dari tim CLAPHAM.CO.",
+    "Artikel seputar coworking space, private office, virtual office, dan sewa kantor di Medan dari tim Clapham Collective.",
 };
 
 const h2 = "font-heading text-xl font-semibold tracking-wide text-foreground";

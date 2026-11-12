@@ -45,7 +45,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
     headline: e.name,
     description: e.description,
     image: e.image,
-    publisher: { "@type": "Organization", name: "CLAPHAM.CO" },
+    publisher: { "@type": "Organization", name: "Clapham Collective" },
     inLanguage: "id",
   };
 
